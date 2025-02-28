@@ -14,7 +14,7 @@ export default function SearchBar() {
 
         const params = new URLSearchParams(searchParams);
         if (term) {
-            //console.log('term : ', term);
+
             params.set('q', term);
         } else {
             params.delete('q');

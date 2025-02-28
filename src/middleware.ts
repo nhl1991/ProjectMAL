@@ -9,8 +9,6 @@ export async function middleware(request: NextRequest) {
         return NextResponse.redirect(new URL('/ranking/all', request.url));
     }
     
-    // if(request.method==="GET" && request.nextUrl.pathname === '/')
-    //     console.log(i++);
 
 }
 

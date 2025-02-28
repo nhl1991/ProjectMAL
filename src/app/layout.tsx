@@ -36,7 +36,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  console.log(window.innerWidth);
   return (
     <html lang="en">
       <head>

@@ -21,7 +21,7 @@ export default function Pictures({ pictures }: Readonly<{
             <div className="w-full h-min flex overflow-scroll p-2 border-2 border-transparent my-2 justify-center">
                 {
                     pictures?.map((item: { medium: string, large: string }, i: number) => {
-                        //console.log(item.large);
+
                         return <Image key={i}  className="p-1 m-1 flex-shrink-0 shadow-md shadow-slate-400 hover:scale-105" src={item.large} width={180} height={320} alt={item.large} onClick={handleOnClick} />
                     })
                 }

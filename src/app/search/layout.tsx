@@ -8,7 +8,7 @@ export default function ListLayout({
   children: React.ReactNode;
 }>) {
   const searchParams = useSearchParams().get('q');
-  //console.log('query? : ', searchParams);
+
   return (
     <div className="w-full h-full">
       <div className={` ${searchParams

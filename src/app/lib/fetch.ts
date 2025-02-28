@@ -4,7 +4,7 @@ import { saveDetails, saveJsonToFile } from "./files";
 
 
 export async function FetchMAL(url: string) {
-    //console.log('fetch 요청')
+
     const response = await fetch(url, {
         headers: {
             "X-MAL-CLIENT-ID": `${process.env.MAL_CLIENT_ID}`

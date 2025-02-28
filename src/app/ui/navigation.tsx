@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation"
 
 export default function Navigation() {
     const pathname = usePathname();
-    console.log(pathname === '/');
+
 
     const menu = ['/', 'search', 'ranking', 'season']
 

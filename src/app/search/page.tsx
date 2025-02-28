@@ -20,7 +20,7 @@ export default async function Page(props: {
 
         const response = await FetchMAL(url);
         data = response;
-        console.log(data? true: false);
+
     }
     return (
         <>{ data ?

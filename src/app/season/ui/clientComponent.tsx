@@ -21,7 +21,7 @@ export default function ClientComponent(){
             { borderColor: 'white' }],{
             duration: 3000,
             iterations: 1,})
-        console.log(target.offsetTop);
+
     }
   }
 

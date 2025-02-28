@@ -10,7 +10,7 @@ export default function Page() {
     const { season, year } = useOptionStore();
     function handleOnClick(){
         const background = document.querySelector('#background');
-        console.log(background)
+
         background?.animate([
             { opacity: "100%" },
             { opacity: "0%" },
