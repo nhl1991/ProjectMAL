@@ -1,0 +1,51 @@
+{
+  "id": 54440,
+  "title": "Lycoris Recoil (Shinsaku Animation)",
+  "main_picture": {
+    "medium": "https://cdn.myanimelist.net/images/anime/1435/133315.jpg",
+    "large": "https://cdn.myanimelist.net/images/anime/1435/133315l.jpg"
+  },
+  "alternative_titles": {
+    "synonyms": [
+      "Lycoris Recoil (New Anime Project)"
+    ],
+    "en": "",
+    "ja": "リコリス・リコイル (新作アニメーション)"
+  },
+  "synopsis": "Lycoris Recoil new anime project.\n\n",
+  "popularity": 3818,
+  "media_type": "unknown",
+  "status": "not_yet_aired",
+  "genres": [
+    {
+      "id": 1,
+      "name": "Action"
+    }
+  ],
+  "num_episodes": 0,
+  "source": "original",
+  "average_episode_duration": 0,
+  "rating": "pg_13",
+  "pictures": [
+    {
+      "medium": "https://cdn.myanimelist.net/images/anime/1435/133315.jpg",
+      "large": "https://cdn.myanimelist.net/images/anime/1435/133315l.jpg"
+    }
+  ],
+  "related_anime": [
+    {
+      "node": {
+        "id": 50709,
+        "title": "Lycoris Recoil",
+        "main_picture": {
+          "medium": "https://cdn.myanimelist.net/images/anime/1261/127311.webp",
+          "large": "https://cdn.myanimelist.net/images/anime/1261/127311l.webp"
+        }
+      },
+      "relation_type": "other",
+      "relation_type_formatted": "Other"
+    }
+  ],
+  "recommendations": [],
+  "studios": []
+}

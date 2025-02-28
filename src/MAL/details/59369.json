@@ -1,0 +1,53 @@
+{
+  "id": 59369,
+  "title": "Lycoris Recoil: Friends are Thieves of Time.",
+  "main_picture": {
+    "medium": "https://cdn.myanimelist.net/images/anime/1314/147593.webp",
+    "large": "https://cdn.myanimelist.net/images/anime/1314/147593l.webp"
+  },
+  "alternative_titles": {
+    "synonyms": [],
+    "en": "Lycoris Recoil Short Movie",
+    "ja": "『リコリス・リコイル』Friends are thieves of time."
+  },
+  "synopsis": "Six short movies featuring the daily lives of Chisato, Takina, and their friends. Each movie will have a different director and storyboard.",
+  "popularity": 4725,
+  "media_type": "unknown",
+  "status": "not_yet_aired",
+  "genres": [
+    {
+      "id": 36,
+      "name": "Slice of Life"
+    }
+  ],
+  "num_episodes": 6,
+  "source": "original",
+  "average_episode_duration": 0,
+  "rating": "pg_13",
+  "pictures": [
+    {
+      "medium": "https://cdn.myanimelist.net/images/anime/1697/144390.jpg",
+      "large": "https://cdn.myanimelist.net/images/anime/1697/144390l.jpg"
+    },
+    {
+      "medium": "https://cdn.myanimelist.net/images/anime/1314/147593.jpg",
+      "large": "https://cdn.myanimelist.net/images/anime/1314/147593l.jpg"
+    }
+  ],
+  "related_anime": [
+    {
+      "node": {
+        "id": 50709,
+        "title": "Lycoris Recoil",
+        "main_picture": {
+          "medium": "https://cdn.myanimelist.net/images/anime/1261/127311.webp",
+          "large": "https://cdn.myanimelist.net/images/anime/1261/127311l.webp"
+        }
+      },
+      "relation_type": "parent_story",
+      "relation_type_formatted": "Parent story"
+    }
+  ],
+  "recommendations": [],
+  "studios": []
+}

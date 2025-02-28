@@ -1,0 +1,148 @@
+{
+  "id": 58514,
+  "title": "Kusuriya no Hitorigoto 2nd Season",
+  "main_picture": {
+    "medium": "https://cdn.myanimelist.net/images/anime/1025/147458.jpg",
+    "large": "https://cdn.myanimelist.net/images/anime/1025/147458l.jpg"
+  },
+  "alternative_titles": {
+    "synonyms": [
+      "The Pharmacist's Monologue",
+      "Drugstore Soliloquy"
+    ],
+    "en": "The Apothecary Diaries Season 2",
+    "ja": "薬屋のひとりごと 第2期"
+  },
+  "start_date": "2025-01-10",
+  "synopsis": "Second season of Kusuriya no Hitorigoto.",
+  "mean": 8.77,
+  "rank": 38,
+  "popularity": 1196,
+  "media_type": "tv",
+  "status": "currently_airing",
+  "genres": [
+    {
+      "id": 8,
+      "name": "Drama"
+    },
+    {
+      "id": 13,
+      "name": "Historical"
+    },
+    {
+      "id": 67,
+      "name": "Medical"
+    },
+    {
+      "id": 7,
+      "name": "Mystery"
+    }
+  ],
+  "num_episodes": 24,
+  "start_season": {
+    "year": 2025,
+    "season": "winter"
+  },
+  "broadcast": {
+    "day_of_the_week": "friday",
+    "start_time": "23:00"
+  },
+  "source": "light_novel",
+  "average_episode_duration": 1440,
+  "rating": "pg_13",
+  "pictures": [
+    {
+      "medium": "https://cdn.myanimelist.net/images/anime/1838/142240.jpg",
+      "large": "https://cdn.myanimelist.net/images/anime/1838/142240l.jpg"
+    },
+    {
+      "medium": "https://cdn.myanimelist.net/images/anime/1378/144141.jpg",
+      "large": "https://cdn.myanimelist.net/images/anime/1378/144141l.jpg"
+    },
+    {
+      "medium": "https://cdn.myanimelist.net/images/anime/1681/144365.jpg",
+      "large": "https://cdn.myanimelist.net/images/anime/1681/144365l.jpg"
+    },
+    {
+      "medium": "https://cdn.myanimelist.net/images/anime/1252/145690.jpg",
+      "large": "https://cdn.myanimelist.net/images/anime/1252/145690l.jpg"
+    },
+    {
+      "medium": "https://cdn.myanimelist.net/images/anime/1377/146200.jpg",
+      "large": "https://cdn.myanimelist.net/images/anime/1377/146200l.jpg"
+    },
+    {
+      "medium": "https://cdn.myanimelist.net/images/anime/1751/147285.jpg",
+      "large": "https://cdn.myanimelist.net/images/anime/1751/147285l.jpg"
+    },
+    {
+      "medium": "https://cdn.myanimelist.net/images/anime/1852/147307.jpg",
+      "large": "https://cdn.myanimelist.net/images/anime/1852/147307l.jpg"
+    },
+    {
+      "medium": "https://cdn.myanimelist.net/images/anime/1075/147308.jpg",
+      "large": "https://cdn.myanimelist.net/images/anime/1075/147308l.jpg"
+    },
+    {
+      "medium": "https://cdn.myanimelist.net/images/anime/1025/147458.jpg",
+      "large": "https://cdn.myanimelist.net/images/anime/1025/147458l.jpg"
+    },
+    {
+      "medium": "https://cdn.myanimelist.net/images/anime/1074/147628.jpg",
+      "large": "https://cdn.myanimelist.net/images/anime/1074/147628l.jpg"
+    },
+    {
+      "medium": "https://cdn.myanimelist.net/images/anime/1172/147996.jpg",
+      "large": "https://cdn.myanimelist.net/images/anime/1172/147996l.jpg"
+    }
+  ],
+  "related_anime": [
+    {
+      "node": {
+        "id": 54492,
+        "title": "Kusuriya no Hitorigoto",
+        "main_picture": {
+          "medium": "https://cdn.myanimelist.net/images/anime/1708/138033.jpg",
+          "large": "https://cdn.myanimelist.net/images/anime/1708/138033l.jpg"
+        }
+      },
+      "relation_type": "prequel",
+      "relation_type_formatted": "Prequel"
+    },
+    {
+      "node": {
+        "id": 60749,
+        "title": "Maomao no Hitorigoto 2nd Season",
+        "main_picture": {
+          "medium": "https://cdn.myanimelist.net/images/anime/1946/147490.jpg",
+          "large": "https://cdn.myanimelist.net/images/anime/1946/147490l.jpg"
+        }
+      },
+      "relation_type": "other",
+      "relation_type_formatted": "Other"
+    }
+  ],
+  "recommendations": [
+    {
+      "node": {
+        "id": 50590,
+        "title": "Koukyuu no Karasu",
+        "main_picture": {
+          "medium": "https://cdn.myanimelist.net/images/anime/1932/127228.webp",
+          "large": "https://cdn.myanimelist.net/images/anime/1932/127228l.webp"
+        }
+      },
+      "num_recommendations": 1
+    }
+  ],
+  "studios": [
+    {
+      "id": 28,
+      "name": "OLM"
+    },
+    {
+      "id": 2705,
+      "name": "TOHO animation STUDIO"
+    }
+  ]
+}

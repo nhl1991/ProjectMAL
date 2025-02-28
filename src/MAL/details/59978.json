@@ -1,0 +1,76 @@
+{
+  "id": 59978,
+  "title": "Sousou no Frieren 2nd Season",
+  "main_picture": {
+    "medium": "https://cdn.myanimelist.net/images/anime/1750/145801.webp",
+    "large": "https://cdn.myanimelist.net/images/anime/1750/145801l.webp"
+  },
+  "alternative_titles": {
+    "synonyms": [
+      "Frieren at the Funeral Season 2"
+    ],
+    "en": "Frieren: Beyond Journey's End Season 2",
+    "ja": "葬送のフリーレン 第2期"
+  },
+  "synopsis": "Second season of Sousou no Frieren.",
+  "popularity": 1848,
+  "media_type": "tv",
+  "status": "not_yet_aired",
+  "genres": [
+    {
+      "id": 2,
+      "name": "Adventure"
+    },
+    {
+      "id": 8,
+      "name": "Drama"
+    },
+    {
+      "id": 10,
+      "name": "Fantasy"
+    },
+    {
+      "id": 27,
+      "name": "Shounen"
+    }
+  ],
+  "num_episodes": 0,
+  "source": "manga",
+  "average_episode_duration": 0,
+  "rating": "pg_13",
+  "pictures": [
+    {
+      "medium": "https://cdn.myanimelist.net/images/anime/1522/145800.jpg",
+      "large": "https://cdn.myanimelist.net/images/anime/1522/145800l.jpg"
+    },
+    {
+      "medium": "https://cdn.myanimelist.net/images/anime/1750/145801.jpg",
+      "large": "https://cdn.myanimelist.net/images/anime/1750/145801l.jpg"
+    },
+    {
+      "medium": "https://cdn.myanimelist.net/images/anime/1463/146324.jpg",
+      "large": "https://cdn.myanimelist.net/images/anime/1463/146324l.jpg"
+    }
+  ],
+  "related_anime": [
+    {
+      "node": {
+        "id": 52991,
+        "title": "Sousou no Frieren",
+        "main_picture": {
+          "medium": "https://cdn.myanimelist.net/images/anime/1015/138006.jpg",
+          "large": "https://cdn.myanimelist.net/images/anime/1015/138006l.jpg"
+        }
+      },
+      "relation_type": "prequel",
+      "relation_type_formatted": "Prequel"
+    }
+  ],
+  "recommendations": [],
+  "studios": [
+    {
+      "id": 11,
+      "name": "Madhouse"
+    }
+  ]
+}
