@@ -47,12 +47,6 @@ body {
   animation: flipping 2s;
 }
 
-.custom-bg-img {
-  @apply md:bg-[url('/background.jpg')] bg-cover
-
-
-}
-
 @keyframes flipping {
   0% {
     transform: rotate3d(0, 1, 0, 0deg);
@@ -79,7 +73,6 @@ body {
 }
 
 
-#season-select {}
 
 .scroll-box {
   
