@@ -9,23 +9,31 @@ export default function Home() {
 
 
   const [backgroundImage, setBackgroundImage] = useState<string>('');
+  const [isMobile, setIsMobile ] = useState(false);
   useEffect(() => {
-    const images = window.innerWidth >= 1024 ? [
+
+    if(window.innerWidth < 1024)
+      setIsMobile(true);
+    else
+      setIsMobile(false);
+
+    const images = isMobile ? ['/background-m-1.jpg', '/background-m-2.jpg'] :[
       '/background-1.jpg',
       '/background-2.webp',
       '/background-3.avif',
       '/background-4.avif',
       '/background-5.webp',
       '/background-6.png',
-    ] : ['/background-m-1.jpg', '/background-m-2.jpg'];
-
+    ];
+    
     const index: number = Math.floor(Math.random() * images.length);
     const selectedImage = images[index];
     setBackgroundImage(selectedImage);
-
-
+  
     return () => {
-      console.log('Changed.')}
+      
+      
+    };
 
   }, []);
   
