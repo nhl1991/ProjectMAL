@@ -1,7 +1,8 @@
+import { node } from "@/app/lib/types"
 import Image from "next/image"
 
 
-export default function AnimationNode({node} : Readonly<{node: node}>){
+export default function AnimationNode({node} : {node: node}){
 
 
     return(

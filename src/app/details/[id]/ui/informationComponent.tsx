@@ -1,25 +1,21 @@
+import { props } from "@/app/lib/types";
 import InformationTitle from "./informationTitleComponent";
 
 
-export default function InformationComponent(props: any) {
+export default function InformationComponent(props:props) {
 
     const renderText = (name: string) => {
-        if (name === 'aired')
-            return `${props.start_date ? props.start_date+' ~ ' : ''}${props.end_date ? props.end_date : ''}`;
+        if (name === 'aired' && props.item instanceof Array)
+            return `${props.item[0]} ~ ${props.item[1]}`;
         else if (name === 'quater')
-            return props.start_season && props.start_season.season && props.start_season.year ?
-                <a className="p-1" href={`/season/${props.start_season.year}/${props.start_season.season}`}>
-                    {props.start_season.year} {props.start_season.season.toUpperCase()}</a>
+            return props.item && props.item instanceof Array ?
+                <a className="p-1" href={`/season/`}>
+                    -</a>
                 : <a className="p-1"> - </a>;
-        else if (name === 'broadcast')
-            return `${props.day_of_the_week.toUpperCase()} ${props.start_time}`;
-        else if (name === 'studios' && props.item.length != 0)
-            return props.item.map((item: {id: number, name: string}, i:number) => {
-                if(i === (props.item.length-1))
-                        return item.name
-                else
-                    return item.name+', ';
-                });
+        else if (name === 'broadcast' && props.item instanceof Array)
+            return `${props.item[0]} ${props.item[1]}`;
+        else if (name === 'studios' && props.item instanceof Array)
+            return `${props.item}`;
         else
             return `${props.item}`;
     }

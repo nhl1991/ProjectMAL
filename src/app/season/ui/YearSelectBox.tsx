@@ -1,7 +1,7 @@
 'use client'
 import { useOptionStore } from "@/app/lib/stores";
 import { getYears } from "@/app/lib/variables";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 
 export default function YearScrollBox() {
@@ -9,7 +9,7 @@ export default function YearScrollBox() {
 
     const year = getYears()
     const { setSeasonYear } = useOptionStore()
-    const [visibleItem, setVisibleItem] = useState<string | null>(null);
+    //const [visibleItem, setVisibleItem] = useState<string | null>(null);
     const scrollBoxRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -33,7 +33,7 @@ export default function YearScrollBox() {
         items?.forEach((item) => observer.observe(item));
 
         return () => observer.disconnect();
-    }, []);
+    });
 
 
     return (

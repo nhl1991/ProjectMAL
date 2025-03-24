@@ -1,11 +1,11 @@
 'use client'
 import { useOptionStore } from "@/app/lib/stores";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 
 export default function SeasonScrollBox() {
     const season = ['winter', 'spring', 'summer', 'autumn'];
-    const [visibleItem, setVisibleItem] = useState<string | null>(null);
+    //const [visibleItem, setVisibleItem] = useState<string | null>(null);
     const scrollBoxRef = useRef<HTMLDivElement>(null);
     const { setSeasonType } = useOptionStore();
 
@@ -29,7 +29,7 @@ export default function SeasonScrollBox() {
         items?.forEach((item) => observer.observe(item));
 
         return () => observer.disconnect();
-    }, []);
+    });
 
 
     return (

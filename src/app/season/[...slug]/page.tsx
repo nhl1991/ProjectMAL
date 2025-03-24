@@ -1,9 +1,10 @@
 import { setURL } from "@/app/api/getAnimationList/actions/actions";
 import { FetchMAL } from "@/app/lib/fetch";
+import { MAL } from "@/app/lib/types";
 import AnimationContainer from "@/app/ui/animationContainer";
 import AnimationNode from "@/app/ui/animationNode";
 import NoData from "@/app/ui/noData";
-import Image from "next/image";
+
 
 
 

@@ -1,0 +1,109 @@
+{
+  "id": 31772,
+  "title": "One Punch Man Specials",
+  "main_picture": {
+    "medium": "https://cdn.myanimelist.net/images/anime/1452/97840.jpg",
+    "large": "https://cdn.myanimelist.net/images/anime/1452/97840l.jpg"
+  },
+  "alternative_titles": {
+    "synonyms": [],
+    "en": "One Punch Man Specials",
+    "ja": "ワンパンマン"
+  },
+  "start_date": "2015-12-24",
+  "end_date": "2016-05-27",
+  "synopsis": "Specials included in the Blu-ray and DVD releases of One Punch Man.",
+  "mean": 7.7,
+  "rank": 1307,
+  "popularity": 773,
+  "media_type": "special",
+  "status": "finished_airing",
+  "genres": [
+    {
+      "id": 1,
+      "name": "Action"
+    },
+    {
+      "id": 50,
+      "name": "Adult Cast"
+    },
+    {
+      "id": 4,
+      "name": "Comedy"
+    },
+    {
+      "id": 20,
+      "name": "Parody"
+    },
+    {
+      "id": 42,
+      "name": "Seinen"
+    },
+    {
+      "id": 31,
+      "name": "Super Power"
+    }
+  ],
+  "num_episodes": 6,
+  "start_season": {
+    "year": 2015,
+    "season": "fall"
+  },
+  "source": "web_manga",
+  "average_episode_duration": 750,
+  "rating": "r",
+  "pictures": [
+    {
+      "medium": "https://cdn.myanimelist.net/images/anime/13/76519.jpg",
+      "large": "https://cdn.myanimelist.net/images/anime/13/76519l.jpg"
+    },
+    {
+      "medium": "https://cdn.myanimelist.net/images/anime/1452/97840.jpg",
+      "large": "https://cdn.myanimelist.net/images/anime/1452/97840l.jpg"
+    }
+  ],
+  "related_anime": [
+    {
+      "node": {
+        "id": 30276,
+        "title": "One Punch Man",
+        "main_picture": {
+          "medium": "https://cdn.myanimelist.net/images/anime/12/76049.webp",
+          "large": "https://cdn.myanimelist.net/images/anime/12/76049l.webp"
+        }
+      },
+      "relation_type": "parent_story",
+      "relation_type_formatted": "Parent story"
+    }
+  ],
+  "recommendations": [
+    {
+      "node": {
+        "id": 33255,
+        "title": "Saiki Kusuo no Ψ-nan",
+        "main_picture": {
+          "medium": "https://cdn.myanimelist.net/images/anime/1973/142750.jpg",
+          "large": "https://cdn.myanimelist.net/images/anime/1973/142750l.jpg"
+        }
+      },
+      "num_recommendations": 1
+    },
+    {
+      "node": {
+        "id": 37504,
+        "title": "Mob Psycho Mini",
+        "main_picture": {
+          "medium": "https://cdn.myanimelist.net/images/anime/1225/91141.jpg",
+          "large": "https://cdn.myanimelist.net/images/anime/1225/91141l.jpg"
+        }
+      },
+      "num_recommendations": 1
+    }
+  ],
+  "studios": [
+    {
+      "id": 11,
+      "name": "Madhouse"
+    }
+  ]
+}

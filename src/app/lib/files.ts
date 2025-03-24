@@ -1,12 +1,14 @@
+import { MAL, details } from "./types";
+import path  from 'path';
+import fs from 'fs';
 
+export const saveJsonToFile = async (data: MAL, filename: string) => {
 
-export const saveJsonToFile = async (data: any, filename: string) => {
-
-    const path = require('path');
+    //const path = require('path');
 
     const json = JSON.stringify(data, null, 2);
     const isSeason = data.season != undefined ? true : false
-    const directoryPath = isSeason ? path.join(`src/MAL/season/${data.season.year}`) : path.join(`src/MAL/ranking`);
+    const directoryPath = isSeason && data.season ? path.join(`src/MAL/season/${data.season.year}`) : path.join(`src/MAL/ranking`);
 
     const filePath = path.join(directoryPath, filename);
 
@@ -14,9 +16,9 @@ export const saveJsonToFile = async (data: any, filename: string) => {
 
 }
 
-export const saveDetails = async (data: any, filename: string) => {
+export const saveDetails = async (data: details, filename: string) => {
 
-    const path = require('path');
+    //const path = require('path');
 
     const json = JSON.stringify(data, null, 2);
     const directoryPath = path.join(`src/MAL/details/`) 
@@ -28,22 +30,22 @@ export const saveDetails = async (data: any, filename: string) => {
 }
 
 
-const saveFile = (directoryPath:string, filePath:string, json:any) => {
-    const fs = require('fs');
+const saveFile = (directoryPath:string, filePath:string, json:string) => {
+    //const fs = require('fs');
 
-    fs.open(filePath, fs.constants.R_OK, async (err:string) => {
+    fs.open(filePath, fs.constants.R_OK, async (err) => {
         if (err) { 
             //When file is not exists.
 
             console.log(`${filePath} 의 파일이 존재하지 않습니다.`);
 
-            fs.mkdir(directoryPath, { recursive: true }, (err: any) => {
+            fs.mkdir(directoryPath, { recursive: true }, (err) => {
                 if (err) {
                     console.error('디렉토리 생성 중 오류가 발생했습니다:', err);
                     return;
                 }
                 console.log('디렉토리가 생성 되었습니다.')
-                fs.writeFile(filePath, json, { encoding: 'utf-8', flag: 'w' }, (err: any) => {
+                fs.writeFile(filePath, json, { encoding: 'utf-8', flag: 'w' }, (err) => {
                     if (err) {
                         console.error('파일 저장 중 오류가 발생했습니다:', err);
                         return;
@@ -58,7 +60,7 @@ const saveFile = (directoryPath:string, filePath:string, json:any) => {
         //When file is exist
         console.log('File already exists.');
         //const currentData = json;
-        fs.readFile(filePath, { encoding: 'utf-8', flag: 'r+' }, (err: any, data:string) => {
+        fs.readFile(filePath, { encoding: 'utf-8', flag: 'r+' }, (err, data:string) => {
             console.log(typeof data);
             if (err) {
                 console.log('fs.open failed. ', err);
@@ -74,7 +76,7 @@ const saveFile = (directoryPath:string, filePath:string, json:any) => {
             } else {
                 console.log('업데이트가 필요합니다.');
 
-                fs.writeFile(filePath, json, { encoding: 'utf-8', flag: 'w' }, (err: any) => {
+                fs.writeFile(filePath, json, { encoding: 'utf-8', flag: 'w' }, (err) => {
                     if (err) {
                         console.error('파일 저장 중 오류가 발생했습니다:', err);
                         return;

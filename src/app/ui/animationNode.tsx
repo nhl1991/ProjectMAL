@@ -1,5 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
+import { node, ranking } from "../lib/types"
 
 
 export default function AnimationNode({ node, ranking }: Readonly<{ node: node, ranking?: ranking }>) {

@@ -1,5 +1,5 @@
-'use client'
 
+'use client'
 import Link from "next/link";
 import { useOptionStore } from "../lib/stores"
 import SeasonScrollBox from "./ui/SeasonSelectBox"
@@ -8,17 +8,7 @@ import YearScrollBox from "./ui/YearSelectBox"
 
 export default function Page() {
     const { season, year } = useOptionStore();
-    function handleOnClick(){
-        const background = document.querySelector('#background');
-
-        background?.animate([
-            { opacity: "100%" },
-            { opacity: "0%" },
-          ],{
-            duration: 1000,
-            iterations: 1,
-          })
-    }
+    
     return (
         <div id="background" className="w-full h-full p-8">
             {/* <h1 className="w-full h-min text-3xl text-center">{year}/{season}</h1> */}

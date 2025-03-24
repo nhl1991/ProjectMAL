@@ -20,10 +20,10 @@ export const useOptionStore = create<State&Action>((set)=>({
     year: new Date().getFullYear().toString(),
     
 
-    setType: (typeInput:string)=>set((state) => ({type: typeInput})),
-    setSeasonType: (seasonInput:string)=>set((state) => ({season: seasonInput})),
-    setRankingType: (rankingTypeInput:string)=>set((state) => ({rankingType: rankingTypeInput})),
-    setSeasonYear: (yearInput:string)=>set((state)=>({year: yearInput})),
+    setType: (typeInput:string)=>set(() => ({type: typeInput})),
+    setSeasonType: (seasonInput:string)=>set(() => ({season: seasonInput})),
+    setRankingType: (rankingTypeInput:string)=>set(() => ({rankingType: rankingTypeInput})),
+    setSeasonYear: (yearInput:string)=>set(()=>({year: yearInput})),
     
 }))
 

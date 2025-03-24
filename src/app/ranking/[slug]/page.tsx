@@ -6,6 +6,7 @@ import AnimationNode from "@/app/ui/animationNode";
 import { Suspense } from "react";
 import Loading from "./ui/loading";
 import AnimationContainer from "@/app/ui/animationContainer";
+import { MAL } from "@/app/lib/types";
 
 export default async function Page({ params, }: { params: Promise<{ slug: string }> }) {
   const type = (await params).slug;

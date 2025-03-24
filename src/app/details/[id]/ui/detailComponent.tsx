@@ -9,13 +9,14 @@ import Genres from "./genreComponent";
 import Pictures from "./pictureComponent";
 import RecommendationList from "./recommendationComponent";
 import InformationComponent from "./informationComponent";
+import { details } from "@/app/lib/types";
 
 export default function Detail({ data }: Readonly<{
-    data: any
+    data: details
 }>) {
     const item = data;
     const [flip, setFlip] = useState(true);
-
+    console.log(item.broadcast);
 
 
 
@@ -49,15 +50,15 @@ export default function Detail({ data }: Readonly<{
                 <div className="flex lg:flex-row flex-col text-center lg:text-sm overflow-scroll">
                     <InformationComponent name="ranking" item={item.rank ? item.rank : '-'} />
                     <InformationComponent name="mean" item={item.mean ? item.mean : '-'} />
-                    <InformationComponent name="quater" start_season={item.start_season ? item.start_season : ''} />
-                    <InformationComponent name="aired" start_date={item.start_date ? item.start_date : ''} end_date={item.end_date ? item.end_date : ''} />
+                    <InformationComponent name="quater" item={[ item.start_season.season ? item.start_season.season : '', item.start_season.year ? item.start_season.year : '']} />
+                    <InformationComponent name="aired" item={[item.start_date ? item.start_date : '', item.end_date ? item.end_date : '']} />
                     <InformationComponent name="type" item={item.media_type != 'unknown' ? item.media_type.toUpperCase() : '-'} />
                     <InformationComponent name="status" item={item.status.replaceAll('_', ' ').toUpperCase()} />
                     <InformationComponent name="episode" item={item.num_episodes} />
                     <InformationComponent name="rating" item={item.rating.replaceAll('_', '-').toUpperCase()} />
                     <InformationComponent name="average playtime" item={Number(item.average_episode_duration / 60).toFixed(0)} />
-                    <InformationComponent name="broadcast" day_of_the_week={item.broadcast?.day_of_the_week ? item.broadcast.day_of_the_week : '-'} start_time={item.broadcast?.start_time ? item.broadcast.start_time : ''} />
-                    <InformationComponent name="studios" item={item.studios ? item.studios : '-'} />
+                    <InformationComponent name="broadcast" item={item.broadcast != undefined ? [item.broadcast.day_of_the_week, item.broadcast.start_time] : '-'} />
+                    <InformationComponent name="studios" item={item.studios ? item.studios.map((item) => {return item.name;}) : '-'} />
 
                 </div>
                 <hr/>
@@ -72,16 +73,16 @@ export default function Detail({ data }: Readonly<{
                         <p className="w-max p-1 border-2 border-transparent rounded hover:bg-slate-100 text-center">{flip ? 'Show related Anime' : 'Show Image'}</p>
                     </div>
                 </div>
-                <div className="w-full lg:w-3/4 h-full">
+                <div className="w-full flex flex-col lg:w-3/4 h-full">
 
                     <Synopsis synopsis={item.synopsis} />
                     <Genres genres={item.genres} />
-                    <Pictures pictures={item.pictures} />
+                    {item.pictures != undefined ? <Pictures pictures={item.pictures} /> : <></>}
 
                 </div>
 
             </div>
-            {item.recommendations.length != 0 ? <RecommendationList recommendations={item.recommendations} /> : <></>}
+            {item.recommendations != undefined ? <RecommendationList recommendations={item.recommendations} /> : <></>}
 
         </>
     )

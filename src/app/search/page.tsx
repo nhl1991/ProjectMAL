@@ -1,19 +1,23 @@
 
+
 import { Suspense } from "react";
 import { setURL } from "../api/getAnimationList/actions/actions";
 import { FetchMAL } from "../lib/fetch";
+import AnimationContainer from "../ui/animationContainer";
+import SearchBar from "./ui/searchBar";
 
 import AnimationNode from "../ui/animationNode";
-import SearchBar from "./ui/searchBar";
-import AnimationContainer from "../ui/animationContainer";
+import { MAL } from "../lib/types";
 
 export default async function Page(props: {
     searchParams?: Promise<{
         q?: string;
     }>;
 }) {
+    
     let url: string | undefined = '';
     const searchParams = await props.searchParams;
+    console.log(searchParams)
     let data;
     if (searchParams?.q) {
         url = setURL('list', searchParams.q)
@@ -22,8 +26,12 @@ export default async function Page(props: {
         data = response;
 
     }
+    
+
     return (
-        <>{ data ?
+        <>
+        
+                <SearchBar />{ data ?
             <div className="w-full h-min ">
                 <AnimationContainer>
                     <Suspense fallback={<p>Loading...</p>}>
@@ -33,7 +41,7 @@ export default async function Page(props: {
                     </Suspense>
                 </AnimationContainer>
             </div> : <></>}
-
+                
         </>
     )
 

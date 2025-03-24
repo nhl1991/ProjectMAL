@@ -5,7 +5,7 @@ export const ranking_type = ['all', 'airing', 'upcoming', 'tv', 'ova', 'movie', 
 export const seasonal_type = ['winter', 'spring', 'summer', 'autumn'];
 
 export function getYears(){
-    let years = [];
+    const years = [];
     for(let i = 2025; i >= 1970; i--){
         years.push(i);
     }

@@ -16,7 +16,7 @@ type recommendation = {
 }
 
 export default function RecommendationList({ recommendations } : Readonly<{
-    recommendations: recommendation[]
+    recommendations: recommendation[] | undefined
 }>) {
 
 
@@ -26,9 +26,10 @@ export default function RecommendationList({ recommendations } : Readonly<{
                 <h1 className="w-full text-center text-2xl p-2">Recommendations</h1>
                 <div className="w-full h-min flex overflow-scroll p-2">
                     {
+                        recommendations != undefined ?
                         recommendations.map((item: recommendation, i: number) => {
                             return <AnimationNode key={i} node={item.node} />
-                        })
+                        }) : <></>
                     }
                 </div>
             </div>
