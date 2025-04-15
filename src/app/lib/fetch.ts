@@ -7,7 +7,7 @@ export async function FetchMAL(url: string) {
 
     const response = await fetch(url, {
         headers: {
-            "X-MAL-CLIENT-ID": `${process.env.MAL_CLIENT_ID}`
+            "X-MAL-CLIENT-ID": `${process.env.NEXT_PUBLIC_MAL_CLIENT_ID}`
         },
         method: "GET",
     })
