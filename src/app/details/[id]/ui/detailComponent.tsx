@@ -39,12 +39,6 @@ export default function Detail({ data }: Readonly<{
         <>
 
             <Title title={item.title} alternative_title={item.alternative_titles} />
-
-            {/* <div className="w-full h-max lg:flex lg:justify-center text-center text-sm font-extrabold rounded">
-                <p className="w-max p-2 mx-1">Ranking {item.rank ? item.rank : '-'}</p>
-                <p className="w-max p-2 mx-1">Rating  {item.mean ? item.mean : '-'}</p>
-            </div> */}
-
             <div className="w-full h-min lg:h-16 order-2 lg:order-1">
                 <hr/>
                 <div className="flex lg:flex-row flex-col text-center lg:text-sm overflow-scroll">

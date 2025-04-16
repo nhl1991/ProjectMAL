@@ -40,15 +40,9 @@ export default function RootLayout({
           <Navigation />
         </header>
 
-        <section className="w-full h-full">
+        <section className="w-full h-full rounded-2xl">
           {children}
         </section>
-
-        <footer className="w-full h-min p-2 border-2 border-white bg-white hidden lg:block ">
-          <div className="w-full text-center p-1">
-            <Link className="w-full hover:text-gray-200 text-xl" href="_blank"><b className="w-max">BACK</b></Link>
-          </div>
-        </footer>
         <footer className="w-full h-16 bg-transpaerent dark:text-white border-2 border-transparent p-2 lg:p-0 m-0 lg:hidden lg:static fixed bottom-0">
           <Navigation />
         </footer>

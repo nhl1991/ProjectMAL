@@ -1,24 +1,31 @@
 
 import Detail from "./ui/detailComponent";
-import { FetchAnimeDetails } from '@/app/lib/fetch';
-import type { Metadata } from "next";
+import { getAnimationDetail } from '@/app/lib/fetch';
+import Loading from "@/app/ranking/[ranking_type]/ui/loading";
+import { Suspense } from "react";
 
-export const metadata: Metadata = {
-  title: "",
-};
+export async function generateMetadata(
+    { params }: { params: Promise<{ id: string }> }
+) {
+    const { id } = await params;
+    const response = await getAnimationDetail(id);
+
+    return {
+        title: response.title,
+    }
+}
 export default async function Page({ params }: Readonly<{
     params: Promise<{ id: string }>
-}>){
-    const {id} = await params;
+}>) {
+    const { id } = await params;
+    
+    const response = await getAnimationDetail(id)
 
-    // const response = data;
-    const response = await FetchAnimeDetails(id)
-    const detail = response;
-    metadata.title=detail.title;
-
-    return(
+    return (
         <div className="w-full h-full p-2 flex flex-col overflow-scroll md:text-xs lg:text-sm">
-            <Detail data={detail} />
+            <Suspense fallback={<Loading />}>
+                <Detail data={response} />
+            </Suspense>
         </div>
     )
 }

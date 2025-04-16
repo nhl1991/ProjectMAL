@@ -27,6 +27,9 @@ export default function Navigation() {
                         </div>
                     })
                 }
+                <div className="p-2 fixed right-2">
+                            <div className={`w-4 h-4 rounded-full bg-slate-600 ${process.env.NODE_ENV === 'production' ? 'bg-green-400' : 'bg-amber-400'}`}></div>
+                        </div>
             </div>
         )
     }

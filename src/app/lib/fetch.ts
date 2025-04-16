@@ -1,48 +1,34 @@
 'use server'
 
-import { saveDetails, saveJsonToFile } from "./files";
+export async function FetchAPI(url: string) {
 
-
-export async function FetchMAL(url: string) {
-
-    const response = await fetch(url, {
+    const response = await fetch(`https://api.myanimelist.net/${url}`, {
         headers: {
-            "X-MAL-CLIENT-ID": `${process.env.NEXT_PUBLIC_MAL_CLIENT_ID}`
+            "X-MAL-CLIENT-ID": `${process.env.NODE_ENV === 'production' ? process.env.NEXT_PUBLIC_MAL_CLIENT_ID : process.env.MAL_CLIENT_ID}`
         },
         method: "GET",
     })
     const result = await response.json();
     console.log('Fetch function call : ', url);
-    
-    if(url.includes('season')){
-        const splitURL = url.split('/');
-        
-        const year = splitURL[6];
-        const season = splitURL[7].split('?')[0];
-        saveJsonToFile(result,`${year}-${season}.json`)
-    }else if(url.includes('ranking')){
-        const indexStart = url.indexOf('=');
-        const indexEnd = url.indexOf('&');
-        const rankingType = url.slice(indexStart+1, indexEnd);
-
-        saveJsonToFile(result, `Ranking-${rankingType}.json`);
-    }
-
-
-    return result.data;
+    return result;
 }
 
-export async function FetchAnimeDetails(id:string){
-    const response = await fetch(`https://api.myanimelist.net/v2/anime/${id}?fields=id,title,main_picture,alternative_titles,start_date,end_date,synopsis,mean,rank,popularity,media_type,status,genres,my_list_status,num_episodes,start_season,broadcast,source,average_episode_duration,rating,pictures,related_anime,recommendations,studios`, {
-        headers: {
-            "X-MAL-CLIENT-ID": `${process.env.MAL_CLIENT_ID}`
-        },
-        method: "GET",
-    })
-    console.log('Fetch function call : /details/', id);
-    const result = await response.json();
+export async function getAnimationDetail(id:string){
+    //saveDetails(result, `${id}.json`);
+    return await FetchAPI(`v2/anime/${id}?fields=id,title,main_picture,alternative_titles,start_date,end_date,synopsis,mean,rank,popularity,media_type,status,genres,my_list_status,num_episodes,start_season,broadcast,source,average_episode_duration,rating,pictures,related_anime,recommendations,studios`)
+}
 
-    saveDetails(result, `${id}.json`);
+export async function getAnimationBySeason(year:string, season: string){
+    //saveDetails(result, `${id}.json`);
+    return await FetchAPI(`v2/anime/season/${year}/${season == 'autumn' ? 'fall' : season}?limit=100&offset=0&fields=mean`)
+}
 
-    return result;
+export async function getAnimationByRanking(ranking_type:string){
+    //saveDetails(result, `${id}.json`);
+    return await FetchAPI(`v2/anime/ranking?ranking_type=${ranking_type}&limit=100&fields=mean`)
+}
+
+export async function getAnimationBySearch(query:string){
+    //saveDetails(result, `${id}.json`);
+    return await FetchAPI(`v2/anime?q=${query}&limit=100&fields=mean`)
 }

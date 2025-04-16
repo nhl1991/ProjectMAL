@@ -1,17 +1,16 @@
 'use server'
 
 import { setURL } from "@/app/api/getAnimationList/actions/actions";
-import { FetchMAL } from "@/app/lib/fetch";
+import { FetchMAL, getAnimationByRanking } from "@/app/lib/fetch";
 import AnimationNode from "@/app/ui/animationNode";
 import { Suspense } from "react";
 import Loading from "./ui/loading";
 import AnimationContainer from "@/app/ui/animationContainer";
 import { MAL } from "@/app/lib/types";
 
-export default async function Page({ params, }: { params: Promise<{ slug: string }> }) {
-  const type = (await params).slug;
-  const newUrl = setURL('ranking', type);
-  const data = await FetchMAL(newUrl);
+export default async function Page({ params, }: { params: Promise<{ ranking_type: string }> }) {
+  const {ranking_type} = await params;
+  const response = await getAnimationByRanking(ranking_type);
 
 
   return (
@@ -20,7 +19,7 @@ export default async function Page({ params, }: { params: Promise<{ slug: string
         <AnimationContainer>
           <Suspense fallback={<Loading />}>
             {
-              data.map((item: MAL, i: number) => {
+              response.data.map((item: MAL, i: number) => {
 
                 return <AnimationNode key={i} node={item.node} ranking={item.ranking} />
               })

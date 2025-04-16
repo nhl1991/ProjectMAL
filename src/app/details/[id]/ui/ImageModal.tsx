@@ -14,9 +14,9 @@ export default function ImageModal({ source }: Readonly<{
         setModal(!modal);
     }
     useEffect(() => {
-        // 모달이 뜨면 body의 overflow를 hidden으로 설정
+        // when modal is on, set body's overflow property to hidden.
         document.body.style.overflow = 'hidden';
-        // 모달이 사라지면 body의 overflow를 다시 auto로 설정
+        // when modal is gone, set body's overflow property to auto again.
         return () => {
           document.body.style.overflow = 'auto';
         };
