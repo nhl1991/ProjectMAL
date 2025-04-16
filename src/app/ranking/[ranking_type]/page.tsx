@@ -1,7 +1,6 @@
 'use server'
 
-import { setURL } from "@/app/api/getAnimationList/actions/actions";
-import { FetchMAL, getAnimationByRanking } from "@/app/lib/fetch";
+import { getAnimationByRanking } from "@/app/lib/fetch";
 import AnimationNode from "@/app/ui/animationNode";
 import { Suspense } from "react";
 import Loading from "./ui/loading";

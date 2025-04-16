@@ -17,6 +17,8 @@
 /.next/
 /out/
 /src/MAL/
+/src/app/lib/files.ts
+
 # production
 /build
 
