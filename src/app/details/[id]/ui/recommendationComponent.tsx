@@ -24,7 +24,7 @@ export default function RecommendationList({ recommendations } : Readonly<{
         <>
             <div className="w-full h-min block m-2 order-3">
                 <h1 className="w-full text-center text-2xl p-2">Recommendations</h1>
-                <div className="w-full h-min flex overflow-scroll p-2">
+                <div className="w-full h-min md:flex overflow-scroll p-2">
                     {
                         recommendations != undefined ?
                         recommendations.map((item: recommendation, i: number) => {

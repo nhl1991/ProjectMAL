@@ -5,8 +5,8 @@ import { useEffect } from "react";
 export default function ImageModal({ source }: Readonly<{
     source: string,
 }>) {
-    const preventOffModal = (event: React.MouseEvent) => {
-        event.stopPropagation();
+    const preventOffModal = (e: React.MouseEvent) => {
+        e.stopPropagation();
       };
     const {modal, setModal } = useModalStore()
 

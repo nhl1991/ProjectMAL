@@ -27,6 +27,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
 
+  
   return (
     <html lang="en">
       <head>
@@ -35,16 +36,14 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased w-screen h-screen p-0 flex flex-col`}
       >
-        <header className="w-full h-16 bg-transpaerent dark:text-white border-2 border-transparent p-2 lg:p-0 m-0 hidden lg:block lg:static fixed bottom-0">
+        <nav className="w-full bg-transpaerent dark:text-white border-2 border-transparent p-2 md:p-0 m-0">
           <Navigation />
-        </header>
+        </nav>
 
         <section className="w-full h-full rounded-2xl">
           {children}
         </section>
-        <footer className="w-full h-16 bg-transpaerent dark:text-white border-2 border-transparent p-2 lg:p-0 m-0 lg:hidden lg:static fixed bottom-0">
-          <Navigation />
-        </footer>
+        
       </body>
     </html>
   );

@@ -1,0 +1,11 @@
+@reference "tailwindcss";
+
+
+.container {
+    @apply w-full h-12 flex p-2 text-xl bg-transparent;
+    
+}
+
+@media (min-width: 768px) {
+
+}

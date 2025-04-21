@@ -6,6 +6,7 @@ import AnimationContainer from "@/app/ui/animationContainer";
 import AnimationNode from "@/app/ui/animationNode";
 import NoData from "@/app/ui/noData";
 import { Suspense } from "react";
+import styles from "./page.module.css"
 
 
 
@@ -20,8 +21,8 @@ export default async function Page({ params, }: { params: Promise<{ slug: string
     return (
 
         <div className="w-full h-full py-2">
-            <div className="w-full h-18 my-2 p-2 rounded ">
-                <h1 className="text-3xl text-center py-4"><b>{slug[0]} {slug[1].toUpperCase()}</b></h1>
+            <div className="w-full h-max my-2 p-2 rounded ">
+                <h1 className={`text-3xl md:text-6xl md:absolute text-center py-4 ${styles.TextStroke}`}><b>{slug[0]} {slug[1].toUpperCase()}</b></h1>
             </div>
             <AnimationContainer>
                 <Suspense fallback={<Loading />}>

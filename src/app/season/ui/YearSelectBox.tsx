@@ -38,7 +38,7 @@ export default function YearScrollBox() {
 
     return (
         <>
-            <div id="scrollbox" ref={scrollBoxRef} className="scroll-box lg:w-max w-full" >
+            <div id="scrollbox" ref={scrollBoxRef} className="scroll-box md:w-max w-full" >
             <div className="place-holder">YEAR</div>
                 {
                     year.map((item, i) => {

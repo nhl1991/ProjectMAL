@@ -1,0 +1,26 @@
+.TextStroke {
+    font-size: 3rem;
+    /* 96px */
+    line-height: 1;
+    color: transparent;
+    /* Clear inner fill. */
+    -webkit-text-stroke: 1px rgba(0, 0, 0, 0.5);
+    /* outline width */
+    text-align: center;
+    /* 가운데 정렬 */
+}
+
+@media (min-width: 768px) {
+
+    .TextStroke {
+        font-size: 6rem;
+        /* 96px */
+        line-height: 1;
+        color: transparent;
+        /* Clear inner fill. */
+        -webkit-text-stroke: 1px rgba(0, 0, 0, 0.5);
+        /* outline width */
+        text-align: center;
+        /* 가운데 정렬 */
+    }
+}

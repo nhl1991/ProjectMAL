@@ -34,7 +34,7 @@ export default function SeasonScrollBox() {
 
     return (
         <>
-            <div id="scrollbox" ref={scrollBoxRef} className="scroll-box lg:w-1/3 w-full" >
+            <div id="scrollbox" ref={scrollBoxRef} className="scroll-box md:w-1/3 w-full" >
             <div className="place-holder">SEASON</div>
                 {
                     season.map((item, i) => {

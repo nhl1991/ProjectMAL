@@ -38,7 +38,7 @@ export default async function Page(props: {
             </>
         )
     }else{
-        console.log("No search query provided.");
+
     }
 
 

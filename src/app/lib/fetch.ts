@@ -9,7 +9,7 @@ export async function FetchAPI(url: string) {
         method: "GET",
     })
     const result = await response.json();
-    console.log('Fetch function call : ', url);
+
     return result;
 }
 
@@ -20,7 +20,7 @@ export async function getAnimationDetail(id:string){
 
 export async function getAnimationBySeason(year:string, season: string){
 
-    return await FetchAPI(`v2/anime/season/${year}/${season == 'autumn' ? 'fall' : season}?limit=100&offset=0&fields=mean`)
+    return await FetchAPI(`v2/anime/season/${year}/${season == 'autumn' ? 'fall' : season}?limit=100&fields=mean`)
 }
 
 export async function getAnimationByRanking(ranking_type:string){

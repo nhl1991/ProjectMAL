@@ -34,5 +34,5 @@ function Search() {
         replace(`${pathname}?${params.toString()}`);
     }, 300);
 
-    return <input className="w-3/4 lg:w-1/3 dark:bg-black dark:text-white flex-shrink-0 px-2 border-b-2 border-slate-300 focus:outline-none" type="text" placeholder="SEARCH" onChange={(e: ChangeEvent<HTMLInputElement>) => handleSearch(e.currentTarget.value)}></input>
+    return <input className="w-3/4 md:w-1/3 dark:bg-black dark:text-white flex-shrink-0 px-2 border-b-2 border-slate-300 focus:outline-none" type="text" placeholder="SEARCH" onChange={(e: ChangeEvent<HTMLInputElement>) => handleSearch(e.currentTarget.value)}></input>
 }

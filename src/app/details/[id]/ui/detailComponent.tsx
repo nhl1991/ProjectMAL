@@ -16,7 +16,6 @@ export default function Detail({ data }: Readonly<{
 }>) {
     const item = data;
     const [flip, setFlip] = useState(true);
-    console.log(item.broadcast);
 
 
 
@@ -39,9 +38,9 @@ export default function Detail({ data }: Readonly<{
         <>
 
             <Title title={item.title} alternative_title={item.alternative_titles} />
-            <div className="w-full h-min lg:h-16 order-2 lg:order-1">
+            <div className="w-full h-min md:h-16 order-2 md:order-1">
                 <hr/>
-                <div className="flex lg:flex-row flex-col text-center lg:text-sm overflow-scroll">
+                <div className="flex md:flex-row flex-col text-center md:text-sm overflow-scroll">
                     <InformationComponent name="ranking" item={item.rank ? item.rank : '-'} />
                     <InformationComponent name="mean" item={item.mean ? item.mean : '-'} />
                     <InformationComponent name="quater" item={[ item.start_season.season ? item.start_season.season : '', item.start_season.year ? item.start_season.year : '']} />
@@ -58,8 +57,8 @@ export default function Detail({ data }: Readonly<{
                 <hr/>
             </div>
             
-            <div className="w-full h-max order-1 lg:flex border-2 border-transparent p-4">
-                <div className="w-full lg:w-1/4 border-2lg:p-2 lg:flex-shrink-0 overlfow-scroll" onClick={flipHandler} >
+            <div className="w-full h-max order-1 md:flex border-2 border-transparent p-4">
+                <div className="w-full md:w-1/4 border-2 md:p-2 md:flex-shrink-0 overlfow-scroll" onClick={flipHandler} >
                     {flip ? <Image className="w-full rounded border-2 border-transparent shadow-md shadow-slate-500" src={item.main_picture.large} width={480} height={640} alt="image will be prepared." />
                         : <RelatedAnimations related_anime={item.related_anime} />
                     }
@@ -67,7 +66,7 @@ export default function Detail({ data }: Readonly<{
                         <p className="w-max p-1 border-2 border-transparent rounded hover:bg-slate-100 text-center">{flip ? 'Show related Anime' : 'Show Image'}</p>
                     </div>
                 </div>
-                <div className="w-full flex flex-col lg:w-3/4 h-full">
+                <div className="w-full flex flex-col md:w-3/4 h-full">
 
                     <Synopsis synopsis={item.synopsis} />
                     <Genres genres={item.genres} />
