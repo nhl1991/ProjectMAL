@@ -1,6 +1,6 @@
 'use client'
 import Image from "next/image"
-import Link from "next/link"
+
 import { node, ranking } from "../lib/types"
 import styles from "./animationNode.module.css";
 import { useRouter } from "next/navigation";

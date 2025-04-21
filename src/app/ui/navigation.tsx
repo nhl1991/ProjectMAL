@@ -17,8 +17,7 @@ export default function Navigation() {
 
 
     if (pathname === '/') {
-        return <></>
-        // return <Link href={`/`} className={`${pathname === '/' ? 'text-cyan-300 border-b-cyan-300 ' : 'border-transparent'}`}><b></b></Link>
+        return <Link href={`/`} className={`${pathname === '/' ? 'text-cyan-300 border-b-cyan-300 ' : 'border-transparent'}`}><b></b></Link>
     }
     else if (!isMobile) {
 
