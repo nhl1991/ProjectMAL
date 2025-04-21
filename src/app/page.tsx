@@ -44,11 +44,6 @@ export default function Home() {
       backgroundImage: `url(${backgroundImage})`,
     }}>
 
-<div className="p-2 fixed right-2">
-          <div className={`w-4 h-4 rounded-full  ${process.env.NODE_ENV === 'production' ? 'bg-green-400' : 'bg-amber-400'}`}>
-            {isMobile ? 'M' : 'P' }
-          </div>
-        </div>
       <div className="w-full h-full items-center  md:flex-row flex-col flex justify-center p-2">
         {
           menu.map((item, i) => {
