@@ -2,12 +2,19 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import styles from "./navigation.module.css"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 export default function Navigation() {
     const pathname = usePathname();
-    const isMobile = window.innerWidth < 768;
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(()=>{
+        setIsMobile(
+            window.innerWidth < 768)
+
+    },[])
+
 
     const menu = ['/', 'search', 'ranking', 'season']
     const [isClick, setIsClick] = useState(false);
