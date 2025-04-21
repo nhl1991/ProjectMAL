@@ -3,11 +3,6 @@ import { NextResponse } from "next/server";
 
 
 export async function middleware(request: NextRequest) {
-    if(request.method === "GET"){
-        const userAgent = request.headers.get('user-agent') || '';
-        const isMobile = /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent);
-
-    }
     // let i = 0;
     if(request.method==="GET" && request.nextUrl.pathname === '/ranking'){
 
