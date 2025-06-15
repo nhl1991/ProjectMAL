@@ -1,19 +1,19 @@
+import RankingNavigation from "./ui/rankingNavigation";
 
-import type { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "Search by ranking",
-};
-
-export default function RankingLayout({
+export default function ListLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
 
   return (
-    <>
-        {children}
-    </>
+    <div className="w-full h-full grid grid-rows-12">
+      <div className="w-full row-end-2 flex items-center justify-center outline-2 outline-black px-2 my-4 overflow-scroll">
+        <RankingNavigation />
+      </div>
+      {children}
+    </div>
+
   );
 }

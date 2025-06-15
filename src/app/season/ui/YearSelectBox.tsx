@@ -1,7 +1,7 @@
 'use client'
 import { useOptionStore } from "@/app/lib/stores";
 import { getYears } from "@/app/lib/variables";
-import { useEffect, useRef } from "react";
+import { ChangeEvent, useEffect, useRef } from "react";
 
 
 export default function YearScrollBox() {
@@ -19,12 +19,17 @@ export default function YearScrollBox() {
                     if (entry.isIntersecting && entry.target.textContent) {
                         //setVisibleItem(entry.target.textContent || null);
                         setSeasonYear(entry.target.textContent);
+                        (entry.target as HTMLElement).scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'center', // or 'nearest', 'start'
+                            inline: 'nearest',
+                        });
                     }
                 });
             },
             {
                 root: scrollBoxRef.current,
-                threshold: 0.5, // 50%가 보여질 때 트리거
+                threshold: 0.7, // 50%가 보여질 때 트리거
             }
         );
 
@@ -32,20 +37,40 @@ export default function YearScrollBox() {
         const items = scrollBoxRef.current?.querySelectorAll(".scroll-item");
         items?.forEach((item) => observer.observe(item));
 
+
+
         return () => observer.disconnect();
     });
 
 
-    return (
+    // return (
+    //     <>
+    //         <div id="scrollbox" ref={scrollBoxRef} className="scroll-box w-full h-36 scroll-smooth flex flex-col items-center" >
+    //             {/* <div className="placeholder bg-blue-700 h-[calc(9rem+2px)] ">YEAR</div> */}
+    //             {
+    //                 year.map((item, i) => {
+    //                     return <div key={i} className="scroll-item w-full h-full ">{item}</div>
+    //                 })
+    //             }
+    //         </div>
+    //     </>
+    // )
+
+    const onSelectYear = (e:ChangeEvent<HTMLSelectElement>) => {
+        setSeasonYear(e.currentTarget.value);
+
+    }
+    return(
         <>
-            <div id="scrollbox" ref={scrollBoxRef} className="scroll-box md:w-max w-full" >
-            <div className="place-holder">YEAR</div>
+        <label htmlFor="year">Select Year</label>
+            <select id="year" className="text-4xl bg-transparent" onChange={onSelectYear}>
                 {
                     year.map((item, i) => {
-                        return <div key={i} className="scroll-item">{item}</div>
+                        return <option className="bg-transparent" key={i} value={item}>{item}</option>
                     })
                 }
-            </div>
+            </select>
         </>
     )
+
 }

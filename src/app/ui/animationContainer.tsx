@@ -7,11 +7,11 @@ export default function AnimationContainer(
 ) {
     return (
         <>
-            <div className="w-full p-4 border-4 border-transparent rounded  transition-all duration-500 ease-in-out">
-                <div className="w-full h-max p-1 md:p-8 md:flex box-border overflow-scroll border-4 border-transparent rounded  transition-all duration-500 ease-in-out">
+            
+                <div className="w-full h-full grid grid-cols-5 grid-rows-2 gap-4 p-12">
                     {children}
                 </div>
-            </div>
+
         </>
     )
 }

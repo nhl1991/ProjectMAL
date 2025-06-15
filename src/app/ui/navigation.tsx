@@ -34,8 +34,14 @@ export default function Navigation() {
 
                 {
                     menu.map((item, i) => {
+                        if(item === 'ranking')
+                            return <li key={i} className="h-full p-2 items-center flex border-transparent rounded-sm flex-shrink-0 ">
+                            <Link href={`/${item}?offset=0&ranking_type=all&limit=10`} className={'p-4'}><b>{item.toUpperCase()}</b></Link>
+                            {/* <Link href={`/${item}`} className={`${pathname.startsWith(`/${item}`) ? 'text-cyan-300 border-b-cyan-300 ' : 'border-transparent'}`}><b>{item.toUpperCase()}</b></Link> */}
+                        </li>
+                        else
                         return <li key={i} className="h-full p-2 items-center flex border-transparent rounded-sm flex-shrink-0 ">
-                            <Link href={item === '/' ? '/' : `/${item}`} className={'p-4' + `${pathname.startsWith(`/${item}`) ? 'text-cyan-300 border-b-cyan-300 ' : 'border-transparent'}`}><b>{item === '/' ? 'HOME' : item.toUpperCase()}</b></Link>
+                            <Link href={item === '/' ? '/' : `/${item}`} className={'p-4'}><b>{item === '/' ? 'HOME' : item.toUpperCase()}</b></Link>
                             {/* <Link href={`/${item}`} className={`${pathname.startsWith(`/${item}`) ? 'text-cyan-300 border-b-cyan-300 ' : 'border-transparent'}`}><b>{item.toUpperCase()}</b></Link> */}
                         </li>
                     })

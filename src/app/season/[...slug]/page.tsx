@@ -1,38 +1,38 @@
-
-import { getAnimationBySeason } from "@/app/lib/fetch";
+'use server'
+import {  getAnimationBySeasonT } from "@/app/lib/fetch";
 import { MAL } from "@/app/lib/types";
-import Loading from "@/app/ranking/[ranking_type]/ui/loading";
 import AnimationContainer from "@/app/ui/animationContainer";
 import AnimationNode from "@/app/ui/animationNode";
-import NoData from "@/app/ui/noData";
 import { Suspense } from "react";
-import styles from "./page.module.css"
+import { headers } from "next/headers";
+import Paging from "@/app/ui/PagingComponent";
+import Loading from "@/app/ui/loading";
 
 
 
 
 
-export default async function Page({ params, }: { params: Promise<{ slug: string }> }) {
-    const { slug } = await params; // [0] : year, [1] : season
-    const response = await getAnimationBySeason(slug[0], slug[1]);
-
-
-
+export default async function Page() {
+    const headersList = headers();
+    const fullUrl = (await headersList).get('x-url') || '';
+    const path = fullUrl.split('/'); // searchParam[4]:year, searchParam[5]: season&query
+    const query = `${path[3]}/${path[4]}/${path[5]}`;
+    const response = await getAnimationBySeasonT(`${query}`);
+    console.log(response.data === undefined);
+// season/2023/summer?offset=0&limit=10
+// season/2023/summer?offset=10&limit=10
     return (
-
-        <div className="w-full h-full py-2">
-            <div className="w-full h-max my-2 p-2 rounded ">
-                <h1 className={`text-3xl md:text-6xl md:absolute text-center py-4 ${styles.TextStroke}`}><b>{slug[0]} {slug[1].toUpperCase()}</b></h1>
-            </div>
+        <div className="w-full row-[2/-1] flex flex-col items-center justify-center">
             <AnimationContainer>
                 <Suspense fallback={<Loading />}>
-                    {response ?
+                    {response.data ?
                         response.data.map((item: MAL, i: number) => {
                             return <AnimationNode key={i} node={item.node} />
-                        }) : <NoData />
+                        }) : null
                     }
                 </Suspense>
             </AnimationContainer>
+            <Paging paging={response.paging} />
         </div>
 
     )

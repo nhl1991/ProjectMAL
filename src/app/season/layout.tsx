@@ -12,8 +12,8 @@ export default function SeasonLayout({
 }>) {
 
   return (
-    <>
-        {children}
-    </>
+    <div className="w-full h-full grid grid-rows-12 ">
+      {children}
+    </div>
   );
 }

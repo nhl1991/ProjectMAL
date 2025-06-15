@@ -1,8 +1,7 @@
 
 
 .rankTextStroke {
-    font-size: 72px; 
     color: transparent; /* Clear inner fill. */
-    -webkit-text-stroke: 1px rgba(0, 0, 0, 0.5); /* outline width */
+    -webkit-text-stroke: 2px rgba(255, 255, 255, 0.8); /* outline width */
     text-align: center; /* 가운데 정렬 */
 }

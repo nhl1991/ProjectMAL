@@ -11,7 +11,7 @@ export default function ListLayout({
   
 
   return (
-    <div className="w-full h-full">
+    <div className="w-full h-full grid grid-rows-12">
       
       {children}
     </div>

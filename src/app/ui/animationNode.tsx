@@ -10,24 +10,33 @@ export default function AnimationNode({ node, ranking }: Readonly<{ node: node, 
     const route = useRouter();
 
     return (
-        <div className="w-full md:w-min md:border-2 p-1 md:p-4 border-transparent rounded relative" onClick={() => route.push(`/details/${node.id}`)}>
-            {
-                ranking ? <div className="w-min h-min absolute top-4 right-0 md:-left-1 md:top-0 opacity-50"><p className={`px-2 text-xl ${styles.rankTextStroke}`}>{ranking.rank}</p></div> : <></>
-            }
-            <div className="w-full md:w-full flex items-center relative md:block border-transparent border-2 hover:border-cyan-100 rounded shadow-md hover:shadow-cyan-500 md:hover:scale-105">
+        <div className="w-full h-full place-content-center p-2 grid grid-cols-1 grid-rows-6" >
+            <div className="absolute">
+                {ranking ? <p className={`relative px-2 text-[9rem] ${styles.rankTextStroke}`}>{ranking.rank}</p>: <></>}
+            </div>
+            <div className="row-[1/6] flex justify-end hover:opacity-80 hover:scale-105 cursor-pointer">
+                <div className="w-2/3 h-full relative border-transparent border-2 rounded shadow-md " onClick={() => route.push(`/details/${node.id}`)}>
 
-                <div className="w-32 h-40 md:w-64 md:h-80 flex-shrink-0 flex overflow-hidden p-2 border-2 border-transparent background-intro-animation relative">
-                    {node.main_picture ? <Image className="flex-shrink-0 rounded" src={node.main_picture.large} width={480} height={640} alt={node.main_picture.medium} priority /> : <div className="w-full flex flex-shrink-0 justify-center items-center border-2 rounded"><p>NO IMAGE</p></div>}
-                </div>
-                <div className="md:w-full flex items-center md:h-24 border-2 border-transparent p-2 font-bold font-sans relative">
+                    {node.main_picture ? <Image className="rounded-2xl object-cover" fill sizes="(max-width: 100%), 320px" src={node.main_picture.large} alt={node.main_picture.medium} /> : <div className="w-full flex flex-shrink-0 justify-center items-center border-2 rounded"><p>NO IMAGE</p></div>}
 
-                    <div className="w-full">
-
-                        <p className="w-full p-1 text-center text-sm md:text-lg text-black/70 rounded-sm">{node.title}</p>
-                    </div>
 
                 </div>
             </div>
+            <div className="flex items-center justify-end text-base font-semibold">
+                <span>{node.title}</span></div>
+
+            {/* {
+                // 
+            }
+            <div className="w-full h-full bg-sky-500 flex flex-col items-center justify-center">
+
+                
+                <div className="absolute text-2xl">
+
+                    
+
+                </div>
+            </div> */}
         </div>
     )
 

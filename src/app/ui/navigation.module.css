@@ -2,7 +2,7 @@
 
 
 .container {
-    @apply w-full h-12 flex p-2 text-xl bg-transparent;
+    @apply w-max h-12 flex p-2 text-4xl;
     
 }
 

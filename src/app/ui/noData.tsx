@@ -6,9 +6,9 @@ export default function NoData() {
 
     return (
         <>
-            <div className="w-full h-full py-24 flex text-center flex-col items-center">
-                <Image src={NoDataImage} width={200} height={200} alt="sorry" unoptimized />
-                <p className="w-full text-xl font-extrabold p-2">Animations are not exist.</p>
+            <div className="col-span-full row-span-full py-24 flex text-center flex-col items-center">
+                <Image src={NoDataImage} width={400} height={400} alt="sorry" unoptimized />
+                <p className="w-full text-4xl font-extrabold p-2">Animations are not exist.</p>
             </div>
 
         </>

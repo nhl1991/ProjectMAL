@@ -34,16 +34,18 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased w-screen h-screen p-0 flex flex-col`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased w-screen h-screen p-0 grid grid-cols-1 grid-rows-12`}
       >
-        <nav className="w-full bg-transpaerent dark:text-white border-2 border-transparent p-2 md:p-0 m-0">
+        <nav className="w-full flex items-center justify-center dark:text-white border-2 border-transparent p-2 md:p-0 m-0 row-end-2">
           <Navigation />
         </nav>
 
-        <section className="w-full h-full rounded-2xl">
+        <section className="w-full  h-full rounded-2xl row-[2/12] ">
           {children}
         </section>
-        
+        <footer className="w-full  h-full row-start-12 text-center text-xl">
+            &copy;Data sourced from <a href="https://myanimelist.net/" target="_blank" rel="noopener noreferrer">MyAnimeList</a>
+        </footer>
       </body>
     </html>
   );
