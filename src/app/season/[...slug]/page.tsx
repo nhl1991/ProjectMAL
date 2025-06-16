@@ -1,5 +1,5 @@
 'use server'
-import {  getAnimationBySeasonT } from "@/app/lib/fetch";
+import {  getAnimationBySeason } from "@/app/lib/fetch";
 import { MAL } from "@/app/lib/types";
 import AnimationContainer from "@/app/ui/animationContainer";
 import AnimationNode from "@/app/ui/animationNode";
@@ -17,7 +17,7 @@ export default async function Page() {
     const fullUrl = (await headersList).get('x-url') || '';
     const path = fullUrl.split('/'); // searchParam[4]:year, searchParam[5]: season&query
     const query = `${path[3]}/${path[4]}/${path[5]}`;
-    const response = await getAnimationBySeasonT(`${query}`);
+    const response = await getAnimationBySeason(`${query}`);
     console.log(response.data === undefined);
 // season/2023/summer?offset=0&limit=10
 // season/2023/summer?offset=10&limit=10
@@ -31,8 +31,8 @@ export default async function Page() {
                         }) : null
                     }
                 </Suspense>
+            {response.paging ? <Paging paging={response.paging} /> : null}
             </AnimationContainer>
-            <Paging paging={response.paging} />
         </div>
 
     )

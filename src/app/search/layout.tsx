@@ -1,8 +1,5 @@
 'use client'
 
-
-
-
 export default function ListLayout({
   children,
 }: Readonly<{

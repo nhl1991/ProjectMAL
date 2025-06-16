@@ -1,7 +1,7 @@
 'use client'
 import { useOptionStore } from "@/app/lib/stores";
 import { getYears } from "@/app/lib/variables";
-import { ChangeEvent, useEffect, useRef } from "react";
+import { ChangeEvent } from "react";
 
 
 export default function SelectOptions() {
@@ -21,7 +21,7 @@ export default function SelectOptions() {
     }
 
     return (
-        <div className="w-full h-full flex items-center justify-center">
+        <div className="w-full h-full flex items-center justify-center ">
             <SelectWrapper>
                 <label htmlFor="year" className="block text-xl font-semibold py-2">Year</label>
                 <select id="year" className="text-4xl bg-transparent rounded-2xl px-4 py-2" onChange={onSelectYear}>

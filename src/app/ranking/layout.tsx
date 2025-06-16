@@ -9,7 +9,7 @@ export default function ListLayout({
 
   return (
     <div className="w-full h-full grid grid-rows-12">
-      <div className="w-full row-end-2 flex items-center justify-center outline-2 outline-black px-2 my-4 overflow-scroll">
+      <div className="col-span-full row-end-2 flex items-center md:justify-center outline-2 outline-black px-2 md:my-4 overflow-scroll">
         <RankingNavigation />
       </div>
       {children}

@@ -19,7 +19,7 @@ export default function Paging({ paging }: {
         } else if (type && type === 'season') {
             return`/${splitArray[5]}/${splitArray[6]}/${splitArray[7]}`;
         }else {
-            return splitArray[4]
+            return splitArray[4].replace('anime', 'search')
         }
 
     }

@@ -1,5 +1,4 @@
 
-
 import { Suspense } from "react";
 import { getAnimationBySearch } from "../lib/fetch";
 import AnimationContainer from "../ui/animationContainer";
@@ -10,27 +9,29 @@ import Loading from "../ui/loading";
 import Paging from "../ui/PagingComponent";
 
 
+
 export default async function Page(props: {
     searchParams?: Promise<{
         q: string;
+        limit: string,
+        offset: string,
     }> | undefined;
 }) {
     const searchParams = await props.searchParams;
+    //http://localhost:3000/search?q=uma
+    //http://localhost:3000/anime?offset=10&q=uma&limit=10
+    if (searchParams && 'q' in searchParams) {
+        const {offset, q, limit} = searchParams
+        const query = `anime?offset=${offset}&q=${q}&limit=${limit}`
+        const response = await getAnimationBySearch(query);
+        console.log(response.data.length)
 
-    // if (searchParams && 'q' in searchParams) {
-    //     const { q } = searchParams;
-    //     const response = await getAnimationBySearch(q);
-    // }
-
-    // const response = await getAnimationBySearch(searchParams?.q);
-    // console.log(response.paging)
-    return (
-        <>
-            <div className={`col-span-full flex flex-col items-center justify-center ${searchParams && 'q' in searchParams ? 'row-end-2' : 'row-span-full '}`}>
-                <SearchBar />
-            </div>
-
-            {/* {searchParams && searchParams.q && response.data ?
+        return (
+            <>
+                <div className={`col-span-full flex flex-col items-center justify-center row-[2/3]`}>
+                    <SearchBar />
+                </div>
+                {searchParams && searchParams.q && response.data && response.data.length > 0 ?
                 <div className="w-full row-[2/-1] flex flex-col items-center justify-center background-intro-animation">
                     <AnimationContainer>
                         <Suspense fallback={<Loading />}>
@@ -38,14 +39,25 @@ export default async function Page(props: {
                                 return <AnimationNode key={i} node={item.node} />;
                             })}
                         </Suspense>
-                    </AnimationContainer>
                     { response.paging ? <Paging paging={response.paging} /> : null}
-                </div> : null} */}
-        </>
-    )
+                    </AnimationContainer>
+                </div> : <div className="w-full py-24 row-[3/-1] flex text-center flex-col place-content-center">
+                
+                <p className="w-full text-4xl font-extrabold p-2">Result not found.</p>
+            </div>}
+            </>
+        )
+    } else {
+        return (
+            <div className={`col-span-full flex flex-col items-center justify-center row-span-full`}>
+                <SearchBar />
+            </div>
+        )
+    }
+}
 
 
-    
+
     // return (
     //     <>
     //         {q && response.data ?
@@ -73,5 +85,5 @@ export default async function Page(props: {
 
 
 
-}
+
 

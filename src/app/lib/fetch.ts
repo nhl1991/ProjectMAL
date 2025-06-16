@@ -33,17 +33,15 @@ export async function getAnimationBySearch(query:string|undefined){
     if(query === undefined) return;
 
     console.log(query);
-    return await FetchAPI(`v2/anime?offset=0&q=${query}&limit=10`)
+    return await FetchAPI(`v2/${query}`)
 }
 
-export async function getAnimationByRankingT(query:string){
+export async function getAnimationByRanking(query:string){
     return await FetchAPI(`v2/anime/${query}`)
 }
 
 
 
-export async function getAnimationBySeasonT(query: string){
-    //http://localhost:3000/season/2025/winter
-    // next: 'https://api.myanimelist.net/v2/anime/season/2025/winter?offset=10&limit=10'
+export async function getAnimationBySeason(query: string){
     return await FetchAPI(`v2/anime/${query}`)
 }

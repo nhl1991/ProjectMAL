@@ -1,7 +1,7 @@
 
 import Detail from "./ui/detailComponent";
 import { getAnimationDetail } from '@/app/lib/fetch';
-import Loading from "@/app/ranking/[ranking_type]/ui/loading";
+import Loading from "@/app/ui/loading";
 import { Suspense } from "react";
 
 export async function generateMetadata(

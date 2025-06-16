@@ -10,20 +10,18 @@ export default function AnimationNode({ node, ranking }: Readonly<{ node: node, 
     const route = useRouter();
 
     return (
-        <div className="w-full h-full place-content-center p-2 grid grid-cols-1 grid-rows-6" >
-            <div className="absolute">
-                {ranking ? <p className={`relative px-2 text-[9rem] ${styles.rankTextStroke}`}>{ranking.rank}</p>: <></>}
+        <div className="w-full h-full relative md:place-content-center flex md:items-center md:justify-center md:p-2 md:grid md:grid-cols-1 md:grid-rows-6 md:gap-2 " >
+            <div className="absolute  z-50">
+                {ranking ? <p className={`w-max  h-max px-2 bg-black/50 z-50 md:text-[4rem] text-2xl ${styles.rankTextStroke}`}>{ranking.rank}</p>: <></>}
             </div>
-            <div className="row-[1/6] flex justify-end hover:opacity-80 hover:scale-105 cursor-pointer">
-                <div className="w-2/3 h-full relative border-transparent border-2 rounded shadow-md " onClick={() => route.push(`/details/${node.id}`)}>
-
+            <div className="w-full h-full md:row-[1/6] md:flex md:justify-end hover:opacity-80 hover:scale-105 cursor-pointer">
+                <div className="w-full md:w-2/3 h-full relative border-transparent border-2 rounded shadow-md " onClick={() => route.push(`/details/${node.id}`)}>
                     {node.main_picture ? <Image className="rounded-2xl object-cover" fill sizes="(max-width: 100%), 320px" src={node.main_picture.large} alt={node.main_picture.medium} /> : <div className="w-full flex flex-shrink-0 justify-center items-center border-2 rounded"><p>NO IMAGE</p></div>}
-
-
                 </div>
             </div>
-            <div className="flex items-center justify-end text-base font-semibold">
-                <span>{node.title}</span></div>
+            <div className="w-full h-full absolute  md:row-start-6  flex items-end md:items-center justify-end md:text-sm text-[9px] font-semibold">
+                <span className="w-full bg-black/50 px-4 md:px-0 absolute text-center md:text-end ">{node.title}</span>
+                </div>
 
             {/* {
                 // 

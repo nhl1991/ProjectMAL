@@ -2,7 +2,7 @@
 
 
 .container {
-    @apply w-max h-12 flex p-2 text-4xl;
+    @apply w-max h-12 flex p-2 text-xl md:text-4xl justify-between;
     
 }
 

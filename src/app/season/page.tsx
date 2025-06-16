@@ -9,7 +9,7 @@ export default function Page() {
     const { season, year } = useOptionStore();
 
     return (
-        <div id="background" className="col-span-full row-span-full p-8 ">
+        <div id="background" className="col-span-full row-span-full md:p-8 ">
             <div className="w-full h-full p-2 flex flex-col  items-center md:flex-col md:flex-shrink-0 justify-center border-2 border-transparent">
             {/* <h1 className="w-full h-min text-3xl text-center">{year}/{season}</h1> */}
                 <div className="w-full h-36">

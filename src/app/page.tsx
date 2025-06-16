@@ -42,15 +42,15 @@ export default function Home() {
   return (
     <div className="w-full h-full p-2 justify-center" >
 
-      <div className="w-full h-full p-24">
-        <div className="w-full h-full grid grid-cols-3 grid-rows-1 bg-no-repeat bg-center bg-cover" style={{
+      <div className="w-full h-full md:p-12 p-4">
+        <div className="w-full h-full grid md:grid-cols-3 md:grid-rows-1 grid-cols-1 grid-rows-3 bg-no-repeat bg-center bg-cover" style={{
       backgroundImage: `url(${backgroundImage})`,
     }}>
         {
           menu.map((item, i) => {
             return <div key={i} className="text-white bg-black hover:bg-opacity-50 bg-opacity-100 hover:border-cyan-200 transition-all delay-100">
               <Link href={item==='ranking' ? `/${item}?offset=0&ranking_type=all&limit=10` : `${item}`} 
-              className="w-full h-full text-center text-8xl border-2 border-transparent flex items-center"><b className="p-2 w-full">{item.toUpperCase()}</b></Link>
+              className="w-full h-full text-center text-6xl border-2 border-transparent flex items-center"><b className="p-2 w-full">{item.toUpperCase()}</b></Link>
             </div>
           })
         }

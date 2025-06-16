@@ -1,5 +1,5 @@
 import { headers } from "next/headers";
-import { getAnimationByRankingT } from "../lib/fetch";
+import { getAnimationByRanking } from "../lib/fetch";
 import AnimationContainer from "../ui/animationContainer";
 import Loading from "../ui/loading";
 import { Suspense } from "react";
@@ -12,7 +12,7 @@ export default async function Page() {
     const headersList = headers();
     const fullUrl = (await headersList).get('x-url') || ''; // 커스텀 헤더 안 온다면 아래 방식 사용
     const path = fullUrl.split('/');
-    const response = await getAnimationByRankingT(path[3]);
+    const response = await getAnimationByRanking(path[3]);
     console.log(path[3]);
     return (
 
@@ -26,8 +26,8 @@ export default async function Page() {
                         }) : null
                     }
                 </Suspense>
-            </AnimationContainer>
                 {response ? <Paging paging={response.paging} /> : null}
+            </AnimationContainer>
         </div>
     )
     // return(
