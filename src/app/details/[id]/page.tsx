@@ -2,7 +2,9 @@
 import Detail from "./ui/detailComponent";
 import { getAnimationDetail } from '@/app/lib/fetch';
 import Loading from "@/app/ui/loading";
+import PageWrapper from "@/app/ui/PageWrapper";
 import { Suspense } from "react";
+import Title from "./ui/titleComponent";
 
 export async function generateMetadata(
     { params }: { params: Promise<{ id: string }> }
@@ -20,12 +22,16 @@ export default async function Page({ params }: Readonly<{
     const { id } = await params;
     
     const response = await getAnimationDetail(id)
-
+    console.log('fetch')
     return (
-        <div className="w-full h-full grid grid-cols-12 grid-rows-12 p-2 overflow-scroll md:text-xs lg:text-sm">
+        <>
+        <Title title={response.title} alternative_title={response.alternative_titles} />
+        <PageWrapper>
+            
             <Suspense fallback={<Loading />}>
                 <Detail data={response} />
             </Suspense>
-        </div>
+        </PageWrapper>
+        </>
     )
 }

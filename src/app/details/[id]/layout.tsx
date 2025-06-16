@@ -1,3 +1,4 @@
+import Navigation from "@/app/ui/navigation";
 
 export default function DetailLayout({
   children,
@@ -6,7 +7,8 @@ export default function DetailLayout({
 }>) {
 
   return (
-    <div className="w-full h-full grid grid-rows-12">
+    <div className="w-full h-full grid grid-rows-12 ">
+      <div className="w-full h-full flex items-center justify-end "><Navigation /></div>
       {children}
     </div>
   );

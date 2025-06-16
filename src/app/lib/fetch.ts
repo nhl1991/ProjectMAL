@@ -14,8 +14,7 @@ export async function FetchAPI(url: string) {
 }
 
 export async function getAnimationDetail(id:string){
-
-    return await FetchAPI(`v2/anime/${id}?fields=id,title,main_picture,alternative_titles,start_date,end_date,synopsis,mean,rank,popularity,media_type,status,genres,my_list_status,num_episodes,start_season,broadcast,source,average_episode_duration,rating,pictures,related_anime,recommendations,studios`)
+    return await FetchAPI(`v2/anime/${id}?fields=id,title,main_picture,streaming_platform,alternative_titles,start_date,end_date,synopsis,mean,rank,popularity,media_type,status,genres,my_list_status,num_episodes,start_season,broadcast,source,average_episode_duration,rating,pictures,related_anime,recommendations,studios`)
 }
 
 // export async function getAnimationBySeason(year:string, season: string){

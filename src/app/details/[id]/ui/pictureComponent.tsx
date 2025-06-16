@@ -15,12 +15,12 @@ export default function Pictures({ pictures }: { pictures : pictures}) {
 
     return (
         <>
-            <div className="w-full h-min flex overflow-scroll p-2 border-2 border-transparent my-2">
+            <div className="w-full h-full grid grid-cols-5 grid-rows-3 p-2 border-2 border-transparent my-2 overflow-scroll">
                 {
                     pictures != undefined ?
                     pictures.map((item: { medium: string, large: string }, i: number) => {
 
-                        return <Image key={i}  className="p-1 m-1 flex-shrink-0 shadow-md shadow-slate-400 hover:scale-105" src={item.large} width={180} height={320} alt={item.large} onClick={handleOnClick} />
+                        return <Image key={i}  className="p-1 m-1 hover:scale-105" src={item.large} width={180} height={320} alt={item.large} onClick={handleOnClick} />
                     }) : <></>
                 }
                 {

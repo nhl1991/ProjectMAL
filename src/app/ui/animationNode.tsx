@@ -12,7 +12,7 @@ export default function AnimationNode({ node, ranking }: Readonly<{ node: node, 
     return (
         <div className="w-full h-full relative md:place-content-center flex md:items-center md:justify-center md:p-2 md:grid md:grid-cols-1 md:grid-rows-6 md:gap-2 " >
             <div className="absolute  z-50">
-                {ranking ? <p className={`w-max  h-max px-2 bg-black/50 z-50 md:text-[4rem] text-2xl ${styles.rankTextStroke}`}>{ranking.rank}</p>: <></>}
+                {ranking ? <p className={`w-max  h-max px-2 bg-black/50 z-50 text-3xl md:text-6xl lg:text-9xl ${styles.rankTextStroke}`}>{ranking.rank}</p>: <></>}
             </div>
             <div className="w-full h-full md:row-[1/6] md:flex md:justify-end hover:opacity-80 hover:scale-105 cursor-pointer">
                 <div className="w-full md:w-2/3 h-full relative border-transparent border-2 rounded shadow-md " onClick={() => route.push(`/details/${node.id}`)}>
