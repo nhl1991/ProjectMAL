@@ -1,6 +1,5 @@
 'use client'
-import { node, ranking } from "@/app/lib/types"
-import AnimationContainer from "@/app/ui/animationContainer"
+import { node } from "@/app/lib/types"
 import Image from "next/image";
 
 interface recommendation {

@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 export default function Synopsis({ synopsis }: Readonly<{
     synopsis: string
 }>) {
