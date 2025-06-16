@@ -3,9 +3,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import styles from "./navigation.module.css"
 import { useEffect, useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
-import { IconProp } from "@fortawesome/fontawesome-svg-core";
+
 
 
 export default function Navigation() {
@@ -16,7 +14,7 @@ export default function Navigation() {
         setIsMobile(
             window.innerWidth < 768)
 
-            return () => setIsClick(false);
+        return () => setIsClick(false);
     }, [])
 
 
@@ -51,8 +49,9 @@ export default function Navigation() {
         return (
             <div className="w-full flex justify-end">
                 {isClick ? <button className="p-2" onClick={handleOnClick}>
-                    
-                    <FontAwesomeIcon icon={faBars as IconProp} />
+                    <svg className="w-8" data-slot="icon" fill="none" strokeWidth={1.5} stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
                 </button> : <ul className={`${styles.container} `} >
                     {
                         menu.map((item, i) => {
@@ -63,7 +62,9 @@ export default function Navigation() {
                         })
                     }
                     <li><button className="p-2" onClick={handleOnClick}>
-                        <FontAwesomeIcon icon={faXmark as IconProp} />
+                        <svg className="w-8" data-slot="icon" fill="none" strokeWidth={1.5} stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
+                        </svg>
                     </button></li>
                 </ul>}
             </div>

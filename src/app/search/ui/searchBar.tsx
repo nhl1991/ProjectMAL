@@ -2,9 +2,7 @@
 import { ChangeEvent, Suspense } from "react";
 import { useDebouncedCallback } from "use-debounce";
 import { usePathname, useSearchParams, useRouter } from "next/navigation";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { IconProp } from "@fortawesome/fontawesome-svg-core";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+
 
 export default function SearchBar() {
 
@@ -12,7 +10,7 @@ export default function SearchBar() {
         <>
             <div className="w-full h-max p-2 flex justify-center text-black ">
                 <Suspense>
-                    <Search /><FontAwesomeIcon className="p-2" icon={faMagnifyingGlass as IconProp} />
+                    <Search />
                 </Suspense>
             </div>
         </>
