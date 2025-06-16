@@ -1,5 +1,5 @@
 'use server'
-import {  getAnimationBySeason } from "@/app/lib/fetch";
+import { getAnimationBySeason } from "@/app/lib/fetch";
 import { MAL } from "@/app/lib/types";
 import AnimationContainer from "@/app/ui/animationContainer";
 import AnimationNode from "@/app/ui/animationNode";
@@ -7,6 +7,7 @@ import { Suspense } from "react";
 import { headers } from "next/headers";
 import Paging from "@/app/ui/PagingComponent";
 import Loading from "@/app/ui/loading";
+import PageWrapper from "@/app/ui/PageWrapper";
 
 
 
@@ -19,10 +20,10 @@ export default async function Page() {
     const query = `${path[3]}/${path[4]}/${path[5]}`;
     const response = await getAnimationBySeason(`${query}`);
     console.log(response.data === undefined);
-// season/2023/summer?offset=0&limit=10
-// season/2023/summer?offset=10&limit=10
+    // season/2023/summer?offset=0&limit=10
+    // season/2023/summer?offset=10&limit=10
     return (
-        <div className="w-full row-[2/-1] flex flex-col items-center justify-center">
+        <PageWrapper>
             <AnimationContainer>
                 <Suspense fallback={<Loading />}>
                     {response.data ?
@@ -31,9 +32,9 @@ export default async function Page() {
                         }) : null
                     }
                 </Suspense>
-            {response.paging ? <Paging paging={response.paging} /> : null}
+                {response.paging ? <Paging paging={response.paging} /> : null}
             </AnimationContainer>
-        </div>
+        </PageWrapper>
 
     )
 }

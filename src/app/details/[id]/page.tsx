@@ -22,7 +22,7 @@ export default async function Page({ params }: Readonly<{
     const response = await getAnimationDetail(id)
 
     return (
-        <div className="w-full h-full p-2 flex flex-col overflow-scroll md:text-xs lg:text-sm">
+        <div className="w-full h-full grid grid-cols-12 grid-rows-12 p-2 overflow-scroll md:text-xs lg:text-sm">
             <Suspense fallback={<Loading />}>
                 <Detail data={response} />
             </Suspense>

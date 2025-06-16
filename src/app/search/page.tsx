@@ -7,6 +7,7 @@ import AnimationNode from "../ui/animationNode";
 import { MAL } from "../lib/types";
 import Loading from "../ui/loading";
 import Paging from "../ui/PagingComponent";
+import PageWrapper from "../ui/PageWrapper";
 
 
 
@@ -21,37 +22,40 @@ export default async function Page(props: {
     //http://localhost:3000/search?q=uma
     //http://localhost:3000/anime?offset=10&q=uma&limit=10
     if (searchParams && 'q' in searchParams) {
-        const {offset, q, limit} = searchParams
+        const { offset, q, limit } = searchParams
         const query = `anime?offset=${offset}&q=${q}&limit=${limit}`
         const response = await getAnimationBySearch(query);
         console.log(response.data.length)
 
         return (
-            <>
+            <PageWrapper>
                 <div className={`col-span-full flex flex-col items-center justify-center row-[2/3]`}>
                     <SearchBar />
                 </div>
                 {searchParams && searchParams.q && response.data && response.data.length > 0 ?
-                <div className="w-full row-[2/-1] flex flex-col items-center justify-center background-intro-animation">
-                    <AnimationContainer>
-                        <Suspense fallback={<Loading />}>
-                            {response.data.map((item: MAL, i: number) => {
-                                return <AnimationNode key={i} node={item.node} />;
-                            })}
-                        </Suspense>
-                    { response.paging ? <Paging paging={response.paging} /> : null}
-                    </AnimationContainer>
-                </div> : <div className="w-full py-24 row-[3/-1] flex text-center flex-col place-content-center">
-                
-                <p className="w-full text-4xl font-extrabold p-2">Result not found.</p>
-            </div>}
-            </>
+                    <div className="w-full row-[2/-1] flex flex-col items-center justify-center background-intro-animation">
+                        <AnimationContainer>
+                            <Suspense fallback={<Loading />}>
+                                {response.data.map((item: MAL, i: number) => {
+                                    return <AnimationNode key={i} node={item.node} />;
+                                })}
+                            </Suspense>
+                            {response.paging ? <Paging paging={response.paging} /> : null}
+                        </AnimationContainer>
+                    </div> : <div className="w-full py-24 row-[3/-1] flex text-center flex-col place-content-center">
+
+                        <p className="w-full text-4xl font-extrabold p-2">Result not found.</p>
+                    </div>}
+            </PageWrapper>
         )
     } else {
         return (
-            <div className={`col-span-full flex flex-col items-center justify-center row-span-full`}>
-                <SearchBar />
-            </div>
+
+            <PageWrapper>
+                <div className={`w-full h-full flex justify-center items-center`}>
+                    <SearchBar />
+                </div>
+            </PageWrapper>
         )
     }
 }

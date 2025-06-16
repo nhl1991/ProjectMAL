@@ -17,26 +17,14 @@ div::-webkit-scrollbar {
   /* [출처] (CSS)select 태그 디자인.appearance와background이용|작성자 별벼리 */
 }
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #000000;
-    --foreground: #ededed;
-
-  }
-}
 
 * {
   box-sizing: border-box;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
+  color: white;
+  background: black;
   font-family: Arial, Helvetica, sans-serif;
 }
 

@@ -19,7 +19,7 @@ export default function Navigation() {
 
 
     const menu = ['/', 'search', 'ranking', 'season']
-    const [isClick, setIsClick] = useState(false);
+    const [isClick, setIsClick] = useState(true);
     const handleOnClick = () => {
         setIsClick(!isClick)
     }
@@ -45,15 +45,15 @@ export default function Navigation() {
             </ul>
         )
     } else if (isMobile) {
-
         return (
-            <div className="w-full flex justify-end">
-                {isClick ? <button className="p-2" onClick={handleOnClick}>
+            <ul className="w-full h-full overflow-scroll flex justify-end items-center" >
+                {isClick ? <li><button className="p-2" onClick={handleOnClick}>
                     <svg className="w-8" data-slot="icon" fill="none" strokeWidth={1.5} stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                     </svg>
-                </button> : <ul className={`${styles.container} `} >
+                </button></li> : <>
                     {
+
                         menu.map((item, i) => {
                             return <li key={i} className={` p-2 items-center border-transparent rounded-sm`}>
                                 <Link href={item === '/' ? '/' : `/${item}`} className={'p-2' + `${pathname.startsWith(`/${item}`) ? 'text-cyan-300 border-b-cyan-300 ' : 'border-transparent'}`}><b>{item === '/' ? 'HOME' : item.toUpperCase()}</b></Link>
@@ -61,13 +61,18 @@ export default function Navigation() {
                             </li>
                         })
                     }
-                    <li><button className="p-2" onClick={handleOnClick}>
-                        <svg className="w-8" data-slot="icon" fill="none" strokeWidth={1.5} stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
-                        </svg>
-                    </button></li>
-                </ul>}
-            </div>
+                    <li>
+                        <button className="p-2" onClick={handleOnClick}>
+                            <svg className="w-8" data-slot="icon" fill="none" strokeWidth={1.5} stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </li>
+                </>
+                }
+
+            </ul>
+
         )
     }
 }

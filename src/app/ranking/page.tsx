@@ -6,6 +6,7 @@ import { Suspense } from "react";
 import AnimationNode from "../ui/animationNode";
 import { MAL } from "../lib/types";
 import Paging from "../ui/PagingComponent";
+import PageWrapper from "../ui/PageWrapper";
 
 
 export default async function Page() {
@@ -16,8 +17,7 @@ export default async function Page() {
     console.log(path[3]);
     return (
 
-        <div className="w-full row-[2/-1] flex flex-col items-center justify-center">
-
+        <PageWrapper>
             <AnimationContainer>
                 <Suspense fallback={<Loading />}>
                     {
@@ -28,7 +28,7 @@ export default async function Page() {
                 </Suspense>
                 {response ? <Paging paging={response.paging} /> : null}
             </AnimationContainer>
-        </div>
+        </PageWrapper>
     )
     // return(
     //     <>

@@ -22,8 +22,8 @@ export default function InformationComponent(props:props) {
 
     return (
         <>
-            <div className="p-1 mx-2 md:block flex">
-                <p className="p-1 font-semibold">{props.name.toUpperCase()}</p>
+            <div className="text-left md:text-center grid grid-cols-2 md:block items-center justify-center">
+                <p className="font-semibold ">{props.name.toUpperCase()}</p>
                 <InformationTitle>
                     {renderText(props.name)}{props.name === 'average playtime' ? ' min' : ''}
                 </InformationTitle>
