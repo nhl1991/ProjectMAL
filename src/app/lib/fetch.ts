@@ -4,7 +4,7 @@ export async function FetchAPI(url: string) {
     const response = await fetch(`https://api.myanimelist.net/${url}`, {
         headers: {
             // "X-MAL-CLIENT-ID": `${process.env.NODE_ENV === 'production' ? process.env.NEXT_PUBLIC_MAL_CLIENT_ID : process.env.MAL_CLIENT_ID}`
-            "X-MAL-CLIENT-ID": `${process.env.MAL_CLIENT_ID}`,
+            "X-MAL-CLIENT-ID": `${process.env.NODE_ENV === 'production' ? process.env.NEXT_PUBLIC_MAL_CLIENT_ID : process.env.MAL_CLIENT_ID}`,
         },
         method: "GET",
     })
