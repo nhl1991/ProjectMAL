@@ -1,8 +1,6 @@
 'use client'
 
 import Image from "next/image"
-import { MouseEvent, useState } from "react";
-import RelatedAnimations from "./relatedAnimation";
 import Title from "./titleComponent";
 import Synopsis from "./synopsisComponent";
 import Genres from "./genreComponent";
@@ -44,9 +42,8 @@ export default function Detail({ data }: Readonly<{
             
             <div className="col-span-full bg-sky-600 row-span-6 order-1 md:flex border-2 border-transparent p-4">
                 <div className="w-full md:w-1/4 border-2 md:p-2 md:flex-shrink-0 overlfow-scroll" >
-                    {/* {flip ? <Image className="w-full rounded border-2 border-transparent shadow-md shadow-slate-500" src={item.main_picture.large} width={480} height={640} alt="image will be prepared." />
-                        : <RelatedAnimations related_anime={item.related_anime} />
-                    } */}
+                    {item.main_picture.large ? <Image className="w-full rounded border-2 border-transparent shadow-md shadow-slate-500" src={item.main_picture.large} width={480} height={640} alt="image will be prepared." /> : null}
+                    
                     <div className="w-full h-min p-1 my-1 flex justify-center">
                         <p className="w-max p-1 border-2 border-transparent rounded hover:bg-slate-100 text-center"></p>
                     </div>
@@ -60,7 +57,7 @@ export default function Detail({ data }: Readonly<{
                 </div>
 
             </div>
-            {/* {item.recommendations != undefined ? <RecommendationList recommendations={item.recommendations} /> : <></>} */}
+            {item.recommendations != undefined ? <RecommendationList recommendations={item.recommendations} /> : <></>}
 
         </>
     )
