@@ -23,7 +23,7 @@ export default function Detail({ data }: Readonly<{
 
     return (
         <div className="w-full h-full  grid md:grid-rows-12 md:grid-cols-12 gap-2">
-            <div className="col-span-full grid-cols-1 grid-rows-11 row-end-[1/2] hidden md:grid md:grid-cols-12 bg-lime-200">
+            <div className="col-span-full grid-cols-1 grid-rows-11 row-end-[1/2] hidden md:grid md:grid-cols-12">
                 <InformationComponent name="ranking" item={item.rank ? item.rank : '-'} />
                 <InformationComponent name="mean" item={item.mean ? item.mean : '-'} />
                 <InformationComponent name="quater" item={[item.start_season.season ? item.start_season.season : '', item.start_season.year ? item.start_season.year : '']} />
