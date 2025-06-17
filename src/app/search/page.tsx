@@ -7,7 +7,7 @@ import AnimationNode from "../ui/animationNode";
 import { MAL } from "../lib/types";
 import Loading from "../ui/loading";
 import Paging from "../ui/PagingComponent";
-import PageWrapper from "../ui/PageWrapper";
+
 
 
 
@@ -28,12 +28,12 @@ export default async function Page(props: {
 
 
         return (
-            <PageWrapper>
+            <div className="row-[2/-1] grid-cols-1 grid-rows-12 md:items-center md:justify-center overflow-scroll">
                 <div className={`col-span-full flex flex-col items-center justify-center row-[2/3]`}>
                     <SearchBar />
                 </div>
                 {searchParams && searchParams.q && response.data && response.data.length > 0 ?
-                    <div className="w-full row-[2/-1] flex flex-col items-center justify-center background-intro-animation">
+                    <div className="w-full h-full row-[3/-1] flex flex-col items-center justify-center background-intro-animation">
                         <AnimationContainer>
                             <Suspense fallback={<Loading />}>
                                 {response.data.map((item: MAL, i: number) => {
@@ -46,17 +46,17 @@ export default async function Page(props: {
 
                         <p className="w-full text-4xl font-extrabold p-2">Result not found.</p>
                     </div>}
-            </PageWrapper>
+            </div>
         )
     } else {
         return (
 
-            <PageWrapper>
-                <div className={`w-full h-full row-span-5 bg-fuchsia-300 flex flex-col justify-center items-center`}>
-                    <h1>SEARCH</h1>
+            <div className="row-[2/-1] grid-cols-1 grid-rows-12 md:items-center md:justify-center overflow-scroll">
+                <div className={`w-full h-full row-span-2 flex flex-col justify-center items-center`}>
+                    <h1 className="font-bold md:text-4xl p-4">What animation are you looking for?</h1>
                     <SearchBar />
                 </div>
-            </PageWrapper>
+            </div>
         )
     }
 }
