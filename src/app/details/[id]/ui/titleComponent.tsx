@@ -1,7 +1,6 @@
-import Image from 'next/image';
-export default function Title({ title, image,alternative_title} : Readonly<{
+
+export default function Title({ title, alternative_title} : Readonly<{
     title: string,
-    image: string,
     alternative_title: {
         en: string,
         ja: string

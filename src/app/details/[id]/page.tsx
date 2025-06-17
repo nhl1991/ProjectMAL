@@ -25,7 +25,7 @@ export default async function Page({ params }: Readonly<{
 
     return (
         <>
-            <Title title={response.title} image={response.main_picture.medium} alternative_title={response.alternative_titles} />
+            <Title title={response.title} alternative_title={response.alternative_titles} />
             <PageWrapper>
                 <Suspense fallback={<Loading />}>
                     <Detail data={response} />
