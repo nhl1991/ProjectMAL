@@ -25,7 +25,7 @@ export default async function Page(props: {
         const { offset, q, limit } = searchParams
         const query = `anime?offset=${offset}&q=${q}&limit=${limit}`
         const response = await getAnimationBySearch(query);
-        console.log(response.data.length)
+
 
         return (
             <PageWrapper>
@@ -52,7 +52,8 @@ export default async function Page(props: {
         return (
 
             <PageWrapper>
-                <div className={`w-full h-full flex justify-center items-center`}>
+                <div className={`w-full h-full row-span-5 bg-fuchsia-300 flex flex-col justify-center items-center`}>
+                    <h1>SEARCH</h1>
                     <SearchBar />
                 </div>
             </PageWrapper>

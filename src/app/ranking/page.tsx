@@ -14,7 +14,7 @@ export default async function Page() {
     const fullUrl = (await headersList).get('x-url') || ''; // 커스텀 헤더 안 온다면 아래 방식 사용
     const path = fullUrl.split('/');
     const response = await getAnimationByRanking(path[3]);
-    console.log(path[3]);
+
     return (
 
         <PageWrapper>

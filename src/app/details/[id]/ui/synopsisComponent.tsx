@@ -4,8 +4,8 @@ export default function Synopsis({ synopsis }: Readonly<{
 
     return (
         <>
-            <div className="w-full row-span-8 my-4 transition-all duration-1000 ease-in-out">
-                <p className={` flex-shrink-0 p-2 transition-all duration-1000 ease-in-out rounded text-left md:text-center w-full h-max`}>{synopsis}</p>
+            <div className="w-full md:max-w-[60%] max-h-[100%] px-4">
+                <p className={` `}>{synopsis}</p>
                 
             </div>
         </>

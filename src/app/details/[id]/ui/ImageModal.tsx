@@ -27,14 +27,14 @@ export default function ImageModal({ source }: Readonly<{
             <div
                 id="outer-modal"
                 onClick={handleOnClick}
-                className="fixed inset-0 flex justify-center items-center w-full h-full bg-gray-500/50"
+                className="fixed inset-0 flex justify-center items-center w-full h-full bg-gray-500/50 z-50"
             >
                 <div
                     id="inner-modal"
                     onClick={preventOffModal}
-                    className="min-w-[48vw] min-h-[96vh] relative m-24 bg-white rounded-md p-2 overflow-scroll"
+                    className="min-w-[90vw] min-h-[90vh] relative m-24 bg-white rounded-md p-2 overflow-scroll"
                 >
-                    <Image src={source} className="object-contain" fill alt="Image not found."/>
+                    <Image src={source} className="object-contain p-2" fill alt="Image not found."/>
                 </div>
             </div>
         </>

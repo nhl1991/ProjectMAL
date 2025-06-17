@@ -31,7 +31,7 @@ export async function getAnimationDetail(id:string){
 export async function getAnimationBySearch(query:string|undefined){
     if(query === undefined) return;
 
-    console.log(query);
+
     return await FetchAPI(`v2/${query}`)
 }
 

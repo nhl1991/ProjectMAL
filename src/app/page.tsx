@@ -42,7 +42,7 @@ export default function Home() {
 
   return (
     <PageWrapper>
-      <div className="w-full h-full gap-0 grid md:grid-cols-3 md:grid-rows-1 grid-cols-1 grid-rows-3 bg-no-repeat bg-center bg-cover duration-150" style={{
+      <div className="w-full min-h-screen gap-0 grid md:grid-cols-3 md:grid-rows-1 grid-cols-1 grid-rows-3 bg-no-repeat bg-center bg-cover duration-150" style={{
         backgroundImage: `url(${backgroundImage})`,
       }}>
         {

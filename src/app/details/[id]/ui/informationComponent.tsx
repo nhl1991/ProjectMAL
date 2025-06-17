@@ -22,8 +22,8 @@ export default function InformationComponent(props:props) {
 
     return (
         <>
-        <div className={`text-left md:text-center grid grid-cols-2 md:block md:p-2 ${props.name === 'aired' ? 'md:col-span-2':null}` }>
-                <p className="font-semibold ">{props.name.toUpperCase()}</p>
+        <div className={`text-left grid grid-cols-2 justify-center items-center px-2` }>
+                <p className="font-semibold text-[9px] md:text-[11px] lg:text-[14px] ">{props.name.toUpperCase()}</p>
                 <InformationTitle>
                     {renderText(props.name)}{props.name === 'average playtime' ? ' min' : ''}
                 </InformationTitle>

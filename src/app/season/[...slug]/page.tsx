@@ -19,9 +19,6 @@ export default async function Page() {
     const path = fullUrl.split('/'); // searchParam[4]:year, searchParam[5]: season&query
     const query = `${path[3]}/${path[4]}/${path[5]}`;
     const response = await getAnimationBySeason(`${query}`);
-    console.log(response.data === undefined);
-    // season/2023/summer?offset=0&limit=10
-    // season/2023/summer?offset=10&limit=10
     return (
         <PageWrapper>
             <AnimationContainer>

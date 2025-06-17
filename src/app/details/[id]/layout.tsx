@@ -7,8 +7,8 @@ export default function DetailLayout({
 }>) {
 
   return (
-    <div className="w-full h-full grid grid-rows-12 ">
-      <div className="w-full h-full flex items-center justify-end "><Navigation /></div>
+    <div className="w-full h-screen grid grid-rows-12 ">
+      <div className="w-full row-end-2 flex items-center justify-end "><Navigation /></div>
       {children}
     </div>
   );
