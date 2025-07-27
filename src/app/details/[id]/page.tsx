@@ -1,10 +1,10 @@
 
-import Detail from "./ui/detailComponent";
-import { getAnimationDetail } from '@/app/lib/fetch';
-import Loading from "@/app/ui/loading";
-import PageWrapper from "@/app/ui/PageWrapper";
+import Detail from "@/components/details/components/detailComponent";
+import { getAnimationDetail } from '@/lib/fetch';
+import Loading from "@/components/loading";
+import PageWrapper from "@/components/PageWrapper";
 import { Suspense } from "react";
-import Title from "./ui/titleComponent";
+import Title from "@/components/details/ui/titleComponent";
 
 export async function generateMetadata(
     { params }: { params: Promise<{ id: string }> }

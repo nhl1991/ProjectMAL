@@ -34,12 +34,9 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased w-screen h-max p-0 grid grid-cols-1 grid-rows-[repeat(16,minmax(0,1fr))]`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased w-screen h-screen p-2 `}
       >
-
-        <section className="min-h-screen rounded-2xl row-[1/-1] md:row-span-full">
           {children}
-        </section>
         {/* <footer className="w-full bottom-0 text-center absolute text-sm">
             &copy;Data sourced from <a href="https://myanimelist.net/" target="_blank" rel="noopener noreferrer">MyAnimeList</a>
         </footer> */}

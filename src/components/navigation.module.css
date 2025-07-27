@@ -1,0 +1,11 @@
+@reference "tailwindcss";
+
+
+.container {
+    @apply w-max h-12 flex p-2 justify-between;
+    
+}
+
+@media (min-width: 768px) {
+
+}

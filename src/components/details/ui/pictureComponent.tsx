@@ -1,0 +1,32 @@
+import Image from "next/image"
+import { MouseEvent, useState } from "react";
+import ImageModal from "./ImageModal";
+import { useModalStore } from "@/lib/stores";
+import { picture } from "@/lib/types";
+type pictures = picture[] | undefined
+
+export default function Pictures({ pictures }: { pictures : pictures}) {
+    const { modal, setModal } = useModalStore()
+    const [ source, setSource ] = useState('');
+    const handleOnClick = (e:MouseEvent<HTMLImageElement>) => {
+        setSource(e.currentTarget.alt);
+        setModal(!modal)
+    };
+
+    return (
+        <>
+            <div className="w-full h-full gap-2 grid grid-cols-[repeat(4,min(50%))] md:grid-cols-[repeat(4,min(20%))] grid-rows-2 grid-flow-col md:auto-cols-[min(20%)] auto-cols-[min(50%)] overflow-scroll">
+                {
+                    pictures != undefined ?
+                    pictures.map((item: { medium: string, large: string }, i: number) => {
+
+                        return <div key={i} className="w-full h-full relative"><Image key={i}  className="object-cover hover:scale-105" src={item.large} fill alt={item.large} onClick={handleOnClick} /></div>
+                    }) : <></>
+                }
+                {
+                    modal && source != "" && <ImageModal source={source} />
+                }
+            </div>
+        </>
+    )
+}

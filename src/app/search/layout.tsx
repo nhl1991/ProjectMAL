@@ -1,6 +1,6 @@
 'use client'
+import Navigation from "@/components/navigation";
 
-import Navigation from "../ui/navigation";
 
 export default function ListLayout({
   children,
@@ -12,7 +12,9 @@ export default function ListLayout({
   return (
     <div className="w-full h-full grid grid-rows-12">
       <div className="w-full h-full flex items-center justify-end "><Navigation /></div>
-      {children}
+
+        {children}
+
     </div>
 
   );

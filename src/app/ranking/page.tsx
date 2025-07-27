@@ -1,45 +1,28 @@
-import { headers } from "next/headers";
-import { getAnimationByRanking } from "../lib/fetch";
-import AnimationContainer from "../ui/animationContainer";
-import Loading from "../ui/loading";
-import { Suspense } from "react";
-import AnimationNode from "../ui/animationNode";
-import { MAL } from "../lib/types";
-import Paging from "../ui/PagingComponent";
-import PageWrapper from "../ui/PageWrapper";
 
+import PageWrapper from "@/components/PageWrapper";
+import { ranking_type } from "@/lib/variables";
+import { Suspense } from "react";
+import Loading from "@/components/loading";
+import AnimePreviewList from "@/components/AnimePreviewList";
 
 export default async function Page() {
-    const headersList = headers();
-    const fullUrl = (await headersList).get('x-url') || ''; // 커스텀 헤더 안 온다면 아래 방식 사용
-    const path = fullUrl.split('/');
-    const response = await getAnimationByRanking(path[3]);
 
     return (
 
         <PageWrapper>
-            <AnimationContainer>
+            <div className="w-full h-full px-4">
                 <Suspense fallback={<Loading />}>
                     {
-                        response ? response.data.map((item: MAL, i: number) => {
-                            return <AnimationNode key={i} node={item.node} ranking={item.ranking} />
-                        }) : null
-                    }
+                        Array.isArray(ranking_type) && ranking_type.map((item, i) => {
+
+                            return <div key={i} className="w-full h-max p-2">
+                                <AnimePreviewList type={'anime/ranking'} query={`ranking_type=${item}&offset=0&limit=10`} title={`TOP 10 - ${item}`} />
+                            </div>
+                        })}
+
                 </Suspense>
-                {response ? <Paging paging={response.paging} /> : null}
-            </AnimationContainer>
+
+            </div>
         </PageWrapper>
     )
-    // return(
-    //     <>
-    //         {
-    //             response.data.map((item, index)=>{
-    //                 return <p key={index}>{item.node.title}</p>;
-    //             })
-    //         }
-    //         
-
-    //     </>
-    // )
-
 }

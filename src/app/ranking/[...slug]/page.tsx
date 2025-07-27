@@ -1,38 +1,34 @@
-'use server'
-import { getAnimationBySeason } from "@/lib/fetch";
-import { MAL } from "@/lib/types";
 import AnimationContainer from "@/components/animationContainer";
 import AnimationNode from "@/components/animationNode";
-import { Suspense } from "react";
-import { headers } from "next/headers";
-import Paging from "@/components/PagingComponent";
 import Loading from "@/components/loading";
 import PageWrapper from "@/components/PageWrapper";
+import Paging from "@/components/PagingComponent";
+import { getAnimationByRanking } from "@/lib/fetch";
+import { MAL } from "@/lib/types";
+import { headers } from "next/headers";
+import { Suspense } from "react";
 
-
-
-
-
-export default async function Page() {
+export default async function Page({ params } : { params: Promise<{ slug?: string }>}) {
     const headersList = headers();
     const fullUrl = (await headersList).get('x-url') || '';
-    const path = fullUrl.split('/'); // searchParam[4]:year, searchParam[5]: season&query
-    const query = `${path[3]}/${path[4]}/${path[5]}`;
-    const slug = path[5].split('?')[0];
-    const response = await getAnimationBySeason(`${query}`);
+    const path = fullUrl.split('?');
+
+    const { slug } = await params;
+    const response = await getAnimationByRanking(path[1]);
+
     return (
         <PageWrapper>
             <AnimationContainer>
                 <Suspense fallback={<Loading />}>
-                    {response.data ?
+                    {response && response.data ?
                         response.data.map((item: MAL, i: number) => {
-                            return <AnimationNode key={i} node={item.node} />
+                            return <AnimationNode key={i} node={item.node} ranking={item.ranking} />
                         }) : null
                     }
                 </Suspense>
                 {response.paging ? <Paging slug={slug} paging={response.paging} /> : null}
             </AnimationContainer>
         </PageWrapper>
-
     )
+
 }
