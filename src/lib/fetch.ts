@@ -9,7 +9,7 @@ export async function FetchAPI(url: string) {
         method: "GET",
     })
     const result = await response.json();
-    console.log('Fetch. => ', url);
+    // console.log('Fetch. => ', url);
 
     return result;
 }
@@ -47,7 +47,7 @@ export async function getAnimationPreview(query: string) {
         return await FetchAPI(`v2/${query}&limit=20`)
     }
 
-    console.log(query);
+
     return await FetchAPI(`v2/${query}&limit=10`)
 }
 

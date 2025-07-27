@@ -6,7 +6,7 @@ export async function middleware(request: NextRequest) {
     // let i = 0;
     
     if (request.method === "GET") {
-        console.log('GET 요청. ', request.url);
+        // console.log('GET 요청. ', request.url);
 
         if (request.nextUrl.pathname.startsWith('/ranking/')) {
             const response = NextResponse.next();
@@ -25,7 +25,7 @@ export async function middleware(request: NextRequest) {
         
         if (request.nextUrl.pathname === '/result'){
             const response = NextResponse.next();
-            console.log('/result GET')
+
             response.headers.set('x-url', request.url);
             
             return response;

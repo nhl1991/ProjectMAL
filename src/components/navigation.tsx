@@ -10,7 +10,7 @@ import SearchBar from "./search/ui/searchBar";
 export default function Navigation() {
     const pathname = usePathname();
     const [isMobile, setIsMobile] = useState(false);
-    console.log(pathname);
+
     useEffect(() => {
         setIsMobile(
             window.innerWidth < 768)
