@@ -32,7 +32,7 @@ export default function ImageModal({ source }: Readonly<{
                 <div
                     id="inner-modal"
                     onClick={preventOffModal}
-                    className="min-w-[90vw] min-h-[90vh] relative m-24 bg-white rounded-md p-2 overflow-scroll"
+                    className="min-w-[90vw] min-h-[90vh] relative m-24 bg-black/30 rounded-md p-2 overflow-scroll"
                 >
                     <Image src={source} className="object-contain p-2" fill alt="Image not found."/>
                 </div>

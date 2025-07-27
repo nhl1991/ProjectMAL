@@ -4,8 +4,8 @@ export default function Synopsis({ synopsis }: Readonly<{
 
     return (
         <>
-            <div className="w-full md:max-w-[60%] max-h-[100%] px-4">
-                <p className={` `}>{synopsis}</p>
+            <div className="w-full px-4 overflow-scroll">
+                <p className={` md:text-base text-xs `}>{synopsis}</p>
                 
             </div>
         </>

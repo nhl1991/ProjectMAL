@@ -21,24 +21,24 @@ export default function Detail({ data }: Readonly<{
 
 
 
-
     return (
-        <div className="w-full min-h-full grid grid-rows-5 gap-2">
+        <div className="w-full min-h-full  grid grid-rows-5 gap-2 relative ">
+            {/* <Image className="rounded-2xl object-cover absolute opacity-30 -z-30" src={item.main_picture.large} fill alt="image will be prepared." /> */}
+            <div className="w-full row-[1/2] flex justify-center -z-10">
 
-            <div className="w-full row-[1/2] flex justify-center p-2">
-                <div className="min-w-[80%] h-full relative" >
-                    {item.main_picture.large ? <Image className="rounded-2xl object-cover" src={item.main_picture.large} fill alt="image will be prepared." /> : null}
+                <div className="w-full h-full relative rounded-2xl " >
+                    {item.main_picture.large ? <Image className="object-[10%_43.59%] rounded-2xl object-cover" src={item.main_picture.large} fill alt="image will be prepared." /> : null}
                 </div>
             </div>
-            <div className="row-[2/3] flex flex-col  items-center justify-center">
+            <div className="row-[2/3] w-full flex flex-col  items-center justify-center bg-black/30 p-2 rounded-2xl">
                 <Synopsis synopsis={item.synopsis} />
                 <Genres genres={item.genres} />
             </div>
-            <div className="row-[3/4] flex items-center justify-center">
-                <div className="w-max">
+            <div className="row-[3/4] flex items-center justify-center rounded-2xl bg-black/30">
+                <div className="w-max  p-2  ">
                     <InformationComponent name="ranking" item={item.rank ? item.rank : '-'} />
                     <InformationComponent name="mean" item={item.mean ? item.mean : '-'} />
-                    <InformationComponent name="quater" item={[item.start_season.season ? item.start_season.season : '', item.start_season.year ? item.start_season.year : '']} />
+                    <InformationComponent name="quater" item={[Array.isArray(item.start_season) && item.start_season.map((item) => { return item })]} />
                     <InformationComponent name="aired" item={[item.start_date ? item.start_date : '', item.end_date ? item.end_date : '']} />
                     <InformationComponent name="type" item={item.media_type != 'unknown' ? item.media_type.toUpperCase() : '-'} />
                     <InformationComponent name="status" item={item.status.replaceAll('_', ' ').toUpperCase()} />
@@ -49,29 +49,15 @@ export default function Detail({ data }: Readonly<{
                     <InformationComponent name="studios" item={item.studios ? item.studios.map((item) => { return item.name; }) : '-'} />
                 </div>
             </div>
-            <div className=" p-4 overflow-scroll md:p-12">
-                {item.pictures != undefined ? <Pictures pictures={item.pictures} /> : <></>}
-            </div>
-            <div className=" p-4 overflow-scroll md:p-12">
+            {Array.isArray(item.pictures) && item.pictures.length > 0 ? <div className="w-full p-4 overflow-x-scroll md:p-12">
+                <h1 className="px-2 py-1 text-xl">Relate Image</h1>
+                <Pictures pictures={item.pictures} />
+            </div> : null}
+
+            {Array.isArray(item.recommendations) && item.recommendations.length > 0 ? <div className="w-full p-4 overflow-x-scroll md:p-12">
                 <h1 className="px-2 py-1 text-xl">Recommendation</h1>
-                {item.recommendations != undefined && item.recommendations.length != 0 ? <RecommendationList recommendations={item.recommendations} /> : <></>}
-
-            </div>
-            {/* <div className="grid-rows-11 md:grid-rows-1 md:row-[1/2] grid md:grid-cols-12 gap-2 order-2 md:order-1 bg-blue-900">
-                    
-            </div>
-            
-            <div className="col-span-full row-span-6 order-1 md:flex border-2 border-transparent p-4">
-                
-                </div>
-                <div className="w-full flex flex-col md:w-3/4 h-full">
-
-                    
-
-                </div>
-
-            </div>
-             */}
+                <RecommendationList recommendations={item.recommendations} />
+            </div> : null}
 
         </div>
     )

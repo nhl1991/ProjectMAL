@@ -4,7 +4,7 @@ export default function InformationTitle({children} : Readonly<{ children:React.
 
     return(
         <>
-            <p className="p-1">
+            <p className="p-1 ">
                 {children}
             </p>
         </>
