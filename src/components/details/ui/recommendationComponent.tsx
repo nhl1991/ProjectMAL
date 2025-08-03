@@ -1,6 +1,7 @@
 'use client'
 import { node } from "@/lib/types"
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 
 interface recommendation {
@@ -22,43 +23,35 @@ export default function RecommendationList({ recommendations }: Readonly<{
     recommendations: recommendation[] | undefined
 }>) {
 
-    // return (
-    //     <div className="w-full h-full flex overflow-scroll gap-4">
-    //         {
-    //             recommendations?.map((item, i) => (
-    //                 <RecommendationItemNode key={i} node={item.node} />
-    //             ))
-    //         }
-    //     </div>
-    // )
-
     return (
-        <div className="w-full h-full gap-2 grid grid-cols-[repeat(4,min(50%))] md:grid-cols-[repeat(4,min(20%))] grid-rows-2 grid-flow-col md:auto-cols-[min(20%)] auto-cols-[min(50%)] overflow-scroll">
-            {
-                recommendations?.map((item, i) => (
-                    <RecommendationItemNode key={i} node={item.node} />
-                ))
-            }
+        <div className="w-full h-full p-1">
+            <div className="w-max h-full gap-2 grid place-content-center grid-cols-[repeat(4,min(100px))] grid-rows-2 grid-flow-col auto-cols-[min(100px)] p-2">
+
+                {
+                    recommendations?.map((item, i) => (
+                        <RecommendationItemNode key={i} node={item.node} />
+                    ))
+                }
+            </div>
         </div>
     )
 }
 
 function RecommendationItemNode({ node }: Readonly<{ node: node }>) {
-
+    const router = useRouter();
 
     return (
-        <div className="w-full h-full relative flex-shrink-0 rounded-2xl overflow-hidden">
+        <>
             {
                 node.main_picture
-                    ? <div
-                        className="w-full h-full relative"
-                    >
-                        <Image className="rounded-2xl object-cover" fill src={node.main_picture.large} alt={node.main_picture.medium} /></div>
+                    ? <div className="w-full h-full relative" onClick={()=> router.push(`/details/${node.id}`)}>
+                        <Image className="object-cover" fill src={node.main_picture.large} alt={node.main_picture.medium} />
+                        
+                    </div>
                     : null
             }
-            <p className="w-full absolute bg-black/70 bottom-0 z-50 px-2 text-center text-white text-sm">{node.title}</p>
-
-        </div>
+            {/* <p className="w-full absolute bg-black/70 bottom-0 px-2 text-center text-white text-sm">{node.title}</p> */}
+        </>
     )
 
 }

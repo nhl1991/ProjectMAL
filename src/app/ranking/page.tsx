@@ -10,12 +10,12 @@ export default async function Page() {
     return (
 
         <PageWrapper>
-            <div className="w-full h-full px-4">
+            <div className="w-full h-full overflow-scroll px-4">
                 <Suspense fallback={<Loading />}>
                     {
                         Array.isArray(ranking_type) && ranking_type.map((item, i) => {
 
-                            return <div key={i} className="w-full h-max p-2">
+                            return <div key={i} className="w-full h-max p-2 ">
                                 <AnimePreviewList type={'anime/ranking'} query={`ranking_type=${item}&offset=0&limit=10`} title={`TOP 10 - ${item}`} />
                             </div>
                         })}

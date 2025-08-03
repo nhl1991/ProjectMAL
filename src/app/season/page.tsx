@@ -12,7 +12,7 @@ export default function Page() {
 
     return (
         <PageWrapper>
-            <div className="w-full h-full p-2">
+            <div className="w-full h-full overflow-scroll px-4">
                 <Suspense fallback={<Loading />}>
                     {
                         Array.isArray(season) && season.map((item, i) => {

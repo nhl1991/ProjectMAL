@@ -1,9 +1,7 @@
 
 import Detail from "@/components/details/components/detailComponent";
 import { getAnimationDetail } from '@/lib/fetch';
-import Image from "next/image";
 import Loading from "@/components/loading";
-import PageWrapper from "@/components/PageWrapper";
 import { Suspense } from "react";
 import Title from "@/components/details/ui/titleComponent";
 
@@ -26,14 +24,15 @@ export default async function Page({ params }: Readonly<{
 
     return (
         <>
-        <PageWrapper>
-            <Title title={response.title} alternative_title={response.alternative_titles} />
+            <div className="w-full h-full overflow-scrolls  ">
             
-                { response && response.main_picture.large ? <Image className="absolute rounded-2xl object-cover opacity-30 -z-30" src={response.main_picture.large} fill alt="image will be prepared." /> : null}
+                <Title title={response.title} alternative_title={response.alternative_titles} />
+
+
                 <Suspense fallback={<Loading />}>
                     <Detail data={response} />
                 </Suspense>
-            </PageWrapper>
+            </div>
         </>
     )
 }

@@ -22,20 +22,22 @@ export default function Detail({ data }: Readonly<{
 
 
     return (
-        <div className="w-full min-h-full  grid grid-rows-5 gap-2 relative ">
+        <div className="w-full min-h-full  grid grid-rows-6 gap-2 relative">
             {/* <Image className="rounded-2xl object-cover absolute opacity-30 -z-30" src={item.main_picture.large} fill alt="image will be prepared." /> */}
-            <div className="w-full row-[1/2] flex justify-center -z-10">
+            <div className="w-full row-[1/3] flex justify-center items-center">
 
-                <div className="w-full h-full relative rounded-2xl " >
-                    {item.main_picture.large ? <Image className="object-[10%_43.59%] rounded-2xl object-cover" src={item.main_picture.large} fill alt="image will be prepared." /> : null}
+                <div className="w-64 md:w-96 aspect-[3/4] relative rounded-2xl " >
+                    {item.main_picture.large ? <Image className="rounded-2xl object-cover" src={item.main_picture.large} fill alt="image will be prepared." /> : null}
                 </div>
             </div>
-            <div className="row-[2/3] w-full flex flex-col  items-center justify-center bg-black/30 p-2 rounded-2xl">
-                <Synopsis synopsis={item.synopsis} />
-                <Genres genres={item.genres} />
+            <div className="row-[3/4] flex flex-col  items-center justify-center">
+                <div className="w-96 h-full bg-black/30 p-2 rounded-2xl">
+                    <Synopsis synopsis={item.synopsis} />
+                    <Genres genres={item.genres} />
+                </div>
             </div>
-            <div className="row-[3/4] flex items-center justify-center rounded-2xl bg-black/30">
-                <div className="w-max  p-2  ">
+            <div className="row-[4/5] flex items-center justify-center">
+                <div className="w-96  p-2 rounded-2xl bg-black/30 ">
                     <InformationComponent name="ranking" item={item.rank ? item.rank : '-'} />
                     <InformationComponent name="mean" item={item.mean ? item.mean : '-'} />
                     <InformationComponent name="quater" item={[Array.isArray(item.start_season) && item.start_season.map((item) => { return item })]} />
@@ -49,15 +51,19 @@ export default function Detail({ data }: Readonly<{
                     <InformationComponent name="studios" item={item.studios ? item.studios.map((item) => { return item.name; }) : '-'} />
                 </div>
             </div>
-            {Array.isArray(item.pictures) && item.pictures.length > 0 ? <div className="w-full p-4 overflow-x-scroll md:p-12">
-                <h1 className="px-2 py-1 text-xl">Relate Image</h1>
-                <Pictures pictures={item.pictures} />
-            </div> : null}
-
-            {Array.isArray(item.recommendations) && item.recommendations.length > 0 ? <div className="w-full p-4 overflow-x-scroll md:p-12">
-                <h1 className="px-2 py-1 text-xl">Recommendation</h1>
-                <RecommendationList recommendations={item.recommendations} />
-            </div> : null}
+            <div className="w-full h-full row-[5/6] overflow-scroll p-1 md:place-content-center md:place-items-center">
+                
+                {Array.isArray(item.pictures) && item.pictures.length > 0 ? <div className="w-max h-full flex items-center justify-center p-1 overflow-scroll">
+                    
+                    <Pictures pictures={item.pictures} />
+                </div> : null}
+            </div>
+            <div className="w-full h-full row-[6/-1] p-1 overflow-scroll md:place-content-center md:place-items-center">
+                {Array.isArray(item.recommendations) && item.recommendations.length > 0 ? <div className=" w-max h-full flex items-center justify-center p-1 overflow-scroll">
+                    
+                    <RecommendationList recommendations={item.recommendations} />
+                </div> : null}
+            </div>
 
         </div>
     )

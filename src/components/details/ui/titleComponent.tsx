@@ -9,7 +9,7 @@ export default function Title({ title, alternative_title} : Readonly<{
 
     return (
         <>
-            <div id="title" className="w-full row-span-2 text-center flex justify-center items-center">
+            <div id="title" className="w-full text-center flex justify-center items-center">
                 <div className={`w-full grid grid-rows-2 md:gap-0.5`}>
                     
                     <h1 className="w-full md:text-3xl text-2xl ">{alternative_title.ja}</h1>

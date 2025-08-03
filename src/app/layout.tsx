@@ -34,7 +34,7 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased w-screen h-screen p-2 `}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased w-screen h-screen p-2 flex items-center justify-center`}
       >
           {children}
         {/* <footer className="w-full bottom-0 text-center absolute text-sm">

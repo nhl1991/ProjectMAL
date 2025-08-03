@@ -6,6 +6,10 @@
 div::-webkit-scrollbar {
   display: none;
 }
+div {
+  max-width: 2560px;
+  max-height: 1920px;
+}
 
 #year,
 #season {
