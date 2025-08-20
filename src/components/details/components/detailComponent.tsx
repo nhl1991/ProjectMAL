@@ -27,7 +27,7 @@ export default function Detail({ data }: Readonly<{
             <div className="w-full row-[1/3] flex justify-center items-center">
 
                 <div className="w-64 md:w-96 aspect-[3/4] relative rounded-2xl " >
-                    {item.main_picture.large ? <Image className="rounded-2xl object-cover" src={item.main_picture.large} fill alt="image will be prepared." /> : null}
+                    {item.main_picture.large ? <Image className="rounded-2xl object-cover" src={item.main_picture.large} fill sizes="(max-width:768px) 100vw, 50vw" alt="image will be prepared." priority /> : null}
                 </div>
             </div>
             <div className="row-[3/4] flex flex-col  items-center justify-center">

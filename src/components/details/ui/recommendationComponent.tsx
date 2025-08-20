@@ -45,7 +45,7 @@ function RecommendationItemNode({ node }: Readonly<{ node: node }>) {
             {
                 node.main_picture
                     ? <div className="w-full h-full relative" onClick={()=> router.push(`/details/${node.id}`)}>
-                        <Image className="object-cover" fill src={node.main_picture.large} alt={node.main_picture.medium} />
+                        <Image className="object-cover" fill src={node.main_picture.large} alt={node.main_picture.medium} sizes="(max-width:768px) 100vw, 33vw"/>
                         
                     </div>
                     : null

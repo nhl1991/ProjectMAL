@@ -1,59 +1,77 @@
-'use server'
+"use server";
 
-export async function FetchAPI(url: string) {
-    const response = await fetch(`https://api.myanimelist.net/${url}`, {
-        headers: {
-            // "X-MAL-CLIENT-ID": `${process.env.NODE_ENV === 'production' ? process.env.NEXT_PUBLIC_MAL_CLIENT_ID : process.env.MAL_CLIENT_ID}`
-            "X-MAL-CLIENT-ID": `${process.env.NODE_ENV === 'production' ? process.env.NEXT_PUBLIC_MAL_CLIENT_ID : process.env.MAL_CLIENT_ID}`,
-        },
-        method: "GET",
-    })
+export async function FetchAPI(query: string, tags: string) {
+  const url = new URL(query, `https://api.myanimelist.net/`);
+  try {
+    const response = await fetch(url, {
+      cache: "force-cache",
+      next: { revalidate: 21600, tags: [`${tags}`] },
+      headers: {
+        // "X-MAL-CLIENT-ID": `${process.env.NODE_ENV === 'production' ? process.env.NEXT_PUBLIC_MAL_CLIENT_ID : process.env.MAL_CLIENT_ID}`
+        "X-MAL-CLIENT-ID": `${
+          process.env.NODE_ENV === "production"
+            ? process.env.NEXT_PUBLIC_MAL_CLIENT_ID
+            : process.env.MAL_CLIENT_ID
+        }`,
+      },
+      method: "GET",
+    });
+
     const result = await response.json();
-    // console.log('Fetch. => ', url);
-
     return result;
+
+    // console.log('Fetch. => ', url);
+  } catch (err) {
+    console.log("Error: ", err);
+  }
 }
 
 export async function getAnimationDetail(id: string) {
-    return await FetchAPI(`v2/anime/${id}?fields=id,title,main_picture,streaming_platform,alternative_titles,start_date,end_date,synopsis,mean,rank,popularity,media_type,status,genres,my_list_status,num_episodes,start_season,broadcast,source,average_episode_duration,rating,pictures,related_anime,recommendations,studios`)
+  return await FetchAPI(
+    `v2/anime/${id}?fields=id,title,main_picture,streaming_platform,alternative_titles,start_date,end_date,synopsis,mean,rank,popularity,media_type,status,genres,my_list_status,num_episodes,start_season,broadcast,source,average_episode_duration,rating,pictures,related_anime,recommendations,studios`,
+    id
+  );
 }
 
-// export async function getAnimationBySeason(year:string, season: string){
-//     //http://localhost:3000/season/2025/winter
-//     // next: 'https://api.myanimelist.net/v2/anime/season/2025/winter?offset=10&limit=10'
-//     return await FetchAPI(`v2/anime/season/${year}/${season == 'autumn' ? 'fall' : season}?limit=10`)
-// }
-
-// export async function getAnimationByRanking(ranking_type:string){
-
-//     return await FetchAPI(`v2/anime/ranking?ranking_type=${ranking_type}&limit=10`)
-// }
-
 export async function getAnimationBySearch(query: string | undefined) {
-    if (query === undefined) return;
+  //q=${q}&limit=${limit ?? '10'}&offset=${offset ?? '0'}
+  if (query === undefined) return;
 
+  const url = new URL(query, `https://api.myanimelist.net/`);
+  const tag = url.searchParams.get('q');
 
-    return await FetchAPI(`v2/${query}`)
+  return await FetchAPI(`v2/${query}`, tag ?? 'search');
 }
 
 export async function getAnimationByRanking(query: string) {
-    return await FetchAPI(`v2/anime/ranking?${query}`)
+  const url = new URL(query, `https://api.myanimelist.net/`);
+  const tag = url.searchParams.get("ranking_type");
+  return await FetchAPI(`v2/anime/ranking?${query}`, `ranking/${tag}`);
 }
 export async function getAnimationPreview(query: string) {
-    // ranking : /v2/anime/ranking?ranking_type=all&limit=4
-    // season : /v2/anime/season/2017/summer?limit=4
-    // search : /v2/anime?q=one&limit=4
-    if (query.includes('q')) {
-        return await FetchAPI(`v2/${query}&limit=20`)
-    }
 
-
-    return await FetchAPI(`v2/${query}&limit=10`)
+  // ranking : /v2/anime/ranking?ranking_type=all&limit=4
+  // season : /v2/anime/season/2017/summer?limit=4
+  // search : /v2/anime?q=one&limit=4
+  // console.log(query.sea)
+  const url = new URL(`/v2/${query}`, `https://api.myanimelist.net`);
+  if (query.includes("ranking"))
+    return await FetchAPI(
+      `/v2/${query}`,
+      `preview-ranking-${url.searchParams.get("ranking_type")}`
+    );
+  else if (query.includes("season")){
+    const season = url.pathname.split('/')[3]
+    const year = url.pathname.split('/')[4]
+    return await FetchAPI(
+      `v2/${query}`,
+      `preview-season-${year}-${season}`
+    );}
+  else if (query.includes("q")) {
+    return await FetchAPI(`v2/${query}&limit=20`, 'search');
+  } else return;
 }
 
-
-
 export async function getAnimationBySeason(query: string) {
-
-    return await FetchAPI(`v2/anime/${query}&sort=anime_num_list_users`)
+  return await FetchAPI(`v2/anime/${query}&sort=anime_num_list_users`, query);
 }

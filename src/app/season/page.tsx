@@ -1,4 +1,5 @@
 
+import AnimationNodeSkeletonContainer from "@/components/animationNodeSkeleton";
 import AnimePreviewList from "@/components/AnimePreviewList";
 import Loading from "@/components/loading";
 import PageWrapper from "@/components/PageWrapper";
@@ -13,7 +14,7 @@ export default function Page() {
     return (
         <PageWrapper>
             <div className="w-full h-full overflow-scroll px-4">
-                <Suspense fallback={<Loading />}>
+                <Suspense fallback={<AnimationNodeSkeletonContainer />}>
                     {
                         Array.isArray(season) && season.map((item, i) => {
                             return <div key={i} className="w-full h-max p-2">
