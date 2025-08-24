@@ -1,6 +1,6 @@
 
 import AnimationNodeSkeletonContainer from "@/components/animationNodeSkeleton";
-import AnimePreviewList from "@/components/AnimePreviewList";
+import AnimePreviewList from "@/components/AnimationPreviewContainer";
 import Loading from "@/components/loading";
 import PageWrapper from "@/components/PageWrapper";
 import { Suspense } from "react";

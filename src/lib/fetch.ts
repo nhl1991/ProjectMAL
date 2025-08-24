@@ -68,7 +68,7 @@ export async function getAnimationPreview(query: string) {
       `preview-season-${year}-${season}`
     );}
   else if (query.includes("q")) {
-    return await FetchAPI(`v2/${query}&limit=20`, 'search');
+    return await FetchAPI(`v2/${query}&limit=8`, 'search');
   } else return;
 }
 

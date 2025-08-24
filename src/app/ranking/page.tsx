@@ -3,7 +3,7 @@ import PageWrapper from "@/components/PageWrapper";
 import { ranking_type } from "@/lib/variables";
 import { Suspense } from "react";
 import Loading from "@/components/loading";
-import AnimePreviewList from "@/components/AnimePreviewList";
+import AnimePreviewList from "@/components/AnimationPreviewContainer";
 
 export default async function Page() {
 
