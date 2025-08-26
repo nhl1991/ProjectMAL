@@ -3,7 +3,7 @@
 <img width="480" height="240" alt="preview_2" src="https://github.com/user-attachments/assets/851bb3c7-1d4c-4aef-9dc9-5e7befe64a03" />
 
 ## 📖 Overview
-This project was developed to study CSR,SSR Rendering and fetching external API provided by [myanimelist.com].  
+This project was developed to study CSR,SSR Rendering and fetching external API provided by <a href="https://myanimelist.net/apiconfig/references/api/v2">myanimelist.com</a>
 It provides amount of animation list by ranking, season and search.
 
 ## 🛠 Tech Stack
