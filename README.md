@@ -1,7 +1,8 @@
 # Project-MAL
+<img width="480" height="300" alt="preview_4" src="https://github.com/user-attachments/assets/91625f25-1524-4bc2-b3df-1cc8125c7c85" />
+<img width="480" height="300" alt="preview_3" src="https://github.com/user-attachments/assets/2f160cb5-4b88-4555-81c7-8bf2e6e39edb" />
 <img width="480" height="300" alt="preview_1" src="https://github.com/user-attachments/assets/6975a34c-8def-4719-8b89-95072a87ecd7" />
 <img width="480" height="300" alt="preview_2" src="https://github.com/user-attachments/assets/9e63fa95-7aab-427b-a871-d8b800a5d941" />
-<img width="480" height="300" alt="preview_3" src="https://github.com/user-attachments/assets/2f160cb5-4b88-4555-81c7-8bf2e6e39edb" />
 
 
 
