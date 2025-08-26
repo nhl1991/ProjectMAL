@@ -1,5 +1,6 @@
 # Project-MAL
-<img width="640" height="480" alt="image" src="https://github.com/user-attachments/assets/0cc64d58-8a55-44c1-8020-17b25a50c849" />
+<img width="480" height="240" alt="preview_1" src="https://github.com/user-attachments/assets/0cc64d58-8a55-44c1-8020-17b25a50c849" />
+<img width="480" height="240" alt="preview_2" src="https://github.com/user-attachments/assets/851bb3c7-1d4c-4aef-9dc9-5e7befe64a03" />
 
 ## 📖 Overview
 This project was developed to study CSR,SSR Rendering and fetching external API provided by [myanimelist.com].  
