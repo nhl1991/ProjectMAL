@@ -22,7 +22,7 @@ export default function InformationComponent(props:props) {
 
     return (
         <>
-        <div className={`text-left grid grid-cols-2 justify-center items-center px-2 text-[9px] md:text-[12px] ` }>
+        <div className={`text-left grid grid-cols-2 justify-center items-center px-2 text-[clamp(0.7rem,0.5rem+1vw,14px)] ` }>
                 <p className="font-semibold  ">{props.name.toUpperCase()}</p>
                 <InformationTitle>
                     {renderText(props.name)}{props.name === 'average playtime' ? ' min' : ''}
