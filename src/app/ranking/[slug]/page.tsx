@@ -24,7 +24,6 @@ export default async function Page({
   const headersList = headers();
   const fullUrl = (await headersList).get("x-url") || "";
   const path = fullUrl.split("?");
-  console.log(path[1]);
 
   const { slug } = await params;
   const { data, paging } = await getAnimationByRanking(path[1]);

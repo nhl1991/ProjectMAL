@@ -47,9 +47,9 @@ export default function Home() {
       }}>
         {
           menu.map((item, i) => {
-            return <div key={i} className="text-white bg-black hover:bg-opacity-50 bg-opacity-100  transition-all delay-100">
+            return <div key={i} className="text-white bg-black hover:bg-white hover:text-black bg-opacity-100  transition-all duration-500">
               <Link href={item === 'ranking' ? `/${item}` : `${item}`}
-                className="w-full h-full text-center text-6xl flex items-center"><b className="p-2 w-full">{item.toUpperCase()}</b></Link>
+                className="w-full h-full text-center text-[clamp(3rem,3vw+2rem,4.75rem)] flex items-center"><b className="p-2 w-full">{item.toUpperCase()}</b></Link>
             </div>
           })
         }

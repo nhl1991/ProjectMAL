@@ -5,7 +5,7 @@ export default function Loading() {
   return (
     <div className="w-full h-full flex items-center justify-center">
       <div className="w-48 h-48 relative">
-        <Image src={loadImage} fill className="object-contain" sizes="(max-width: 768px, 100vw), 33vw" alt="load image" />
+        <Image src={loadImage} fill className="object-contain" sizes="(max-width: 768px, 100vw), 33vw" alt="load image"  unoptimized />
       </div>
     </div>
   )
