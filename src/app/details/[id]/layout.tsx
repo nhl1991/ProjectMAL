@@ -1,4 +1,4 @@
-import Navigation from "@/components/Navigation";
+import Navigation from "@/components/PageNavigation";
 
 export default function DetailLayout({
   children,

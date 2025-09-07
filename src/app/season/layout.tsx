@@ -1,6 +1,6 @@
 
 import type { Metadata } from "next";
-import Navigation from "@/components/Navigation";
+import Navigation from "@/components/PageNavigation";
 import SeasonNavigation from "@/components/season/components/SeasonNavigation";
 
 export const metadata: Metadata = {

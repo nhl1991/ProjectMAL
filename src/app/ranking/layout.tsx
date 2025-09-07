@@ -1,4 +1,4 @@
-import Navigation from "@/components/Navigation";
+import Navigation from "@/components/PageNavigation";
 import RankingNavigation from "@/components/ranking/components/rankingNavigation";
 
 
