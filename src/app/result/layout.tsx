@@ -1,6 +1,6 @@
 
 import type { Metadata } from "next";
-import Navigation from "@/components/navigation";
+import Navigation from "@/components/Navigation";
 
 export const metadata: Metadata = {
   title: "Search by season",

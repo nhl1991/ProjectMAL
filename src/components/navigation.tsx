@@ -41,7 +41,7 @@ export default function Navigation() {
 
                 {
                     menu.map((item, i) => {
-                        return <li key={i} className="h-full p-2 items-center flex rounded-sm">
+                        return <li key={i} className="h-full p-2 items-center flex rounded-sm text-2xl">
                             <Link href={item === '/' ? '/' : `/${item}`} className={'p-4' + `${pathname.startsWith(`/${item}`) ? 'text-cyan-300 border-b-cyan-300 ' : 'border-transparent'}`}><b>{item === '/' ? 'HOME' : item.toUpperCase()}</b></Link>
                             {/* <Link href={`/${item}`} className={`${pathname.startsWith(`/${item}`) ? 'text-cyan-300 border-b-cyan-300 ' : 'border-transparent'}`}><b>{item.toUpperCase()}</b></Link> */}
                         </li>

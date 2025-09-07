@@ -23,7 +23,7 @@ export default function SelectOptions() {
     return (
         <div className="w-full flex items-center justify-center ">
             <SelectWrapper>
-                <label htmlFor="year" className="font-semibold py-2">Year</label>
+                <label htmlFor="year" className="font-semibold py-2 px-4">Year</label>
                 <select id="year" className="bg-transparent rounded-2xl px-4 py-2" onChange={onSelectYear}>
                     {
                         year.map((item, i) => {
@@ -33,7 +33,7 @@ export default function SelectOptions() {
                 </select>
             </SelectWrapper>
             <SelectWrapper>
-                <label htmlFor="season" className="font-semibold py-2">Season</label>
+                <label htmlFor="season" className="font-semibold py-2 px-4">Season</label>
                 <select id="season" className="bg-transparent rounded-2xl px-4 py-2" onChange={onSelectSeason}>
                     {
                         season.map((item, i) => {

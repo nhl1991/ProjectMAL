@@ -1,16 +1,16 @@
 'use client'
 export default function Error({
-  error,
-  reset,
+  message,
 }: {
-  error: Error & { digest?: string }
-  reset: () => void
-}){
+  message: string
+}) {
 
 
-    return(
-        <div className="w-full h-full">
-            <p>{error.message}</p>
-        </div>
-    )
+  return (
+    <div className="w-full h-full flex items-center justify-center">
+      <div>
+        <p>{message}</p>
+      </div>
+    </div>
+  )
 }

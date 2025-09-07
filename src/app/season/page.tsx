@@ -1,12 +1,12 @@
 
 import AnimationNodeSkeletonContainer from "@/components/animationNodeSkeleton";
 import AnimePreviewList from "@/components/AnimationPreviewContainer";
-import Loading from "@/components/loading";
 import PageWrapper from "@/components/PageWrapper";
 import { Suspense } from "react";
 
 
 export default function Page() {
+
     const currentYear = new Date().getFullYear();
     const season = ['winter', 'spring', 'summer', 'fall'];
 

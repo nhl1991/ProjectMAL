@@ -43,11 +43,6 @@ export async function getAnimationBySearch(query: string | undefined) {
   return await FetchAPI(`v2/${query}`, tag ?? 'search');
 }
 
-export async function getAnimationByRanking(query: string) {
-  const url = new URL(query, `https://api.myanimelist.net/`);
-  const tag = url.searchParams.get("ranking_type");
-  return await FetchAPI(`v2/anime/ranking?${query}`, `ranking/${tag}`);
-}
 export async function getAnimationPreview(query: string) {
 
   // ranking : /v2/anime/ranking?ranking_type=all&limit=4
@@ -72,6 +67,29 @@ export async function getAnimationPreview(query: string) {
   } else return;
 }
 
-export async function getAnimationBySeason(query: string) {
-  return await FetchAPI(`v2/anime/${query}&sort=anime_num_list_users`, query);
+
+
+
+export async function Fetch(query: string) {
+  const url = new URL(`/v2/anime/${query}`, `https://api.myanimelist.net`);
+  
+  try {
+    const response = await fetch(url, {
+      headers: {
+        // "X-MAL-CLIENT-ID": `${process.env.NODE_ENV === 'production' ? process.env.NEXT_PUBLIC_MAL_CLIENT_ID : process.env.MAL_CLIENT_ID}`
+        "X-MAL-CLIENT-ID": `${
+          process.env.NODE_ENV === "production"
+            ? process.env.NEXT_PUBLIC_MAL_CLIENT_ID
+            : process.env.MAL_CLIENT_ID
+        }`,
+      },
+      method: "GET",
+    });
+
+    return await response.json();
+
+    // console.log('Fetch. => ', url);
+  } catch (err) {
+    console.log("Error: ", err);
+  }
 }

@@ -2,8 +2,8 @@
 import PageWrapper from "@/components/PageWrapper";
 import { ranking_type } from "@/lib/variables";
 import { Suspense } from "react";
-import Loading from "@/components/loading";
 import AnimePreviewList from "@/components/AnimationPreviewContainer";
+import AnimationNodeSkeletonContainer from "@/components/animationNodeSkeleton";
 
 export default async function Page() {
 
@@ -11,7 +11,7 @@ export default async function Page() {
 
         <PageWrapper>
             <div className="w-full h-full overflow-scroll px-4">
-                <Suspense fallback={<Loading />}>
+                <Suspense fallback={<AnimationNodeSkeletonContainer />}>
                     {
                         Array.isArray(ranking_type) && ranking_type.map((item, i) => {
 
