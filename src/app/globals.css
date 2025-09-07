@@ -1,7 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
 
 div::-webkit-scrollbar {
   display: none;
@@ -11,15 +20,6 @@ div {
   max-height: 1920px;
 }
 
-#year,
-#season {
-  background-color: #0a0a0a;
-  /* -moz-box-shadow: inset 1px 1px 3px white;
-  -webkit-box-shadow: inset 1px 1px 3px white;
-  box-shadow: inset 1px 1px 3px white; */
-
-  /* [출처] (CSS)select 태그 디자인.appearance와background이용|작성자 별벼리 */
-}
 
 
 * {
@@ -27,10 +27,11 @@ div {
 }
 
 body {
-  color: white;
-  background: black;
+  background: var(--background);
+  color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
 
 
 .aspect-img {

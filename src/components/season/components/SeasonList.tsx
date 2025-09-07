@@ -5,7 +5,7 @@ import AnimationNode from "@/components/animationNode";
 import Loading from "@/components/loading";
 import NoData from "@/components/NoData";
 import { MAL } from "@/lib/types";
-import { useInfiniteQuery } from "@tanstack/react-query";
+import { FetchNextPageOptions, InfiniteData, InfiniteQueryObserverResult, useInfiniteQuery } from "@tanstack/react-query";
 
 const fetchAnimation = async ({ pageParam }: { pageParam: string }) => {
     const response = await fetch(`/api/${pageParam}`);
@@ -32,9 +32,9 @@ export default function SeasonList({ season, year }: { season: string, year: str
     ) : status === 'error' ? (
         <Error message={error.message} />
     ) : (
-        <div className="w-full h-full p-8 overflow-scroll">
-            <div>
-                <h1 className="text-2xl">{year}/{season}</h1>
+        <div className="w-full min-h-full p-8 overflow-scroll">
+            <div className="w-full flex items-center justify-center">
+                <h1 className="text-4xl">{year}/{season.toUpperCase()}</h1>
             </div>
             {
                 data ? data.pages.map((page, pageIndex) => (
@@ -51,9 +51,12 @@ export default function SeasonList({ season, year }: { season: string, year: str
             }
 
             {
-                hasNextPage ? <div className="w-full flex items-center justify-center"><button className="text-2xl" disabled={isFetchingNextPage} onClick={() => fetchNextPage()}>{hasNextPage ? 'Load more...' : isFetchingNextPage ? 'Loading...' : 'End...'}</button></div> : null
+                hasNextPage ? <div className="flex items-center justify-center p-1"><button className="px-4 py-2 rounded-2xl text-2xl text-white bg-sky-500 hover:bg-sky-900" disabled={isFetchingNextPage} onClick={() => fetchNextPage()}>{hasNextPage ? 'Load more...' : isFetchingNextPage ? 'Loading...' : 'End...'}</button></div> : null
             }
         </div>
     )
 
 }
+
+
+

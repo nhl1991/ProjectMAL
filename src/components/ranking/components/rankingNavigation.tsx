@@ -13,7 +13,7 @@ export default function RankingNavigation() {
                 <div>
                     <SelectOptions />
                 </div>
-                <div className="rounded-2xl bg-sky-500 hover:bg-sky-500/50 py-2 px-2">
+                <div className="rounded-2xl bg-sky-500 hover:bg-sky-500/50 py-2 px-2 text-white">
                     <Link className="w-full md:h-36 px-4 py-2 text-center " href={`/ranking/list`} replace >GO!</Link>
                 </div>
             </div>
@@ -33,10 +33,10 @@ function SelectOptions() {
         <div className="w-full flex items-center justify-center ">
             <SelectWrapper>
                 <label htmlFor="year" className="font-semibold py-2 px-4">RANKING TYPE</label>
-                <select id="year" className="bg-transparent rounded-2xl px-4 py-2" onChange={onSelectRankingType}>
+                <select id="year" className="bg-transparent px-4 py-2" onChange={onSelectRankingType}>
                     {
                         ranking_type.map((item, i) => {
-                            return <option className="bg-transparent" key={i} value={item}>{item.toUpperCase()}</option>
+                            return <option className="bg-transparent text-black" key={i} value={item}>{item.toUpperCase()}</option>
                         })
                     }
                 </select>

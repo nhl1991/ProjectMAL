@@ -41,19 +41,17 @@ export default function Home() {
 
 
   return (
-    <PageWrapper>
       <div className="w-full h-full gap-0 grid md:grid-cols-3 md:grid-rows-1 grid-cols-1 grid-rows-3 bg-no-repeat bg-center bg-cover duration-150" style={{
         backgroundImage: `url(${backgroundImage})`,
       }}>
         {
           menu.map((item, i) => {
-            return <div key={i} className="text-white bg-black hover:bg-white hover:text-black bg-opacity-100  transition-all duration-500">
+            return <div key={i} className="hover:bg-opacity-100 bg-white dark:bg-black hover:bg-transparent dark:text-white transition-all duration-500">
               <Link href={item === 'ranking' ? `/${item}` : `${item}`}
                 className="w-full h-full text-center text-[clamp(3rem,3vw+2rem,4.75rem)] flex items-center"><b className="p-2 w-full">{item.toUpperCase()}</b></Link>
             </div>
           })
         }
       </div>
-    </PageWrapper>
   );
 }

@@ -43,6 +43,7 @@ https://project-mal.vercel.app/
 ## Changelog
 25/09/07
 - Introduce TanStack Query’s useInfiniteQuery for infinite scrolling at '/ranking', '/season'.
+- Fix UI.
 
 25/08/25
 - Set Image Componet sizes props

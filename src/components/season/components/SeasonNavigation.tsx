@@ -11,7 +11,7 @@ export default function SeasonNavigation() {
                 <div>
                     <SelectOptions />
                 </div>
-                <div className="rounded-2xl bg-sky-500 hover:bg-sky-500/50 py-2 px-2">
+                <div className="rounded-2xl bg-sky-500 hover:bg-sky-500/50 py-2 px-2 text-white">
                         <Link className="w-full md:h-36 px-4 py-2 text-center " href={`/season/list`} replace >GO!</Link>
                     </div>
             </div>

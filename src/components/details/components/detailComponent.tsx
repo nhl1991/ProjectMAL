@@ -32,14 +32,12 @@ export default function Detail({
           ) : null}
         </div>
       </div>
-      <div className="row-[3/4] flex flex-col  items-center justify-center">
-        <div className="w-96 h-full bg-black/30 p-2 rounded-2xl">
+      <div className="row-[3/4] flex gap-4  items-center justify-center">
+        <div className="w-96 h-full flex flex-col  p-2 rounded-2xl">
+          <h1 className="font-bold">Synopsis</h1>
           <Synopsis synopsis={item.synopsis} />
-          <Genres genres={item.genres} />
         </div>
-      </div>
-      <div className="row-[4/5] flex items-center justify-center">
-        <div className="w-96  p-2 rounded-2xl bg-black/30 ">
+        <div className="w-96  p-2 rounded-2xl  ">
           <InformationComponent
             name="ranking"
             item={item.rank ? item.rank : "-"}
@@ -102,6 +100,10 @@ export default function Detail({
             }
           />
         </div>
+      </div>
+      <div className="row-[4/5] flex items-center justify-center">
+          <Genres genres={item.genres} />
+        
       </div>
       <div className="w-full h-full row-[5/6] p-1">
         <h3 className=" font-semibold">Pictures</h3>

@@ -10,7 +10,7 @@ export default function AnimationListWrapper(
     return (
         <>
     
-            <div className="h-max grid md:grid-cols-[repeat(5,minmax(96px,320px))] md:grid-rows-[repeat(4,minmax(96px,320px))] grid-cols-[repeat(2,minmax(164px,256px))] grid-rows-[repeat(5,minmax(164px,96px))] md:gap-8 gap-4 p-4  justify-self-center">
+            <div className="md:h-max grid md:grid-cols-[repeat(5,minmax(96px,240px))] md:grid-rows-[repeat(4,minmax(96px,240px))] grid-cols-[repeat(2,minmax(164px,256px))] grid-rows-[repeat(5,minmax(164px,196px))] auto-rows-[minmax(144px,1fr)] md:gap-8 gap-4 p-4  justify-self-center">
                 {children}
             </div>
 
