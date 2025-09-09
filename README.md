@@ -23,10 +23,10 @@ It provides amount of animation list by ranking, season and search.
 ## 🚀 Getting Started
 ```bash
 # Clone repository
-git clone <GitHub-Repo-URL>
+git clone https://github.com/nhl1991/ProjectMAL.git
 
 # Change directory
-cd <Project-Name>
+cd ProjectMAL
 
 # Install dependencies
 npm install

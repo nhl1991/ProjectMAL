@@ -20,7 +20,6 @@ export async function FetchAPI(query: string, tags: string) {
     const result = await response.json();
     return result;
 
-    // console.log('Fetch. => ', url);
   } catch (err) {
     console.log("Error: ", err);
   }
@@ -48,7 +47,6 @@ export async function getAnimationPreview(query: string) {
   // ranking : /v2/anime/ranking?ranking_type=all&limit=4
   // season : /v2/anime/season/2017/summer?limit=4
   // search : /v2/anime?q=one&limit=4
-  // console.log(query.sea)
   const url = new URL(`/v2/${query}`, `https://api.myanimelist.net`);
   if (query.includes("ranking"))
     return await FetchAPI(
@@ -76,7 +74,6 @@ export async function Fetch(query: string) {
   try {
     const response = await fetch(url, {
       headers: {
-        // "X-MAL-CLIENT-ID": `${process.env.NODE_ENV === 'production' ? process.env.NEXT_PUBLIC_MAL_CLIENT_ID : process.env.MAL_CLIENT_ID}`
         "X-MAL-CLIENT-ID": `${
           process.env.NODE_ENV === "production"
             ? process.env.NEXT_PUBLIC_MAL_CLIENT_ID
@@ -88,7 +85,6 @@ export async function Fetch(query: string) {
 
     return await response.json();
 
-    // console.log('Fetch. => ', url);
   } catch (err) {
     console.log("Error: ", err);
   }

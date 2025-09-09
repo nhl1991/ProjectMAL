@@ -27,7 +27,7 @@ export default function SelectOptions() {
                 <select id="year" className="bg-transparent rounded-2xl px-4 py-2" onChange={onSelectYear}>
                     {
                         year.map((item, i) => {
-                            return <option className="bg-transparent" key={i} value={item}>{item}</option>
+                            return <option key={i} value={item} className="bg-transparent text-black" >{item}</option>
                         })
                     }
                 </select>
@@ -37,7 +37,7 @@ export default function SelectOptions() {
                 <select id="season" className="bg-transparent rounded-2xl px-4 py-2" onChange={onSelectSeason}>
                     {
                         season.map((item, i) => {
-                            return <option key={i} value={item}>{item.toUpperCase()}</option>
+                            return <option key={i} value={item} className="bg-transparent text-black">{item.toUpperCase()}</option>
                         })
                     }
                 </select>

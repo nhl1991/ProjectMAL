@@ -21,7 +21,7 @@ export default async function AnimationPreviewContainer({
     <div className="w-full min-h-max p-2">
       <div className="w-max p-2 rounded-2xl ">
         <div className="font-bold text-2xl flex">
-          <h1 className="px-2">{title.toUpperCase()}</h1>
+          <h1 className="px-2 md:px-32">{title.toUpperCase()}</h1>
         </div>
       </div>
       {data ? <AnimationPreviewList data={data} /> : null}

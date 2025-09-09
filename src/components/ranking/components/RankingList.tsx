@@ -3,6 +3,7 @@ import AnimationContainer from "@/components/animationContainer";
 import AnimationNode from "@/components/animationNode";
 import Loading from "@/components/loading";
 import NoData from "@/components/NoData";
+import SectionHeader from "@/components/SectionHeader";
 import { MAL } from "@/lib/types";
 import { useInfiniteQuery } from "@tanstack/react-query";
 
@@ -15,7 +16,6 @@ const fetchAnimation = async ({ pageParam }: { pageParam: string }) => {
 
 
 export default function RankingList({ ranking_type }: { ranking_type: string }) {
-    console.log(ranking_type)
     const {
         data,
         error,
@@ -35,7 +35,8 @@ export default function RankingList({ ranking_type }: { ranking_type: string }) 
     ) : status === 'error' ? (
         <Error message={error.message} />
     ) : (
-        <div className="w-full h-full p-8 overflow-scroll">
+        <div className="w-full md:w-max h-full p-8 overflow-scroll">
+            <SectionHeader>{ranking_type.toUpperCase()}</SectionHeader>
             {
                 data ? data.pages.map((page, pageIndex) => (
                     <AnimationContainer key={pageIndex}>

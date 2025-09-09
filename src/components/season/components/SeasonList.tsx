@@ -4,6 +4,7 @@ import AnimationContainer from "@/components/animationContainer";
 import AnimationNode from "@/components/animationNode";
 import Loading from "@/components/loading";
 import NoData from "@/components/NoData";
+import SectionHeader from "@/components/SectionHeader";
 import { MAL } from "@/lib/types";
 import { FetchNextPageOptions, InfiniteData, InfiniteQueryObserverResult, useInfiniteQuery } from "@tanstack/react-query";
 
@@ -32,9 +33,9 @@ export default function SeasonList({ season, year }: { season: string, year: str
     ) : status === 'error' ? (
         <Error message={error.message} />
     ) : (
-        <div className="w-full min-h-full p-8 overflow-scroll">
+        <div className="w-full md:w-max min-h-full p-8 overflow-scroll">
             <div className="w-full flex items-center justify-center">
-                <h1 className="text-4xl">{year}/{season.toUpperCase()}</h1>
+                <SectionHeader>{`${year} ${season.toUpperCase()}`}</SectionHeader>
             </div>
             {
                 data ? data.pages.map((page, pageIndex) => (
