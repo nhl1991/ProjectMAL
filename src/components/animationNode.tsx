@@ -9,15 +9,16 @@ import Link from "next/link";
 export default function AnimationNode({ node, ranking, priority }: Readonly<{ node: node, ranking?: ranking, priority?: boolean }>) {
     const [isHover, setIsHover] = useState<boolean>(false);
     return (
-        <div className="w-full h-full relative hover:scale-105" onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)} >
+        <div className="w-full h-full relative hover:scale-105 " onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)} >
             {
-                isHover ? <div className="w-full h-full bg-black/80 absolute z-50  rounded-xl flex items-center justify-center">
+                isHover ? <Link className="w-full h-full bg-black/80 absolute z-50  rounded-xl flex items-center justify-center" href={`/details/${node.id}`}>
+                    <div>
                     <div className="px-4">
-                        <span className="line-clamp-1 relative text-xl font-bold text-white"><Link href={`/details/${node.id}`}>{node.title}</Link></span>
+                        <span className="relative text-xl font-bold text-white">{node.title}</span>
                     </div>
-                </div> : null
+                </div></Link> : null
             }
-            <div className="w-full h-full row-[1/6] relative cursor-pointer ">
+            <div className="w-full h-full relative cursor-pointer">
                 {ranking ? <div className="absolute z-50 flex justify-center items-center">
                     <p className={` px-1 text-3xl md:text-4xl lg:text-8xl ${styles.rankTextStroke}`}>{ranking.rank}</p>
                 </div> : <></>}

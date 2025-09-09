@@ -40,9 +40,8 @@ export default function Home() {
 
 
   return (
-    <div className="w-full h-full   "
-    >
-      <div className="w-full h-full bg-transparent  flex flex-col items-center    justify-center ">
+    <div className="w-full h-full">
+      <div className="w-full h-full bg-transparent flex flex-col items-center justify-center ">
         <div><h1 className="font-bold text-[clamp(2rem,2rem+1.5vw,3rem)]">PROJECT MAL</h1></div>
       
         <div className="bg-center bg-no-repeat bg-cover rounded-2xl" style={{
