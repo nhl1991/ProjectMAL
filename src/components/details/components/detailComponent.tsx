@@ -7,6 +7,7 @@ import Pictures from "../ui/pictureComponent";
 import RecommendationList from "../ui/recommendationComponent";
 import InformationComponent from "../ui/informationComponent";
 import { details } from "@/lib/types";
+import { useState } from "react";
 
 export default function Detail({
   data,
@@ -14,6 +15,7 @@ export default function Detail({
   data: details;
 }>) {
   const item = data;
+  const [showDetail, setShowDetail] = useState(false);
 
   return (
     <div className="w-full min-h-full  grid grid-rows-6 grid-cols-[repeat(1,minmax(160px,1200px))] gap-2 relative  justify-center">
@@ -32,12 +34,13 @@ export default function Detail({
           ) : null}
         </div>
       </div>
-      <div className="row-[3/4] flex gap-4  items-center justify-center">
-        <div className="w-96 h-full flex flex-col  p-2 rounded-2xl">
-          <h1 className="font-bold">Synopsis</h1>
-          <Synopsis synopsis={item.synopsis} />
-        </div>
-        <div className="w-96  p-2 rounded-2xl  ">
+      <div className="row-[3/5] flex flex-col w-full h-full  items-center overflow-scroll">
+        <div className="">
+          <ul className="flex gap-2 font-bold">
+            <li className={`px-4 py-1 rounded-2xl   ${showDetail ? '' : 'text-white bg-sky-400'}`}><button className={` `} onClick={() => setShowDetail(false)}>Synopsis</button></li>
+            <li className={`px-4 py-1 rounded-2xl  ${showDetail ? 'text-white bg-sky-400' : ''}`}><button className={` `} onClick={() => setShowDetail(true)}>Detail</button></li>
+          </ul></div>
+        {showDetail ? <div className="w-[32rem] h-full flex flex-col p-2 overflow-scroll">
           <InformationComponent
             name="ranking"
             item={item.rank ? item.rank : "-"}
@@ -50,9 +53,9 @@ export default function Detail({
             name="quater"
             item={[
               Array.isArray(item.start_season) &&
-                item.start_season.map((item) => {
-                  return item;
-                }),
+              item.start_season.map((item) => {
+                return item;
+              }),
             ]}
           />
           <InformationComponent
@@ -94,19 +97,23 @@ export default function Detail({
             item={
               item.studios
                 ? item.studios.map((item) => {
-                    return item.name;
-                  })
+                  return item.name;
+                })
                 : "-"
             }
           />
-        </div>
-      </div>
-      <div className="row-[4/5] flex items-center justify-center">
           <Genres genres={item.genres} />
-        
+        </div> : <div className="w-[32rem] flex flex-col p-2 overflow-scroll">
+          <Synopsis synopsis={item.synopsis} />
+        </div>
+
+        }
+
       </div>
       <div className="w-full h-full row-[5/6] p-1">
-        <h3 className=" font-semibold">Pictures</h3>
+        <div className="w-full flex items-center justify-center">
+          <h3 className=" font-semibold">Pictures</h3>
+        </div>
         <div className="w-full h-full overflow-x-scroll md:place-content-center md:place-items-start  ">
           {Array.isArray(item.pictures) && item.pictures.length > 0 ? (
             <div className="w-max h-full flex items-center justify-center p-1 overflow-scroll">
@@ -116,10 +123,12 @@ export default function Detail({
         </div>
       </div>
       <div className="w-full h-full row-[6/-1] p-1">
-        <h3 className=" font-semibold">Recommendation</h3>
+        <div className="w-full flex items-center justify-center">
+          <h3 className=" font-semibold">Recommendation</h3>
+        </div>
         <div className="w-full h-full overflow-x-scroll md:place-content-center md:place-items-start ">
           {Array.isArray(item.recommendations) &&
-          item.recommendations.length > 0 ? (
+            item.recommendations.length > 0 ? (
             <div className="w-max h-full  flex items-center justify-center p-1 overflow-scroll">
               <RecommendationList recommendations={item.recommendations} />
             </div>
