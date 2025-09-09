@@ -1,6 +1,5 @@
 'use client'
-
-
+import Navigation from "@/components/PageNavigation";
 
 
 export default function ListLayout({
@@ -8,12 +7,14 @@ export default function ListLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  
+
 
   return (
-    <div className="w-full h-full">
-      
-      {children}
+    <div className="w-full h-full grid grid-rows-12">
+      <div className="w-full h-full flex items-center justify-end "><Navigation /></div>
+
+        {children}
+
     </div>
 
   );

@@ -1,25 +1,28 @@
 
-'use client'
-import Link from "next/link";
-import { useOptionStore } from "../lib/stores"
-import SeasonScrollBox from "./ui/SeasonSelectBox"
-import YearScrollBox from "./ui/YearSelectBox"
+import AnimationNodeSkeletonContainer from "@/components/animationNodeSkeleton";
+import AnimePreviewList from "@/components/AnimationPreviewContainer";
+import PageWrapper from "@/components/PageWrapper";
+import { Suspense } from "react";
 
 
 export default function Page() {
-    const { season, year } = useOptionStore();
-    
+
+    const currentYear = new Date().getFullYear();
+    const season = ['winter', 'spring', 'summer', 'fall'];
+
+
     return (
-        <div id="background" className="w-full h-full p-8">
-            {/* <h1 className="w-full h-min text-3xl text-center">{year}/{season}</h1> */}
-            <div className="w-full h-full p-2 flex flex-col  items-center md:flex-row md:flex-shrink-0 justify-center border-2 border-transparent">
-                
-                <YearScrollBox />
-                <SeasonScrollBox />
-                <div className="w-full md:w-max h-max my-12 overflow-scroll border-2 border-slate-100 hover:bg-slate-100 dark:hover:bg-slate-700 flex items-center rounded-md" >
-                    <Link className="w-full h-max p-4 text-5xl  text-center " href={`/season/${year}/${season.toLowerCase()}`} replace >SEARCH</Link>
-                </div>
+        <PageWrapper>
+            <div className="w-full h-full overflow-scroll px-4">
+                <Suspense fallback={<AnimationNodeSkeletonContainer />}>
+                    {
+                        Array.isArray(season) && season.map((item, i) => {
+                            return <div key={i} className="w-full h-max p-2">
+                                <AnimePreviewList type={`anime/season/${currentYear}/${item}`} query={`offset=0&limit=10&sort=anime_num_list_users`} title={`THIS ${item}`} />
+                            </div>
+                        })}
+                </Suspense>
             </div>
-        </div>
+        </PageWrapper>
     )
 }

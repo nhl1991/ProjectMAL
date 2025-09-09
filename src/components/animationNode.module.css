@@ -1,0 +1,9 @@
+
+
+.rankTextStroke {
+    
+    color: transparent; /* Clear inner fill. */
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.8); /* outline width */
+    text-align: center; /* 가운데 정렬 */
+}
+

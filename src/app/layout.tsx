@@ -2,7 +2,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Navigation from "./ui/navigation";
+
 
 
 
@@ -34,16 +34,12 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased w-screen h-screen p-0 flex flex-col`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased w-screen h-screen flex items-center justify-center`}
       >
-        <nav className="w-full bg-transpaerent dark:text-white border-2 border-transparent p-2 md:p-0 m-0">
-          <Navigation />
-        </nav>
-
-        <section className="w-full h-full rounded-2xl">
           {children}
-        </section>
-        
+        {/* <footer className="w-full bottom-0 text-center absolute text-sm">
+            &copy;Data sourced from <a href="https://myanimelist.net/" target="_blank" rel="noopener noreferrer">MyAnimeList</a>
+        </footer> */}
       </body>
     </html>
   );

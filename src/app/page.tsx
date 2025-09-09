@@ -1,6 +1,7 @@
 'use client'
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import PageWrapper from "../components/PageWrapper";
 
 
 
@@ -40,20 +41,17 @@ export default function Home() {
 
 
   return (
-    <div className="w-full h-full p-2 justify-center bg-no-repeat bg-center bg-cover" style={{
-      backgroundImage: `url(${backgroundImage})`,
-    }}>
-
-      <div className="w-full h-full items-center  md:flex-row flex-col flex justify-center p-2">
+      <div className="w-full h-full gap-0 grid md:grid-cols-3 md:grid-rows-1 grid-cols-1 grid-rows-3 bg-no-repeat bg-center bg-cover duration-150" style={{
+        backgroundImage: `url(${backgroundImage})`,
+      }}>
         {
           menu.map((item, i) => {
-            return <div key={i} className="w-full h-min md:w-1/4 md:h-2/3 p-2 items-center block md:flex text-white  border-black md:border-black rounded-sm flex-shrink-0">
-              <Link href={`/${item}`} className="w-full h-full text-3xl md:text-4xl text-center  border-2 border-transparent rounded-xl bg-black bg-opacity-50 hover:border-cyan-200 flex items-center"><b className="p-2 w-full">{item.toUpperCase()}</b></Link>
+            return <div key={i} className="hover:bg-opacity-100 bg-white dark:bg-black hover:bg-transparent dark:text-white transition-all duration-500">
+              <Link href={item === 'ranking' ? `/${item}` : `${item}`}
+                className="w-full h-full text-center text-[clamp(3rem,3vw+2rem,4.75rem)] flex items-center"><b className="p-2 w-full">{item.toUpperCase()}</b></Link>
             </div>
           })
         }
-
       </div>
-    </div>
   );
 }
