@@ -14,15 +14,14 @@ export default function SeasonLayout({
 }>) {
 
   return (
-    <div className="w-full h-full grid grid-cols-1 grid-rows-12 ">
-      <div className="w-full h-full flex flex-col justify-between md:justify-center row-[1/3] p-2 ">
+    <section className="w-full h-full grid grid-cols-1 grid-rows-12 ">
+      <nav className="w-full h-full flex flex-col justify-between md:justify-center row-[1/3] p-2 ">
         <div className="w-full h-full flex items-center justify-end "><Navigation /></div>
         <div className="w-full h-full flex items-center justify-end "><SeasonNavigation /></div>
-
-      </div>
-      <div className="row-[3/-1]">
+      </nav>
+      <main className="row-[3/-1]">
         {children}
-      </div>
-    </div>
+      </main>
+    </section>
   );
 }

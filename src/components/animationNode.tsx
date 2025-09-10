@@ -9,7 +9,7 @@ import Link from "next/link";
 export default function AnimationNode({ node, ranking, priority }: Readonly<{ node: node, ranking?: ranking, priority?: boolean }>) {
     const [isHover, setIsHover] = useState<boolean>(false);
     return (
-        <div className="w-full h-full relative hover:scale-105 " onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)} >
+        <li className="w-full h-full relative hover:scale-105 " onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)} >
             {
                 isHover ? <Link className="w-full h-full bg-black/80 absolute z-50  rounded-xl flex items-center justify-center" href={`/details/${node.id}`}>
                     <div>
@@ -25,7 +25,7 @@ export default function AnimationNode({ node, ranking, priority }: Readonly<{ no
                 {node.main_picture ? <ImageWithLink id={node.id} image_large={node.main_picture.large} image_medium={node.main_picture.medium} priority={priority ?? false} /> : null}
             </div>
 
-        </div>
+        </li>
     )
 
 }

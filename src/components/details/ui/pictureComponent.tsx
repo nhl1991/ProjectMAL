@@ -20,9 +20,9 @@ export default function Pictures({ pictures }: { pictures: pictures }) {
                     pictures != undefined ?
                         pictures.map((item: { medium: string, large: string }, i: number) => {
 
-                            return <div key={i} className="w-full h-full relative">
-                                <Image key={i} className="object-cover hover:scale-105" src={item.large} fill sizes="(max-width:768px) 100vw, 33vw" alt={item.large} onClick={handleOnClick} />
-                            </div>
+                            return <figure key={i} className="w-full h-full relative">
+                                <Image key={i} className="object-cover hover:scale-105" src={item.large} fill sizes="(max-width:768px) 100vw, 33vw" alt={item.large} priority={ i < 2 ? true: false} onClick={handleOnClick} />
+                            </figure>
                         }) : <></>
                 }
                 {

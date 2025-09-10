@@ -23,16 +23,14 @@ export default async function Page({ params }: Readonly<{
     const response = await getAnimationDetail(id)
 
     return (
-        <>
-            <div className="w-full h-full overflow-scrolls  ">
-            
-                <Title title={response.title} alternative_title={response.alternative_titles} />
+        <article className="w-full h-full overflow-scrolls  ">
+
+            <Title title={response.title} alternative_title={response.alternative_titles} />
 
 
-                <Suspense fallback={<Loading />}>
-                    <Detail data={response} />
-                </Suspense>
-            </div>
-        </>
+            <Suspense fallback={<Loading />}>
+                <Detail data={response} />
+            </Suspense>
+        </article>
     )
 }

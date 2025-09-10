@@ -29,7 +29,7 @@ export default function RecommendationList({ recommendations }: Readonly<{
 
                 {
                     recommendations?.map((item, i) => (
-                        <RecommendationItemNode key={i} node={item.node} />
+                        <RecommendationItemNode key={i} node={item.node} priority={i < 2 ? true : false} />
                     ))
                 }
             </div>
@@ -37,16 +37,16 @@ export default function RecommendationList({ recommendations }: Readonly<{
     )
 }
 
-function RecommendationItemNode({ node }: Readonly<{ node: node }>) {
+function RecommendationItemNode({ node, priority }: Readonly<{ node: node, priority: boolean }>) {
     const router = useRouter();
 
     return (
         <>
             {
                 node.main_picture
-                    ? <div className="w-full h-full relative  aspect-[4/3] hover:scale-105 cursor-pointer " onClick={()=> router.push(`/details/${node.id}`)}>
-                        <Image className="object-cover" fill src={node.main_picture.large} alt={node.main_picture.medium} sizes="(max-width:768px) 100vw, 33vw"/>
-                    </div>
+                    ? <figure className="w-full h-full relative  aspect-[4/3] hover:scale-105 cursor-pointer " onClick={()=> router.push(`/details/${node.id}`)}>
+                        <Image className="object-cover" fill src={node.main_picture.large} alt={node.main_picture.medium} sizes="(max-width:768px) 100vw, 33vw" priority={priority}/>
+                    </figure>
                     : null
             }
             {/* <p className="w-full absolute bg-black/70 bottom-0 px-2 text-center text-white text-sm">{node.title}</p> */}

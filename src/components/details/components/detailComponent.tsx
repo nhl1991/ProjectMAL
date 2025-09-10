@@ -18,9 +18,9 @@ export default function Detail({
   const [showDetail, setShowDetail] = useState(false);
 
   return (
-    <div className="w-full min-h-full  grid grid-rows-[repeat(6,minmax(240px,296px))] grid-cols-[repeat(1,minmax(160px,1200px))] gap-2 relative  justify-center">
+    <section className="w-full min-h-full  grid grid-rows-[repeat(6,minmax(240px,296px))] grid-cols-[repeat(1,minmax(160px,1200px))] gap-2 relative  justify-center">
       {/* <Image className="rounded-2xl object-cover absolute opacity-30 -z-30" src={item.main_picture.large} fill alt="image will be prepared." /> */}
-      <div className="w-full row-[1/3] flex justify-center items-center">
+      <figure className="w-full row-[1/3] flex justify-center items-center">
         <div className="w-64 md:w-96 aspect-[3/4] relative rounded-2xl ">
           {item.main_picture.large ? (
             <Image
@@ -33,15 +33,16 @@ export default function Detail({
             />
           ) : null}
         </div>
-      </div>
-      <div className="row-[3/5] w-full h-full flex-col flex items-center justify-center">
-      <div className="">
-            <ul className=" gap-2 font-bold flex">
-              <li className={`px-4 py-1 rounded-2xl   ${showDetail ? '' : 'text-white bg-sky-400 transition-all duration-500'}`}><button className={` `} onClick={() => setShowDetail(false)}>Synopsis</button></li>
-              <li className={`px-4 py-1 rounded-2xl  ${showDetail ? 'text-white bg-sky-400 transition-all duration-500' : ''}`}><button className={` `} onClick={() => setShowDetail(true)}>Detail</button></li>
-            </ul></div>
+      </figure>
+      <section className="row-[3/5] w-full h-full flex-col flex items-center justify-center">
+        <div className="">
+          <ul className=" gap-2 font-bold flex" role="tablist">
+            <li className={`px-4 py-1 rounded-2xl   ${showDetail ? '' : 'text-white bg-sky-400 transition-all duration-500'}`}><button className={` `} onClick={() => setShowDetail(false)}>Synopsis</button></li>
+            <li className={`px-4 py-1 rounded-2xl  ${showDetail ? 'text-white bg-sky-400 transition-all duration-500' : ''}`}><button className={` `} onClick={() => setShowDetail(true)}>Detail</button></li>
+          </ul>
+        </div>
         <div className="max-w-[30rem] h-full overflow-scroll">
-          
+
           {showDetail ? <div className="w-full h-full flex flex-col p-2">
             <InformationComponent
               name="ranking"
@@ -112,8 +113,8 @@ export default function Detail({
           }
         </div>
 
-      </div>
-      <div className="w-full h-full row-[5/6] p-1">
+      </section>
+      <section className="w-full h-full row-[5/6] p-1">
         <div className="w-full flex items-center justify-center">
           <h3 className=" font-semibold">Pictures</h3>
         </div>
@@ -124,8 +125,8 @@ export default function Detail({
             </div>
           ) : null}
         </div>
-      </div>
-      <div className="w-full h-full row-[6/-1] p-1">
+      </section>
+      <section className="w-full h-full row-[6/-1] p-1">
         <div className="w-full flex items-center justify-center">
           <h3 className=" font-semibold">Recommendation</h3>
         </div>
@@ -137,7 +138,7 @@ export default function Detail({
             </div>
           ) : null}
         </div>
-      </div>
-    </div>
+      </section>
+    </section>
   );
 }
