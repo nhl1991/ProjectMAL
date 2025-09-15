@@ -32,12 +32,12 @@ export default function AnimationPreviewList({ data }: { data: MAL[] }) {
                 </svg>
             </button>
             <div ref={containerRef} className="w-full h-max overflow-scroll flex">
-                <div className="grid grid-cols-[repeat(10,min(120px))] grid-rows-[repeat(1,min(180px))] md:grid-cols-[repeat(10,min(240px))] md:grid-rows-[repeat(1,min(360px))] gap-2 md:gap-4 p-4 ">
+                <div className="grid grid-cols-[repeat(10,min(120px))]  grid-rows-[repeat(1,min(180px))] md:grid-cols-[repeat(10,min(240px))] md:grid-rows-[repeat(1,min(360px))] gap-2 md:gap-4 p-4 ">
                     {data.map((item: MAL, i: number) => {
                         return (
-                            <div key={i} className="flex-none w-full h-full ">
+                            <ul key={i} className="flex w-full h-full ">
                                 <AnimationNode node={item.node} ranking={item.ranking} />
-                            </div>
+                            </ul>
                         );
                     })}
                 </div>
