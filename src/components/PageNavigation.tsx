@@ -16,7 +16,7 @@ export default function Navigation() {
             window.innerWidth < 768)
 
         return () => setIsClick(false);
-    }, [])
+    }, [pathname])
 
 
     const menu = ['/', 'ranking', 'season']
