@@ -18,7 +18,7 @@ export default function Page() {
                     {
                         Array.isArray(season) && season.map((item, i) => {
                             return <div key={i} className="w-full h-max p-2">
-                                <AnimePreviewList type={`anime/season/${currentYear}/${item}`} query={`offset=0&limit=10&sort=anime_num_list_users`} title={`THIS ${item}`} />
+                                <AnimePreviewList type={`anime/season/${currentYear}/${item}`} query={`offset=0&limit=20&sort=anime_num_list_users`} title={`THIS ${item}`} />
                             </div>
                         })}
                 </Suspense>

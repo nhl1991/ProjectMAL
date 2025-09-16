@@ -12,7 +12,7 @@ export default function AnimationNode({
 }: Readonly<{ node: node; ranking?: ranking; priority?: boolean }>) {
   const [isHover, setIsHover] = useState<boolean>(false);
   return (
-    <li
+    <article
       className="w-full h-full relative hover:scale-105"
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
@@ -52,6 +52,6 @@ export default function AnimationNode({
           />
         ) : null}
       </div>
-    </li>
+    </article>
   );
 }
