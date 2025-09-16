@@ -41,6 +41,10 @@ https://project-mal.vercel.app/
 
 
 ## Changelog
+25/09/16
+- Fixed an issue where <ul> tags were not wrapping <li> elements properly.
+- Introducing Swiper (in progress)
+
 25/09/07
 - Introduce TanStack Query’s useInfiniteQuery for infinite scrolling at '/ranking', '/season'.
 - Fix UI.

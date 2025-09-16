@@ -16,7 +16,7 @@ export default async function Page() {
                         Array.isArray(ranking_type) && ranking_type.map((item, i) => {
 
                             return <div key={i} className="w-full h-max p-2 ">
-                                <AnimePreviewList type={'anime/ranking'} query={`ranking_type=${item}&offset=0&limit=10`} title={`TOP 10 - ${item}`} />
+                                <AnimePreviewList type={'anime/ranking'} query={`ranking_type=${item}&offset=0&limit=20`} title={`TOP 20 - ${item}`} />
                             </div>
                         })}
 
