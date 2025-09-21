@@ -59,10 +59,11 @@ export default function AnimationPreviewList({ data }: { data: MAL[] }) {
                     }}
                     className=""
                     loop={true}
+                    
                     modules={[Navigation, Grid]}
                 >
                     {data.map((item: MAL, i: number) => {
-                        return <SwiperSlide key={i} className="!h-auto">
+                        return <SwiperSlide key={i} className="!h-auto" tag="article">
 
                             <div className="relative w-full aspect-[3/4] overflow-hidden rounded-xl">
                                 <AnimationNode node={item.node} ranking={item.ranking} />
@@ -95,3 +96,5 @@ export default function AnimationPreviewList({ data }: { data: MAL[] }) {
         </div>
     );
 }
+
+
