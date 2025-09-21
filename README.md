@@ -38,12 +38,14 @@ npm run dev
 ## Deploy
 https://project-mal.vercel.app/
 
-
+### In Progress
+- Introducing Swiper
 
 ## Changelog
+- Fix UI
+
 25/09/16
 - Fixed an issue where <ul> tags were not wrapping <li> elements properly.
-- Introducing Swiper (in progress)
 
 25/09/07
 - Introduce TanStack Query’s useInfiniteQuery for infinite scrolling at '/ranking', '/season'.

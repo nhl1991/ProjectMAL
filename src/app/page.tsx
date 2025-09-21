@@ -40,14 +40,14 @@ export default function Home() {
 
 
   return (
-    <div className="w-full h-full">
+    <main className="w-full h-full">
       <div className="w-full h-full bg-transparent flex flex-col items-center justify-center ">
         <div><h1 className="font-bold text-[clamp(2rem,2rem+1.5vw,3rem)]">PROJECT MAL</h1></div>
       
         <div className="bg-center bg-no-repeat bg-cover rounded-2xl" style={{
           backgroundImage: `url(${backgroundImage})`,
         }}>
-          <div className="gap-0 grid md:grid-cols-3 md:grid-rows-1  backdrop-blur-sm grid-cols-1 grid-rows-3 md:gap-12" >
+          <nav className="gap-0 grid md:grid-cols-3 md:grid-rows-1  backdrop-blur-sm grid-cols-1 grid-rows-3 md:gap-12" >
             {
               menu.map((item, i) => {
                 return <div key={i} className="flex items-center md:justify-center rounded-2xl text-white transition-all duration-300 hover:scale-[1.06] hover:bg-gradient-to-br hover:from-fuchsia-500/20 hover:via-emerald-400/20 hover:to-cyan-400/20 dark:text-white">
@@ -71,9 +71,9 @@ export default function Home() {
                 </div>
               })
             }
-          </div>
+          </nav>
         </div>
       </div>
-    </div>
+    </main>
   );
 }
