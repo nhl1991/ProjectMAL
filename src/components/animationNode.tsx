@@ -12,17 +12,17 @@ export default function AnimationNode({
 }: Readonly<{ node: node; ranking?: ranking; priority?: boolean }>) {
   const [isHover, setIsHover] = useState<boolean>(false);
   return (
-    <article
-      className="w-full h-full relative hover:scale-105"
+    <figure
+      className="relative hover:scale-105 aspect-[9/16] bg-fuchsia-600"
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
     >
       {isHover ? (
         <Link
-          className="w-full h-full bg-black/80 absolute z-50  rounded-xl flex items-center justify-center"
-          href={`/details/${node.id}`}
+          className="w-full h-full bg-black/80 p-4 absolute z-50  rounded-xl flex items-center justify-center"
+          href={`/details/${node.id}`}  aria-label={`Show ${node.title} detail `}
         >
-          <div>
+          <div className="">
             <div className="px-4">
               <span className="relative text-xl font-bold text-white">
                 {node.title}
@@ -46,12 +46,12 @@ export default function AnimationNode({
         {node.main_picture ? (
           <ImageWithLink
             id={node.id}
+            title={node.title}
             image_large={node.main_picture.large}
-            image_medium={node.main_picture.medium}
             priority={priority ?? false}
           />
         ) : null}
       </div>
-    </article>
+    </figure>
   );
 }
