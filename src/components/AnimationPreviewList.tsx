@@ -8,13 +8,12 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/grid';
-
 export default function AnimationPreviewList({ data }: { data: MAL[] }) {
     const prevRef = useRef<HTMLButtonElement>(null);
     const id = useId();
 
     return (
-        <div className="flex w-full">
+        <div className="flex w-full h-72">
             <div className="flex items-center justify-center">
                 <button
                     id={`prev-${id}`}
@@ -40,11 +39,8 @@ export default function AnimationPreviewList({ data }: { data: MAL[] }) {
                     </svg>
                 </button>
             </div>
-            <div className="w-full overflow-scroll flex relative p-2">
                 <Swiper
-                    spaceBetween={5}
-                    slidesPerView={4}
-                    height={140}
+                    
                     navigation={{
                         prevEl: `#prev-${id}`,
                         nextEl: `#next-${id}`,
@@ -52,27 +48,20 @@ export default function AnimationPreviewList({ data }: { data: MAL[] }) {
                     breakpoints={{
                         768: {
                             spaceBetween: 30,
-                            autoHeight: true,
                             slidesPerView: 6
-
                         }
                     }}
-                    className=""
                     loop={true}
-                    
+                    className="w-full h-full overflow-scroll flex relative p-2 "
                     modules={[Navigation, Grid]}
                 >
                     {data.map((item: MAL, i: number) => {
-                        return <SwiperSlide key={i} className="!h-auto" tag="article">
-
-                            <div className="relative w-full aspect-[3/4] overflow-hidden rounded-xl">
-                                <AnimationNode node={item.node} ranking={item.ranking} />
-                            </div>
+                        return <SwiperSlide key={i} className="aspect-[9/16] min-w-48 relative" tag="article">
+                                <AnimationNode node={item.node} ranking={item.ranking}  />
                         </SwiperSlide>
 
                     })}
                 </Swiper>
-            </div>
             <div className="flex items-center justify-center">
                 <button id={`next-${id}`} className="scroll-right md:block hidden" role="button-right">
                     <svg

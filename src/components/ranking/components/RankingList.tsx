@@ -41,8 +41,8 @@ export default function RankingList({ ranking_type }: { ranking_type: string }) 
                 data ? data.pages.map((page, pageIndex) => (
                     <AnimationContainer key={pageIndex}>
                         {
-                            page.data.map((item:MAL) => (
-                                <AnimationNode key={item.node.id} node={item.node} ranking={item.ranking} />
+                            page.data.map((item:MAL, idx:number) => (
+                                <AnimationNode key={item.node.id} node={item.node} ranking={item.ranking} priority={idx < 10 ? true: false} />
                             ))
                         }
                     </AnimationContainer>
