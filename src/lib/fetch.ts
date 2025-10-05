@@ -73,6 +73,8 @@ export async function Fetch(query: string) {
   
   try {
     const response = await fetch(url, {
+      cache: "force-cache",
+      next: { revalidate: 86400, tags: [`${url}`] },
       headers: {
         "X-MAL-CLIENT-ID": `${
           process.env.NODE_ENV === "production"
