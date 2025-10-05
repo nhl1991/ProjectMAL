@@ -47,7 +47,7 @@ export default function Home() {
         <div><h1 className="font-bold text-[clamp(2rem,2rem+1.5vw,3rem)]">PROJECT MAL</h1></div>
       
         <div className="rounded-2xl relative" >
-          {backgroundImage && <Image src={backgroundImage} className="bg-center bg-no-repeat object-cover " sizes="100vw" fill priority={true} alt="background-image" />}
+          {backgroundImage && <Image src={backgroundImage} className="bg-center bg-no-repeat object-cover " sizes="(max-width: 768px) 100vw, 50vw" fill priority={true} alt="background-image" />}
           <nav className="gap-0 grid md:grid-cols-3 md:grid-rows-1  backdrop-blur-sm grid-cols-1 grid-rows-3 md:gap-12" >
             {
               menu.map((item, i) => {
