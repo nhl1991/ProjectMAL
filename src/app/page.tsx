@@ -1,4 +1,5 @@
 'use client'
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -40,13 +41,13 @@ export default function Home() {
 
 
   return (
-    <main className="w-full h-full">
+    <main className="w-full h-full relative">
+      
       <div className="w-full h-full bg-transparent flex flex-col items-center justify-center ">
         <div><h1 className="font-bold text-[clamp(2rem,2rem+1.5vw,3rem)]">PROJECT MAL</h1></div>
       
-        <div className="bg-center bg-no-repeat bg-cover rounded-2xl" style={{
-          backgroundImage: `url(${backgroundImage})`,
-        }}>
+        <div className="rounded-2xl relative" >
+          {backgroundImage && <Image src={backgroundImage} className="bg-center bg-no-repeat object-cover " sizes="(max-width: 768px) 100vw, 50vw" fill priority={true} alt="background-image" />}
           <nav className="gap-0 grid md:grid-cols-3 md:grid-rows-1  backdrop-blur-sm grid-cols-1 grid-rows-3 md:gap-12" >
             {
               menu.map((item, i) => {
