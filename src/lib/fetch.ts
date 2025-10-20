@@ -18,8 +18,8 @@ export async function FetchAPI(query: string, tags: string) {
     });
 
     const result = await response.json();
-    return result;
 
+    return result;
   } catch (err) {
     console.log("Error: ", err);
   }
@@ -37,13 +37,12 @@ export async function getAnimationBySearch(query: string | undefined) {
   if (query === undefined) return;
 
   const url = new URL(query, `https://api.myanimelist.net/`);
-  const tag = url.searchParams.get('q');
+  const tag = url.searchParams.get("q");
 
-  return await FetchAPI(`v2/${query}`, tag ?? 'search');
+  return await FetchAPI(`v2/${query}`, tag ?? "search");
 }
 
 export async function getAnimationPreview(query: string) {
-
   // ranking : /v2/anime/ranking?ranking_type=all&limit=4
   // season : /v2/anime/season/2017/summer?limit=4
   // search : /v2/anime?q=one&limit=4
@@ -53,24 +52,18 @@ export async function getAnimationPreview(query: string) {
       `/v2/${query}`,
       `preview-ranking-${url.searchParams.get("ranking_type")}`
     );
-  else if (query.includes("season")){
-    const season = url.pathname.split('/')[3]
-    const year = url.pathname.split('/')[4]
-    return await FetchAPI(
-      `v2/${query}`,
-      `preview-season-${year}-${season}`
-    );}
-  else if (query.includes("q")) {
-    return await FetchAPI(`v2/${query}&limit=8`, 'search');
+  else if (query.includes("season")) {
+    const season = url.pathname.split("/")[3];
+    const year = url.pathname.split("/")[4];
+    return await FetchAPI(`v2/${query}`, `preview-season-${year}-${season}`);
+  } else if (query.includes("q")) {
+    return await FetchAPI(`v2/${query}&limit=8`, "search");
   } else return;
 }
 
-
-
-
 export async function Fetch(query: string) {
   const url = new URL(`/v2/anime/${query}`, `https://api.myanimelist.net`);
-  
+
   try {
     const response = await fetch(url, {
       cache: "force-cache",
@@ -86,7 +79,6 @@ export async function Fetch(query: string) {
     });
 
     return await response.json();
-
   } catch (err) {
     console.log("Error: ", err);
   }

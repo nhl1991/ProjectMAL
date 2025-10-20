@@ -13,25 +13,24 @@ export default function AnimationNode({
   const [isHover, setIsHover] = useState<boolean>(false);
   return (
     <article
-      className="w-full h-full relative hover:scale-105"
+      className="w-full h-full relative hover:scale-105 p-2"
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
     >
-      {isHover ? (
+      
+      <div className="w-full h-full relative cursor-pointer">
+        {isHover ? (
         <Link
           className="w-full h-full bg-black/80 p-4 absolute z-50  rounded-xl flex items-center justify-center"
           href={`/details/${node.id}`}  aria-label={`Show ${node.title} detail `}
         >
-          <div className="">
             <div className="px-4">
               <span className="relative text-xl font-bold text-white">
                 {node.title}
               </span>
             </div>
-          </div>
         </Link>
       ) : null}
-      <div className="w-full h-full relative cursor-pointer">
         {ranking ? (
           <div className="absolute z-50 flex justify-center items-center">
             <p
