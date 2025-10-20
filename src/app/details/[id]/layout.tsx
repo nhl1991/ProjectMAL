@@ -1,5 +1,4 @@
 import Navigation from "@/components/PageNavigation";
-import { ErrorBoundary } from "next/dist/client/components/error-boundary";
 
 export default function DetailLayout({
   children,

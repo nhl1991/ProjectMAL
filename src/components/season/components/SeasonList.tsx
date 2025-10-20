@@ -6,7 +6,7 @@ import Loading from "@/components/loading";
 import NoData from "@/components/NoData";
 import SectionHeader from "@/components/SectionHeader";
 import { MAL } from "@/lib/types";
-import { FetchNextPageOptions, InfiniteData, InfiniteQueryObserverResult, useInfiniteQuery } from "@tanstack/react-query";
+import { useInfiniteQuery } from "@tanstack/react-query";
 
 const fetchAnimation = async ({ pageParam }: { pageParam: string }) => {
     const response = await fetch(`/api/${pageParam}`);
