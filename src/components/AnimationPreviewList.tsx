@@ -47,17 +47,19 @@ export default function AnimationPreviewList({ data }: { data: MAL[] }) {
                     }}
                     breakpoints={{
                         768: {
-                            spaceBetween: 30,
-                            slidesPerView: 6
-                        }
+                            spaceBetween: 20,
+                            slidesPerView: 5
+                        },
+                        
                     }}
+                    slidesPerView={4}
                     loop={true}
                     className="w-full h-full overflow-scroll flex relative p-2 "
                     modules={[Navigation, Grid]}
                 >
                     {data.map((item: MAL, i: number) => {
                         return <SwiperSlide key={i} className="aspect-[9/16] min-w-48 relative" tag="article">
-                                <AnimationNode node={item.node} ranking={item.ranking}  />
+                                <AnimationNode node={item.node} ranking={item.ranking} priority={i < 5 ? true:false} />
                         </SwiperSlide>
 
                     })}
