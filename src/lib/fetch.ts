@@ -83,3 +83,4 @@ export async function Fetch(query: string) {
     console.log("Error: ", err);
   }
 }
+

@@ -1,10 +1,6 @@
-
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
-
-
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,20 +22,25 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
-  
   return (
     <html lang="en">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased w-screen h-screen flex items-center justify-center`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-          {children}
-        {/* <footer className="w-full bottom-0 text-center absolute text-sm">
-            &copy;Data sourced from <a href="https://myanimelist.net/" target="_blank" rel="noopener noreferrer">MyAnimeList</a>
-        </footer> */}
+        <main className=" w-screen min-h-screen flex flex-col justify-center">{children}</main>
+        <footer className="text-center text-sm">
+          &copy;Data sourced from{" "}
+          <a
+            href="https://myanimelist.net/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            MyAnimeList
+          </a>
+        </footer>
       </body>
     </html>
   );

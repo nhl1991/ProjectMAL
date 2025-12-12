@@ -3,7 +3,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import styles from "./navigation.module.css"
 import { useEffect, useState } from "react";
-import SearchBar from "./search/ui/searchBar";
+
 
 
 
@@ -19,7 +19,7 @@ export default function Navigation() {
     }, [pathname])
 
 
-    const menu = ['/', 'ranking', 'season']
+    const ROUTES = ['/', 'ranking', 'season']
     const [isClick, setIsClick] = useState(true);
     const handleOnClick = () => {
         setIsClick(!isClick)
@@ -35,12 +35,12 @@ export default function Navigation() {
             <ul className={`${styles.container} `}>
                 {pathname != '/search' ? <li className="px-2 h-full items-center flex rounded-sm ">
                     <div className={`text-xl text-black`}>
-                        <SearchBar />
+
                     </div>
                 </li> : null}
 
                 {
-                    menu.map((item, i) => {
+                    ROUTES.map((item, i) => {
                         return <li key={i} className="h-full p-2 items-center flex rounded-sm text-2xl">
                             <Link href={item === '/' ? '/' : `/${item}`} className={'p-4' + `${pathname.startsWith(`/${item}`) ? 'text-cyan-300 border-b-cyan-300 ' : 'border-transparent'}`}><b>{item === '/' ? 'HOME' : item.toUpperCase()}</b></Link>
                             {/* <Link href={`/${item}`} className={`${pathname.startsWith(`/${item}`) ? 'text-cyan-300 border-b-cyan-300 ' : 'border-transparent'}`}><b>{item.toUpperCase()}</b></Link> */}
@@ -60,7 +60,7 @@ export default function Navigation() {
                     </button></li> : <>
                     {
 
-                        menu.map((item, i) => {
+                        ROUTES.map((item, i) => {
                             return <li key={i} className={` p-2 items-center border-transparent rounded-sm`}>
                                 <Link href={item === '/' ? '/' : `/${item}`} className={'p-2' + `${pathname.startsWith(`/${item}`) ? 'text-cyan-300 border-b-cyan-300 ' : 'border-transparent'}`}><b>{item === '/' ? 'HOME' : item.toUpperCase()}</b></Link>
                                 {/* <Link href={`/${item}`} className={`${pathname.startsWith(`/${item}`) ? 'text-cyan-300 border-b-cyan-300 ' : 'border-transparent'}`}><b>{item.toUpperCase()}</b></Link> */}
