@@ -3,7 +3,7 @@
 import { useOptionStore } from "@/lib/stores";
 import Link from "next/link";
 
-export default function AnimationHero({ category, value }: {
+export default function AnimationPreviewHero({ category, value }: {
     category: string;
     value: string;
 }) {
@@ -16,7 +16,7 @@ export default function AnimationHero({ category, value }: {
 
     return (
         <header className="flex px-4 py-2 gap-x-2">
-            <div className="flex items-end">
+            <div className="flex items-end bg-sky-300 hover:bg-sky-500 dark:bg-indigo-900 dark:hover:bg-indigo-950 px-3 py-1 rounded-xl text-white">
                 <Link href={`${category}/list`}
                     className="flex items-center gap-x-2"
                     onClick={() => {
