@@ -16,5 +16,4 @@ export async function GET(req: NextRequest, ctx: RouteContext<'/api/season/[seas
       const error = await result.json();
       return NextResponse.json(error, {status: result.status});
     }
-    return NextResponse.next().status
 }

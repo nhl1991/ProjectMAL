@@ -1,6 +1,3 @@
-
-
-import { HomeIcon, RankingIcon, SearchIcon, SeasonIcon } from "@/components/common/icons";
 export const RANKING_TYPE = ['all', 'airing', 'upcoming', 'tv', 'ova', 'movie', 'special', 'bypopularity', 'favorite'];
 
 export const SEASON_TYPE = ['winter', 'spring', 'summer', 'fall'];

@@ -20,6 +20,7 @@ export async function getAnimations(query: string, tags: string) {
     
 
   } catch (err) {
+    console.log(err);
     throw new Error("API failed");
 
   }
