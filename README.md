@@ -1,10 +1,4 @@
 # Project-MAL
-<img width="480" height="300" alt="preview_4" src="https://github.com/user-attachments/assets/91625f25-1524-4bc2-b3df-1cc8125c7c85" />
-<img width="480" height="300" alt="preview_3" src="https://github.com/user-attachments/assets/2f160cb5-4b88-4555-81c7-8bf2e6e39edb" />
-<img width="480" height="300" alt="preview_1" src="https://github.com/user-attachments/assets/6975a34c-8def-4719-8b89-95072a87ecd7" />
-<img width="480" height="300" alt="preview_2" src="https://github.com/user-attachments/assets/9e63fa95-7aab-427b-a871-d8b800a5d941" />
-
-
 
 ## 📖 Overview
 This project was developed to study CSR,SSR Rendering and fetching external API provided by <a href="https://myanimelist.net/apiconfig/references/api/v2">myanimelist.com</a>.<br/>
@@ -19,6 +13,17 @@ It provides amount of animation list by ranking, season and search.
 - 🔎 Search animations by keywords entered by the user
 - 📊 Display animations ranked by type (e.g., popularity, user favorite, )
 - 📅 View seasonal animations by specifying year and season
+
+
+## Preview
+<img width="480" height="300" alt="스크린샷 2025-12-14 오후 10 23 09" src="https://github.com/user-attachments/assets/343610a1-f025-4c08-9ff5-7742fa50d274" />
+<img width="480" height="300" alt="스크린샷 2025-12-14 오후 10 23 41" src="https://github.com/user-attachments/assets/f5230a62-ec66-4c9a-94ae-cca46f4def35" />
+<img width="480" height="300"" alt="스크린샷 2025-12-14 오후 10 24 02" src="https://github.com/user-attachments/assets/45798b1f-a09d-461b-a3e1-58cacf9c3777" />
+<img width="480" height="300" alt="스크린샷 2025-12-14 오후 10 24 25" src="https://github.com/user-attachments/assets/e19f5f27-39a4-4ec2-beab-658be10b10de" />
+
+
+
+
 
 ## 🚀 Getting Started
 ```bash
@@ -42,7 +47,10 @@ https://project-mal.vercel.app/
 - Introducing Swiper
 
 ## Changelog
-- Fix UI
+
+25/12/14
+ー Refactoring
+
 
 25/09/16
 - Fixed an issue where <ul> tags were not wrapping <li> elements properly.
