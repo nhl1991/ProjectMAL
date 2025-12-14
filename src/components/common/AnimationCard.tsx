@@ -27,7 +27,7 @@ export default function AnimationCard({ item }: { item: AnimationData }) {
             className="w-full h-full absolute top-0 z-20 bg-black/50 flex items-center justify-center"
             href={`/details/${node.id}`}
           >
-            <p className="text-center md:text-base text-xs px-2">{node.title}</p>
+            <p className="text-center md:text-base text-xs px-2 text-white font-bold">{node.title}</p>
           </Link>
         ) : null}
       </figure>

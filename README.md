@@ -18,7 +18,7 @@ It provides amount of animation list by ranking, season and search.
 ## Preview
 <img width="480" height="300" alt="스크린샷 2025-12-14 오후 10 23 09" src="https://github.com/user-attachments/assets/343610a1-f025-4c08-9ff5-7742fa50d274" />
 <img width="480" height="300" alt="스크린샷 2025-12-14 오후 10 23 41" src="https://github.com/user-attachments/assets/f5230a62-ec66-4c9a-94ae-cca46f4def35" />
-<img width="480" height="300"" alt="스크린샷 2025-12-14 오후 10 24 02" src="https://github.com/user-attachments/assets/45798b1f-a09d-461b-a3e1-58cacf9c3777" />
+<img width="480" height="300" alt="스크린샷 2025-12-14 오후 10 24 02" src="https://github.com/user-attachments/assets/45798b1f-a09d-461b-a3e1-58cacf9c3777" />
 <img width="480" height="300" alt="스크린샷 2025-12-14 오후 10 24 25" src="https://github.com/user-attachments/assets/e19f5f27-39a4-4ec2-beab-658be10b10de" />
 
 
@@ -44,12 +44,13 @@ npm run dev
 https://project-mal.vercel.app/
 
 ### In Progress
-- Introducing Swiper
+
 
 ## Changelog
 
 25/12/14
 ー Refactoring
+- Fix UI
 
 
 25/09/16
