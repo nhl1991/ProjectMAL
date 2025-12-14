@@ -20,8 +20,6 @@ div {
   max-height: 1920px;
 }
 
-
-
 * {
   box-sizing: border-box;
 }
@@ -32,19 +30,15 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-
-
 .aspect-img {
   aspect-ratio: 9/16;
 }
 
 .overflow-animation {
-
   animation: move 300s linear infinite;
 }
 
 .overflow-animation:hover {
-
   animation-play-state: paused;
 }
 
@@ -58,7 +52,6 @@ body {
   }
 
   100% {
-
     transform: rotate3d(0, -11, 0, 180deg);
   }
 }
@@ -77,13 +70,10 @@ body {
   }
 }
 
-
-
 .scroll-box {
   @apply border-2 border-white;
   overflow: scroll;
   scroll-behavior: smooth;
-
 }
 
 .scroll-box:hover {
@@ -93,83 +83,57 @@ body {
 
 .scroll-item {
   text-align: center;
-  font-size: 2.875rem
-    /* 30px */
-  ;
+  font-size: 2.875rem /* 30px */;
   line-height: 9rem;
   /* 36px */
-  ;
 }
-
 
 .placeholder {
   text-align: center;
-  font-size: 2.875rem
-    /* 30px */
-  ;
+  font-size: 2.875rem /* 30px */;
   /* 24px */
-  ;
-
-
 }
 
-.background-intro-animation {
-
-  animation: intro 1s linear;
-}
-
-.background-outro-animation {
-
-  animation: outro 1s linear;
-}
 
 .detail-information {
   --tw-bg-opacity: 1;
-  background-color: rgb(248 250 252 / var(--tw-bg-opacity, 1))
-    /* #f8fafc */
-  ;
-  border-radius: 0.25rem
-    /* 4px */
-  ;
-
-}
-
-.home-navigation-scale-animation:hover {
-  animation: hoverScale 1s linear;
-  animation-fill-mode: forwards
+  background-color: rgb(248 250 252 / var(--tw-bg-opacity, 1)) /* #f8fafc */;
+  border-radius: 0.25rem /* 4px */;
 }
 
 .custom-box-shadow {
-  box-shadow: 0px 10px #DBA632;
-
+  box-shadow: 0px 10px #dba632;
 }
 
-@keyframes intro {
-  0% {
-    opacity: 0%;
-  }
 
-  80% {
-    opacity: 100%;
-  }
+.btn-hover {
+  @apply px-3 py-1 rounded-xl bg-sky-400 cursor-pointer hover:bg-sky-500 text-white;
 }
 
-@keyframes outro {
-  0% {
-    opacity: 100%;
-  }
-
-  80% {
-    opacity: 0%;
-  }
+.swiper-custom {
+  --swiper-navigation-color: rgba(255, 255, 255, 0);
+}
+.swiper-custom:hover {
+  --swiper-navigation-color: rgb(255, 255, 255);;
 }
 
-@keyframes hoverScale {
-  0% {
-    scale: 1;
-  }
+.rankTextStroke {
+    
+    color: transparent; /* Clear inner fill. */
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.8); /* outline width */
+    text-align: center; /* 가운데 정렬 */
+}
 
-  100% {
-    scale: 1.05;
-  }
+.text-gradient {
+  @apply fill-transparent bg-clip-text text-transparent bg-gradient-to-t from-white via-sky-500 to-indigo-500;
+}
+
+.app-title {
+    color: transparent; 
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.8);
+    text-align: center;
+}
+
+.app-link:hover{
+  @apply bg-gradient-to-br from-fuchsia-500/20 via-emerald-400/20 to-cyan-400/20;
 }
