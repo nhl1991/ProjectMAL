@@ -94,13 +94,6 @@ body {
   /* 24px */
 }
 
-.background-intro-animation {
-  animation: intro 1s linear;
-}
-
-.background-outro-animation {
-  animation: outro 1s linear;
-}
 
 .detail-information {
   --tw-bg-opacity: 1;
@@ -108,45 +101,39 @@ body {
   border-radius: 0.25rem /* 4px */;
 }
 
-.home-navigation-scale-animation:hover {
-  animation: hoverScale 1s linear;
-  animation-fill-mode: forwards;
-}
-
 .custom-box-shadow {
   box-shadow: 0px 10px #dba632;
 }
 
-@keyframes intro {
-  0% {
-    opacity: 0%;
-  }
-
-  80% {
-    opacity: 100%;
-  }
-}
-
-@keyframes outro {
-  0% {
-    opacity: 100%;
-  }
-
-  80% {
-    opacity: 0%;
-  }
-}
-
-@keyframes hoverScale {
-  0% {
-    scale: 1;
-  }
-
-  100% {
-    scale: 1.05;
-  }
-}
 
 .btn-hover {
-  @apply px-3 py-1 rounded-xl bg-sky-400 cursor-pointer hover:bg-sky-500;
+  @apply px-3 py-1 rounded-xl bg-sky-400 cursor-pointer hover:bg-sky-500 text-white;
+}
+
+.swiper-custom {
+  --swiper-navigation-color: rgba(255, 255, 255, 0);
+}
+.swiper-custom:hover {
+  --swiper-navigation-color: rgb(255, 255, 255);;
+}
+
+.rankTextStroke {
+    
+    color: transparent; /* Clear inner fill. */
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.8); /* outline width */
+    text-align: center; /* 가운데 정렬 */
+}
+
+.text-gradient {
+  @apply fill-transparent bg-clip-text text-transparent bg-gradient-to-t from-white via-sky-500 to-indigo-500;
+}
+
+.app-title {
+    color: transparent; 
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.8);
+    text-align: center;
+}
+
+.app-link:hover{
+  @apply bg-gradient-to-br from-fuchsia-500/20 via-emerald-400/20 to-cyan-400/20;
 }

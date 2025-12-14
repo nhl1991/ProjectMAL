@@ -3,12 +3,14 @@
 import { AnimationData } from "@/types/animation";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import AnimationCard from "../common/AnimationCard";
-import Loading from "../common/ui/Loading";
-import { useEffect } from "react";
+import AnimationGridWrapper from "../common/AnimationGridWrapper";
+import ResultsSection from "../common/ResultsSection";
+import StatusSection from "../common/StatusSection";
+import LoadingIndicator from "../common/ui/LoadingIndicator";
+import PageLoading from "../common/ui/PageLoading";
 
 const search = async ({ pageParam }: { pageParam: string }) => {
-  console.log(pageParam);
-  const response = await fetch(`/api/get-anime${pageParam}`, {
+  const response = await fetch(`/api/search?${pageParam}`, {
     method: "get",
   });
   //   const result = await response.json()
@@ -22,8 +24,7 @@ const search = async ({ pageParam }: { pageParam: string }) => {
   }
 };
 
-export default function AnimeSearchResults({ query }: { query: string }) {
-  if (query === "") return;
+export default function SearchResults({ query }: { query: string }) {
   const {
     data,
     error,
@@ -35,32 +36,31 @@ export default function AnimeSearchResults({ query }: { query: string }) {
     retry: false,
     queryKey: ["animation", "search", query],
     queryFn: search,
-    initialPageParam: `?q=${query}&limit=16`,
-    getNextPageParam: ({ paging }) => `?${paging.next.split("?")[1]}`,
+    initialPageParam: `offset=0&q=${query}`,
+    getNextPageParam: ({ paging }) =>`${paging.next.split("?")[1]}`,
   });
-  if (status === "pending") return <Loading />;
-  if (status === "error") return <p className="py-24">{error.message}</p>;
+  if (status === "pending") return <StatusSection><PageLoading /></StatusSection>;
+  if (status === "error") return <StatusSection><p className="py-24">{error.message}</p></StatusSection>;
   if (status === "success")
-    if (!data) return <p>No data. Try something else</p>;
+    if (!data) return <StatusSection><p>No data. Try something else</p></StatusSection>
   return (
     <>
-      {data.pages.map((page, pageIndex) => {
-        return (
-          <div
-            className="w-full md:max-w-screen-xl grid grid-rows-4 grid-cols-[repeat(4,minmax(90px,192px))] gap-2 py-1 px-4 justify-center"
-            key={pageIndex}
-          >
-            {page.data.map((item: AnimationData, idx: number) => {
+      <ResultsSection>
+        {data.pages.map((page, pageIndex) => {
+          return (
+            <AnimationGridWrapper key={pageIndex}>
+              {page.data.map((item: AnimationData) => {
                 const { id } = item.node;
-              return <AnimationCard key={id} item={item} />;
-            })}
-          </div>
-        );
-      })}
-      <footer className="py-4">
+                return <AnimationCard key={id} item={item} />;
+              })}
+            </AnimationGridWrapper>
+          );
+        })}
+      </ResultsSection>
+      <footer className="py-4 flex items-center justify-center">
         {hasNextPage ? (
           isFetchingNextPage ? (
-            <Loading />
+            <LoadingIndicator />
           ) : (
             <button className="btn-hover" onClick={() => fetchNextPage()}>
               NEXT

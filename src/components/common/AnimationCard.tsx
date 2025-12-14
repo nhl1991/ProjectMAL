@@ -1,8 +1,8 @@
 "use client";
-import { AnimationData, AnimationNode } from "@/types/animation";
+import { AnimationData } from "@/types/animation";
 import Image from "next/image";
 import Link from "next/link";
-import { MouseEventHandler, useState } from "react";
+import { useState } from "react";
 
 export default function AnimationCard({ item }: { item: AnimationData }) {
   const { node } = item;
@@ -25,9 +25,9 @@ export default function AnimationCard({ item }: { item: AnimationData }) {
         {hover ? (
           <Link
             className="w-full h-full absolute top-0 z-20 bg-black/50 flex items-center justify-center"
-            href={""}
+            href={`/details/${node.id}`}
           >
-            <p className="text-center md:text-base text-xs">{node.title}</p>
+            <p className="text-center md:text-base text-xs px-2">{node.title}</p>
           </Link>
         ) : null}
       </figure>

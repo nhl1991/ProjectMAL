@@ -1,5 +1,5 @@
 export async function getAnimations(query: string, tags: string) {
-  const url = new URL(query, `https://api.myanimelist.net/v2/anime`);
+  const url = new URL(query, `https://api.myanimelist.net/v2/`);
   // console.log('Fetching : ',url.href);
   try {
       return await fetch(url, {
@@ -16,7 +16,6 @@ export async function getAnimations(query: string, tags: string) {
       method: "GET",
     });
 
-    // return await response.json();
 
     
 

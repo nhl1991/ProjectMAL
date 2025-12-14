@@ -1,12 +1,14 @@
 
 
-export const ranking_type = ['all', 'airing', 'upcoming', 'tv', 'ova', 'movie', 'special', 'bypopularity', 'favorite'];
+import { HomeIcon, RankingIcon, SearchIcon, SeasonIcon } from "@/components/common/icons";
+export const RANKING_TYPE = ['all', 'airing', 'upcoming', 'tv', 'ova', 'movie', 'special', 'bypopularity', 'favorite'];
 
-export const seasonal_type = ['winter', 'spring', 'summer', 'autumn'];
+export const SEASON_TYPE = ['winter', 'spring', 'summer', 'fall'];
 
 export function getYears(){
     const years = [];
-    for(let i = 2025; i >= 1970; i--){
+    const current = new Date().getFullYear();
+    for(let i = current+1; i >= 1970; i--){
         years.push(i);
     }
     
