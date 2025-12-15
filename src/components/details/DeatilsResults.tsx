@@ -52,7 +52,7 @@ export default function DetailsResults({ id }: { id: string }) {
                     
 
                     <figure className="relative md:max-w-72 w-full h-96">
-                        <Image src={data.main_picture.large} fill sizes="(max-width: 768px) 100vw,33vw" className="object-contain" alt={data.title} />
+                        <Image src={data.main_picture.large} fill sizes="(max-width: 768px) 100vw,33vw" className="object-contain" alt={data.title} priority />
                     </figure>
                     <div>
                         <ul className="flex gap-x-2 py-2 flex-wrap gap-y-2 px-8">
