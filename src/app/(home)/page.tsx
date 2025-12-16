@@ -4,7 +4,7 @@ import HomeHero from "./_components/HomeHero";
 import { useState } from "react";
 
 export default function Home() {
-  const [ isComplete, setIsComplete ] = useState<Boolean>(false);
+  const [ isComplete, setIsComplete ] = useState<boolean>(false);
   const onLoadComplete = () => setIsComplete(true);
 
   return (
