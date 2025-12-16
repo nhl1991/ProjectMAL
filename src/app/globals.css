@@ -112,6 +112,7 @@ body {
 
 .swiper-custom {
   --swiper-navigation-color: rgba(255, 255, 255, 0);
+  width: 100%;
 }
 .swiper-custom:hover {
   --swiper-navigation-color: rgb(255, 255, 255);;
@@ -136,4 +137,13 @@ body {
 
 .app-link:hover{
   @apply bg-gradient-to-br from-fuchsia-500/20 via-emerald-400/20 to-cyan-400/20;
+}
+
+@media (min-width: 768px) {
+  
+.app-title {
+    color: transparent; 
+    -webkit-text-stroke: 4px rgba(255, 255, 255, 0.8);
+    text-align: center;
+}
 }

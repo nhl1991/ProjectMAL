@@ -76,10 +76,15 @@ export default function AnimationPreviewResults({
                 modules={[Navigation]}
                 spaceBetween={10}
                 slidesPerView={4}
+
+                height={128}
                 navigation
                 className="swiper-custom"
                 loop={true}
-                breakpoints={{ "768": { slidesPerView: 5 } }}
+                breakpoints={{ "768": { 
+                  slidesPerView: 5,
+                  height: 256
+                 } }}
                 scrollbar={{ draggable: true }}
               >
                 {data.map((item: AnimationData) => {
