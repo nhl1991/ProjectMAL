@@ -24,10 +24,6 @@ export default function Navigation() {
         pathname: '/season',
         component: <SeasonIcon className={className} />
     }]
-    const [isClick, setIsClick] = useState(true);
-    const handleOnClick = () => {
-        setIsClick(!isClick)
-    }
 
     return (
 
