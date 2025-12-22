@@ -40,7 +40,7 @@ export default function SeasonResults({ query }: { query: string }) {
     queryKey: ["animation", "season", query],
     queryFn: search,
     initialPageParam: `/${query}?offset=0`,
-    getNextPageParam: ({ paging }) => {
+    getNextPageParam: ({ paging = {} }) => {
       if (!paging.next) return null;
       return `/${query}?${paging.next.split("?")[1]}`;
     },

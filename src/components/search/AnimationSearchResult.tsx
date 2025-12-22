@@ -37,7 +37,9 @@ export default function SearchResults({ query }: { query: string }) {
     queryKey: ["animation", "search", query],
     queryFn: search,
     initialPageParam: `offset=0&q=${query}`,
-    getNextPageParam: ({ paging }) =>`${paging.next.split("?")[1]}`,
+    getNextPageParam: ({ paging = {}}) =>{
+      if (!paging.next) return null;
+      return `${paging.next.split("?")[1]}`},
   });
   if (status === "pending") return <StatusSection><PageLoading /></StatusSection>;
   if (status === "error") return <StatusSection><p className="py-24">{error.message}</p></StatusSection>;

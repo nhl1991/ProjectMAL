@@ -36,7 +36,7 @@ export default function RankingResults({ query }: { query: string }) {
     queryKey: ["animation", "ranking", query],
     queryFn: search,
     initialPageParam: `ranking_type=${query}`,
-    getNextPageParam: ({ paging }) => {
+    getNextPageParam: ({ paging = {}}) => {
       if (!paging.next) return null;
       return `${paging.next.split("?")[1]}`;
     },
