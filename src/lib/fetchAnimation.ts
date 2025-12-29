@@ -1,18 +1,6 @@
 export async function getAnimations(query: string, tags: string) {
   const url = new URL(query, `https://api.myanimelist.net/v2/`);
   try {
-    if (tags === "details")
-      return await fetch(url, {
-        cache: "no-store",
-        headers: {
-          "X-MAL-CLIENT-ID": `${
-            process.env.NODE_ENV === "production"
-              ? process.env.NEXT_PUBLIC_MAL_CLIENT_ID
-              : process.env.MAL_CLIENT_ID
-          }`,
-        },
-      });
-    else
       return await fetch(url, {
         cache: "force-cache",
         next: { revalidate: 21600, tags: [`${tags}`] },
