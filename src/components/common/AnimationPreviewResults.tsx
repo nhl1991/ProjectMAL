@@ -76,6 +76,7 @@ export default function AnimationPreviewResults({
                 modules={[Navigation]}
                 spaceBetween={10}
                 slidesPerView={4}
+                wrapperTag="ul"
 
                 height={128}
                 navigation
@@ -90,7 +91,7 @@ export default function AnimationPreviewResults({
                 {data.map((item: AnimationData) => {
                   const { id } = item.node;
                   return (
-                    <SwiperSlide key={id}>
+                    <SwiperSlide tag="li"  key={id}>
                       <p className="absolute md:text-9xl text-3xl rankTextStroke top-2 left-2 z-20">
                         {item.ranking ? item.ranking.rank : null}
                       </p>
