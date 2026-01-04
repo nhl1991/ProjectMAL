@@ -5,9 +5,6 @@ import Link from "next/link"
 export default function HomeNavigation() {
   const className = "md:w-24 w-12   hover:scale-110 duration-200"
     const ROUTES = [{
-        pathname: '/',
-        component: <HomeIcon className={className} />
-      }, {
         pathname: '/search',
         component: <SearchIcon className={className} />
       }, {
