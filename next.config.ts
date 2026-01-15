@@ -3,6 +3,8 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   
   images: {
+    imageSizes: [128, 256, 384, 512],
+    deviceSizes: [640, 1024, 1200],
     remotePatterns: [
       {
         protocol: 'https',
@@ -11,12 +13,6 @@ const nextConfig: NextConfig = {
         pathname: '/images/anime/**',
         search: '',
       },
-      {
-        protocol: 'https',
-        hostname: 'raw.githubusercontent.com',
-        port: '',
-        pathname: '/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/**'
-      }
     ],
   },
 };
