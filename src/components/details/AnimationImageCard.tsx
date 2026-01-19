@@ -2,20 +2,20 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function AnimationImageCard({ src }: { src: string }) {
+export default function AnimationImageCard({ src }: { src: {medium: string, large: string} }) {
 
   return (
-    <Link href={src} className="place-content-center place-items-center" target="_blank" rel="noopener noreferrer">
+    <Link href={src.large ?? src.medium} className="place-content-center place-items-center" target="_blank" rel="noopener noreferrer">
       <figure
         className="relative md:w-48 md:h-64 w-full h-32 overflow-hidden rounded-xl"
       >
         <Image
-          src={src}
+          src={src.medium ?? src.large}
           fill
           className="object-cover z-10 absolute aspect-[9/16]"
           sizes="(max-width: 768px) 33vw, 10vw"
           alt={"Image"}
-          priority
+          loading="lazy"
         />
       </figure>
     </Link>

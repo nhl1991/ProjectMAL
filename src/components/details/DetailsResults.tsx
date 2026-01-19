@@ -62,7 +62,7 @@ export default function DetailsResults({ id }: { id: string }) {
               alternative_titles={data.alternative_titles}
             />
             <Rating mean={data.mean} />
-            <PosterImage main_picture={data.main_picture} title={data.title} />
+            <PosterImage title={data.title} main_picture={data.main_picture}/>
             <Genres genres={data.genres} />
             <Synopsis synopsis={data.synopsis} />
             {data.pictures.length > 0 ? (

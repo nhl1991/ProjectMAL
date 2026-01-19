@@ -18,12 +18,15 @@ const fetchPreview = async (params: string) => {
     method: "get",
   });
   const result = await response.json();
-  console.log(result);
   if (response.ok) {
     return result;
   } else {
     if (result.message === "invalid q") throw new Error(`No results`);
-    if (result.error === 'not_found') return {data: [], message: "Animation schedules have not been announced yet."}
+    if (result.error === "not_found")
+      return {
+        data: [],
+        message: "Animation schedules have not been announced yet.",
+      };
     else throw new Error(result.message);
   }
 };
@@ -73,42 +76,47 @@ export default function AnimationPreviewResults({
               category={category}
               value={values[pageIndex]}
             />
-            {data.length > 0 ?
-            <div className="py-4 flex px-4 ">
-               
-              <Swiper
-                modules={[Navigation]}
-                spaceBetween={10}
-                slidesPerView={4}
-                wrapperTag="ul"
-
-                height={128}
-                navigation
-                className="swiper-custom"
-                loop={true}
-                breakpoints={{ "768": { 
-                  slidesPerView: 5,
-                  height: 256
-                 } }}
-                scrollbar={{ draggable: true }}
-              >
-                
-                {data.map((item: AnimationData) => {
-                  const { id } = item.node;
-                  return (
-                    <SwiperSlide tag="li"  key={id}>
-                      {item.ranking ?
-                      <p className="absolute md:text-9xl text-3xl rankTextStroke top-2 left-2 z-20">
-                        {item.ranking.rank} 
-                      </p>
-                      : null}
-                      <AnimationCard item={item} />
-                    </SwiperSlide>
-                  );
-                })}
-              </Swiper> 
-            </div>
-            : <p className="h-64 flex items-center justify-center">{page.message}</p>}
+            {data.length > 0 ? (
+              <div className="py-4 flex px-4 ">
+                <Swiper
+                  modules={[Navigation]}
+                  spaceBetween={10}
+                  slidesPerView={4}
+                  wrapperTag="ul"
+                  height={128}
+                  navigation
+                  className="swiper-custom"
+                  loop={true}
+                  breakpoints={{
+                    "768": {
+                      slidesPerView: 5,
+                      height: 256,
+                    },
+                  }}
+                  scrollbar={{ draggable: true }}
+                >
+                  {data.map((item: AnimationData, idx: number) => {
+                    const { id } = item.node;
+                    return (
+                      <SwiperSlide tag="li" key={id}>
+                        {item.ranking ? (
+                          <p className="absolute md:text-9xl text-3xl rankTextStroke top-2 left-2 z-20">
+                            {item.ranking.rank}
+                          </p>
+                        ) : null}
+                        <AnimationCard
+                          item={item}
+                        />
+                      </SwiperSlide>
+                    );
+                  })}
+                </Swiper>
+              </div>
+            ) : (
+              <p className="h-64 flex items-center justify-center">
+                {page.message}
+              </p>
+            )}
           </React.Fragment>
         );
       })}
