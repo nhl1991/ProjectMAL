@@ -1,11 +1,11 @@
 import { Picture } from "@/types/animation";
 import Image from "next/image";
 export default function PosterImage({
-  main_picture,
   title,
+  main_picture,
 }: {
-  main_picture: Picture;
   title: string;
+  main_picture: Picture;
 }) {
   return (
     <>
@@ -13,10 +13,11 @@ export default function PosterImage({
         <Image
           src={main_picture.large ?? main_picture.medium}
           fill
-          sizes="(max-width: 768px) 80vw, 10vw"
+          sizes="(max-width: 768px) 80vw, 50vw"
           className="object-contain"
           alt={`${title} poster`}
-          priority
+          loading="eager"
+          priority={true}
         />
       </figure>
     </>
