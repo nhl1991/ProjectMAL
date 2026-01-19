@@ -9,7 +9,7 @@ export default function HomeHero() {
                 <div className="w-full h-full absolute backdrop-blur-sm z-10 flex items-center justify-center rounded-xl">
                     <p className="md:text-6xl text-4xl text-white  font-[cursive]">Discover New Anime</p>
                 </div>
-                <Image src={'/lp-background.jpg'} sizes="(max-width: 768px)50vw, 25vw" quality={50} fill className="object-cover md:rounded-2xl" priority loading="eager" fetchPriority="high" alt="background-image" />
+                <Image src={'/lp-background.jpg'} sizes="(max-width: 768px)50vw, 25vw" quality={50} fill className="object-cover md:rounded-2xl" priority alt="background-image" />
             </figure>
         </>
     )

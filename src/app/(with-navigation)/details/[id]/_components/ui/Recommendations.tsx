@@ -11,9 +11,9 @@ export default function Recommendations({
 }) {
   return (
     <>
-      <button className="font-bold py-1 text-2xl px-3 rounded-xl bg-sky-400 dark:bg-indigo-700 text-white">
+      <h2 className="font-bold py-1 text-2xl px-3 rounded-xl bg-sky-400 dark:bg-indigo-700 text-white">
         RECOMMENDATIONS
-      </button>
+      </h2>
       <DetailGridWrapper>
         {recommendations.map((r: AnimationData) => (
           <AnimationCard key={r.node.id} item={r} />
