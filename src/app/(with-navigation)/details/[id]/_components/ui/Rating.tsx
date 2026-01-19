@@ -1,6 +1,6 @@
 import StarIcon from "@/components/common/icons/StarIcon";
 
-export default function Rating({ mean}:{mean: number}) {
+export default function Rating({ mean }: { mean: number|undefined }) {
   return (
     <div className="flex items-center gap-x-1">
       <StarIcon className="w-4 h-4" />

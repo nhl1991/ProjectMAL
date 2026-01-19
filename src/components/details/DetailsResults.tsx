@@ -2,9 +2,7 @@
 import StatusSection from "../common/StatusSection";
 import PageLoading from "../common/ui/PageLoading";
 import ResultsSection from "../common/ResultsSection";
-import Image from "next/image";
 import { useQuery } from "@tanstack/react-query";
-import StarIcon from "../common/icons/StarIcon";
 import { useRouter } from "next/navigation";
 import RelatedImages from "@/app/(with-navigation)/details/[id]/_components/ui/RelatedImages";
 import Recommendations from "@/app/(with-navigation)/details/[id]/_components/ui/Recommendations";

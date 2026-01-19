@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function AnimationImageCard({ src }: { src: string }) {
 
   return (
-    <Link href={src} className="place-content-center place-items-center" target="_blank">
+    <Link href={src} className="place-content-center place-items-center" target="_blank" rel="noopener noreferrer">
       <figure
         className="relative md:w-48 md:h-64 w-full h-32 overflow-hidden rounded-xl"
       >
