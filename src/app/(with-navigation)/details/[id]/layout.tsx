@@ -13,7 +13,7 @@ export async function generateMetadata({
 
   return {
     title: response.title,
-    description: response.synopsis,
+    description: response.synopsis.split("\n")[0],
     openGraph: {
       images: [response.main_picture.large],
     },
