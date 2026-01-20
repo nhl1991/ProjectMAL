@@ -10,8 +10,8 @@ export default function Recommendations({
   recommendations: AnimationData[];
 }) {
   return (
-    <>
-      <h2 className="font-bold py-1 text-2xl px-3 rounded-xl bg-sky-400 dark:bg-indigo-700 text-white">
+    <div className="py-12">
+      <h2 className="w-full text-center font-bold py-1 text-2xl px-3 rounded-xl bg-sky-400 dark:bg-indigo-700 text-white">
         RECOMMENDATIONS
       </h2>
       <DetailGridWrapper>
@@ -19,6 +19,6 @@ export default function Recommendations({
           <AnimationCard key={r.node.id} item={r} />
         ))}
       </DetailGridWrapper>
-    </>
+    </div>
   );
 }
