@@ -91,6 +91,8 @@ export default function AnimationPreviewResults({
                     "768": {
                       slidesPerView: 5,
                       height: 256,
+                      preventClicks: false,
+                      preventClicksPropagation: false
                     },
                   }}
                   scrollbar={{ draggable: true }}
