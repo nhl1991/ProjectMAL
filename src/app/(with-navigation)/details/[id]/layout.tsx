@@ -9,14 +9,21 @@ export async function generateMetadata({
   const response = await getAnimations(
     `anime/${id}?fields=id,title,main_picture,synopsis`,
     `details/${id}`
-  ).then((res) => res.json());
-
+  );
+  if (response.ok) {
+    const { title, synopsis, main_picture } = await response.json();
+    console.log("그레이토다제.");
+    return {
+      title: title,
+      description: synopsis.split("\n")[0],
+      openGraph: {
+        images: [main_picture.large],
+      },
+    };
+  }
   return {
-    title: response.title,
-    description: response.synopsis.split("\n")[0],
-    openGraph: {
-      images: [response.main_picture.large],
-    },
+    title: "Error",
+    description: "Not Found Error.",
   };
 }
 export default async function Layout({
