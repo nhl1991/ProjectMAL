@@ -85,6 +85,8 @@ export default function AnimationPreviewResults({
                   wrapperTag="ul"
                   height={128}
                   navigation
+                  preventClicks={false}
+                  preventClicksPropagation={false}
                   className="swiper-custom"
                   loop={true}
                   breakpoints={{
@@ -104,9 +106,7 @@ export default function AnimationPreviewResults({
                             {item.ranking.rank}
                           </p>
                         ) : null}
-                        <AnimationCard
-                          item={item}
-                        />
+                        <AnimationCard item={item} />
                       </SwiperSlide>
                     );
                   })}
