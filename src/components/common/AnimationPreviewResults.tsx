@@ -85,14 +85,14 @@ export default function AnimationPreviewResults({
                   wrapperTag="ul"
                   height={128}
                   navigation
+                  preventClicks={false}
+                  preventClicksPropagation={false}
                   className="swiper-custom"
                   loop={true}
                   breakpoints={{
                     "768": {
                       slidesPerView: 5,
                       height: 256,
-                      preventClicks: false,
-                      preventClicksPropagation: false
                     },
                   }}
                   scrollbar={{ draggable: true }}
@@ -106,9 +106,7 @@ export default function AnimationPreviewResults({
                             {item.ranking.rank}
                           </p>
                         ) : null}
-                        <AnimationCard
-                          item={item}
-                        />
+                        <AnimationCard item={item} />
                       </SwiperSlide>
                     );
                   })}
