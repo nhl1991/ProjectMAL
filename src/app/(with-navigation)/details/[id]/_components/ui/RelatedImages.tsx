@@ -2,7 +2,6 @@
 import AnimationImageCard from "@/components/details/AnimationImageCard";
 import DetailGridWrapper from "@/components/details/ui/AnimationDetailGridWrapper";
 import { Picture } from "@/types/animation";
-import { useState } from "react";
 
 export default function RelatedImages({ pictures }: { pictures: Picture[] }) {
   return (
