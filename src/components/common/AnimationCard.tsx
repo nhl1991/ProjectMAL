@@ -25,7 +25,7 @@ export default function AnimationCard({ item }: { item: AnimationData }) {
           <Image
             src={node.main_picture.large}
             fill
-            className={`object-cover z-10 ${hover ? 'scale-110 transition-all duration-300' : null}`}
+            className={`object-cover z-10 transition-all duration-300 ${hover ? 'scale-110' : ''}`}
             sizes="(max-width: 768px) 25vw, 15vw"
             loading={"lazy"}
             alt={node.title + ` image`}
