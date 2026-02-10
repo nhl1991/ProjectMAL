@@ -8,6 +8,7 @@ export async function GET(req: NextRequest) {
     const { searchParams } = req.nextUrl;
     const year = new Date().getFullYear();
     const value = searchParams.get('value');
+    if (!value) return NextResponse.json({ error: 'Bad Request', message: 'Missing required parameter: value' }, { status: 400 });
     const query = `anime/season/${year}/${value}?offset=${offset}&limit=${limit}&sort=anime_num_list_users`;
     try {
         const response = await getAnimations(query, "ranking");
