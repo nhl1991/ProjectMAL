@@ -8,11 +8,11 @@ export async function GET(req: NextRequest) {
   const { searchParams } = req.nextUrl;
   const type = searchParams.get('ranking_type');
   const offset = searchParams.get('offset') ?? 0;
-  const query = `anime/ranking?ranking_type=${type}&offset=${offset}&limit=${LIMIT}`;
-  if(!RANKINGTYPE.includes(type as string)) 
+  if (!RANKINGTYPE.includes(type as string))
     return NextResponse.json({ error: 'Bad Request', message: 'Wrong parameter: ranking.' }, { status: 400 });
-  
+
   try {
+    const query = `anime/ranking?ranking_type=${type}&offset=${offset}&limit=${LIMIT}`;
     const response = await getAnimations(query, "ranking");
 
     if (response.ok) {
