@@ -7,7 +7,9 @@ import AnimationGridWrapper from "../common/AnimationGridWrapper";
 import ResultsSection from "../common/ResultsSection";
 import StatusSection from "../common/StatusSection";
 import LoadingIndicator from "../common/ui/LoadingIndicator";
-import PageLoading from "../common/ui/PageLoading";
+import PageLoading from "../common/fallbacks/PreviewLoadingFallback";
+import PreviewLoadingFallback from "../common/fallbacks/PreviewLoadingFallback";
+import ErrorFallback from "../common/fallbacks/ErrorFallback";
 
 const search = async ({ pageParam }: { pageParam: string }) => {
   const response = await fetch(`/api/search?${pageParam}`, {
@@ -41,8 +43,8 @@ export default function SearchResults({ query }: { query: string }) {
       if (!paging.next) return null;
       return `${paging.next.split("?")[1]}`},
   });
-  if (status === "pending") return <StatusSection><PageLoading /></StatusSection>;
-  if (status === "error") return <StatusSection><p className="py-24">{error.message}</p></StatusSection>;
+  if (status === "pending") return <PreviewLoadingFallback />
+  if (status === "error") return <ErrorFallback e={error} />
   if (status === "success")
     if (!data) return <StatusSection><p>No data. Try something else</p></StatusSection>
   return (
