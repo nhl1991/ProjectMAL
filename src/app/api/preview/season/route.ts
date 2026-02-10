@@ -8,13 +8,16 @@ export async function GET(req: NextRequest) {
     const { searchParams } = req.nextUrl;
     const year = new Date().getFullYear();
     const value = searchParams.get('value');
-    const query = `anime/season/${year}/${value}?offset=${offset}&limit=${limit}&sort=anime_num_list_users`
-      const result = await getAnimations(query, "ranking");
-    if (result.ok) {
-        const data = await result.json();
-        return NextResponse.json(data, { status: result.status });
+    const query = `anime/season/${year}/${value}?offset=${offset}&limit=${limit}&sort=anime_num_list_users`;
+    const response = await getAnimations(query, "ranking");
+
+    if (response.ok) {
+        const data = await response.json();
+        return NextResponse.json(data, { status: response.status });
     } else {
-        const error = await result.json();
-        return NextResponse.json(error, { status: result.status });
+        const payload = await response.json();
+        const error = payload.error ?? null;
+        const message = payload.message ?? null;
+        return NextResponse.json({error, message}, { status: response.status });
     }
 }
