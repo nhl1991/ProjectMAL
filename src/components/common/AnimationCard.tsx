@@ -19,7 +19,6 @@ export default function AnimationCard({ item }: { item: AnimationData }) {
         <figure
           className="relative md:w-48 md:h-64 w-full h-32 overflow-hidden rounded-xl"
           onPointerEnter={handler}
-
           onPointerLeave={handler}
         >
           <Image
