@@ -71,7 +71,7 @@ export default function AnimationPreviewResults({
       {data.map((page, pageIndex) => {
         const { data } = page;
         return (
-          <React.Fragment key={pageIndex}>
+          <div className="rounded-xl shadow-md py-4 bg-white dark:bg-black" key={pageIndex}>
             <AnimationPreviewHero
               category={category}
               value={values[pageIndex]}
@@ -117,7 +117,7 @@ export default function AnimationPreviewResults({
                 {page.message}
               </p>
             )}
-          </React.Fragment>
+          </div>
         );
       })}
     </ResultsSection>
