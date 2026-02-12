@@ -24,9 +24,9 @@ export default function RankingType() {
   ];
   const { setRankingType } = useOptionStore();
   return (
-    <div className="w-full flex gap-x-2 items-center text-xl rounded-xl py-2 px-4 shaodw-lg justify-end">
+    <div className="w-full flex gap-x-2 items-center text-xl rounded-xl py-2 px-4 shadow-lg justify-end">
       {/* <label htmlFor="select-type">{rankingType}</label> */}
-      <Select onValueChange={(v) => setRankingType(v)}>
+      <Select defaultValue="all" onValueChange={(v) => setRankingType(v)}>
         <SelectTrigger className="w-[180px]" >
           <SelectValue placeholder="Select a Ranking Type"  />
         </SelectTrigger>
