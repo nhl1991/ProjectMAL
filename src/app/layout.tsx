@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { ModeToggle } from "@/components/ThemeToggle";
+import { ThemeProvider } from "@/providers/ThemeProvider";
 import Link from "next/link";
 
 const geistSans = Geist({
@@ -24,15 +26,27 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <main className="w-screen min-h-screen flex flex-col items-center">{children}</main>
-        {/* <footer className="fixed bottom-0 text-center text-sm">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <main className="w-screen min-h-screen overflow-y-scroll flex flex-col items-center">
+            {children}
+            <div className="fixed bottom-0 md:top-0 right-0 p-12 z-50">
+              <ModeToggle />
+            </div>
+          </main>
+        </ThemeProvider>
+        {/* <footer className="text-center text-sm">
           &copy;Data sourced from{" "}
           <Link
             href="https://myanimelist.net/"
