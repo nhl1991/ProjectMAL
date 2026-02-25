@@ -60,6 +60,7 @@ export default function AnimationPreviewResults({
         <PageLoading />
       </StatusSection>
     );
+
   if (isError)
     return (
       <StatusSection>
@@ -71,7 +72,10 @@ export default function AnimationPreviewResults({
       {data.map((page, pageIndex) => {
         const { data } = page;
         return (
-          <div className="rounded-xl shadow-md py-4 bg-white dark:bg-black" key={pageIndex}>
+          <div
+            className="rounded-xl shadow-md py-4 bg-white dark:bg-black"
+            key={pageIndex}
+          >
             <AnimationPreviewHero
               category={category}
               value={values[pageIndex]}
@@ -104,9 +108,7 @@ export default function AnimationPreviewResults({
                             {item.ranking.rank}
                           </p>
                         ) : null}
-                        <AnimationCard
-                          item={item}
-                        />
+                        <AnimationCard item={item} />
                       </SwiperSlide>
                     );
                   })}
