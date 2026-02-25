@@ -15,7 +15,7 @@ export default function AnimationPreviewHero({ category, value }: {
     }
 
     return (
-        <header className="flex px-4 py-2 gap-x-2">
+        <header className="flex px-4 py-2 gap-x-2 min-h-14">
             <div className="flex items-end bg-sky-300 hover:bg-sky-500 dark:bg-indigo-900 dark:hover:bg-indigo-950 px-3 py-1 rounded-xl text-white">
                 <Link href={`${category}/list`}
                     className="flex items-center gap-x-2"
@@ -23,10 +23,11 @@ export default function AnimationPreviewHero({ category, value }: {
                         handleOnClick(value)
 
                     }}>
-                    <h1 className="text-2xl font-bold">{value.toUpperCase()}</h1>
+                    <h2 className="text-2xl font-bold">{value.toUpperCase()}</h2>
                     <svg className="w-6 h-6" data-slot="icon" fill="none" strokeWidth={1.5} stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <path strokeLinecap="round" strokeLinejoin="round" d="m5.25 4.5 7.5 7.5-7.5 7.5m6-15 7.5 7.5-7.5 7.5" />
-                    </svg></Link>
+                    </svg>
+                </Link>
             </div>
         </header>
     )

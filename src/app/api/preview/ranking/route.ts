@@ -7,13 +7,27 @@ export async function GET(req: NextRequest) {
     const limit = 10;
     const { searchParams } = req.nextUrl;
     const value = searchParams.get('value');
+    if(!value) return NextResponse.json({ error: 'Bad Request', message: 'Missing required parameter: value' }, { status: 400 });
     const query = `anime/ranking?ranking_type=${value}&offset=${offset}&limit=${limit}`;
-      const result = await getAnimations(query, "ranking");
-    if (result.ok) {
-        const data = await result.json();
-        return NextResponse.json(data, { status: result.status });
-    } else {
-        const error = await result.json();
-        return NextResponse.json(error, { status: result.status });
+    try {
+        const response = await getAnimations(query, "ranking");
+
+        if (response.ok) {
+            const data = await response.json();
+            return NextResponse.json(data, { status: response.status });
+        } else {
+            const payload = await response.json();
+            const error = payload.error ?? null;
+            const message = payload.message ?? null;
+            return NextResponse.json({ error, message }, { status: response.status });
+        }
+
+    } catch (e) {
+        console.error(e);
+        return NextResponse.json(
+            { message: "Upstream network error" },
+            { status: 502 }
+        );
+
     }
 }

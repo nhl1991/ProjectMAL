@@ -1,6 +1,5 @@
 "use client";
 import StatusSection from "../common/StatusSection";
-import PageLoading from "../common/ui/PageLoading";
 import ResultsSection from "../common/ResultsSection";
 import { useQuery } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
@@ -11,6 +10,8 @@ import DetailHero from "@/app/(with-navigation)/details/[id]/_components/ui/Deta
 import PosterImage from "@/app/(with-navigation)/details/[id]/_components/ui/PosterImage";
 import Rating from "@/app/(with-navigation)/details/[id]/_components/ui/Rating";
 import Synopsis from "@/app/(with-navigation)/details/[id]/_components/ui/Synopsis";
+import PreviewLoadingFallback from "../common/fallbacks/PreviewLoadingFallback";
+import ErrorFallback from "../common/fallbacks/ErrorFallback";
 
 const fetchDetails = async (params: string) => {
   const response = await fetch(`/api/details/${params}`, {
@@ -36,21 +37,14 @@ export default function DetailsResults({ id }: { id: string }) {
     staleTime: 1000 * 60 * 60,
     retry: false,
   });
-  const router = useRouter();
+  // const router = useRouter();
   if (status === "pending")
     return (
-      <StatusSection>
-        <PageLoading />
-      </StatusSection>
+      <PreviewLoadingFallback />
     );
   if (status === "error")
     return (
-      <StatusSection>
-        <p className="py-24 text-2xl">{error.message}</p>
-        <button className="btn-hover" onClick={() => router.back()}>
-          BACK
-        </button>
-      </StatusSection>
+      <ErrorFallback e={error} />
     );
   if (status === "success")
     return (
@@ -62,7 +56,7 @@ export default function DetailsResults({ id }: { id: string }) {
               alternative_titles={data.alternative_titles}
             />
             <Rating mean={data.mean} />
-            <PosterImage title={data.title} main_picture={data.main_picture}/>
+            <PosterImage title={data.title} main_picture={data.main_picture} />
             <Genres genres={data.genres} />
             <Synopsis synopsis={data.synopsis} />
             {data.pictures.length > 0 ? (

@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ModeToggle } from "@/components/ThemeToggle";
 import { ThemeProvider } from "@/providers/ThemeProvider";
+import Link from "next/link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -47,13 +48,13 @@ export default function RootLayout({
         </ThemeProvider>
         {/* <footer className="text-center text-sm">
           &copy;Data sourced from{" "}
-          <a
+          <Link
             href="https://myanimelist.net/"
             target="_blank"
             rel="noopener noreferrer"
           >
             MyAnimeList
-          </a>
+          </Link>
         </footer> */}
       </body>
     </html>
