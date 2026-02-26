@@ -1,16 +1,19 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
 import { PointerEvent, useState } from "react";
 
-export default function AnimationImageCard({ src }: { src: { medium: string, large: string } }) {
+export default function AnimationImageCard({ src }: { src: { medium: string, large?: string } }) {
 
   const [hover, isHover] = useState(false);
   const handler = (e: PointerEvent<HTMLElement>) => {
+    console.log(e.pointerType)
       if (e.pointerType === "mouse" && e.type === "pointerenter") isHover(true);
       else if (e.pointerType === "mouse" && e.type === "pointerleave") isHover(false);
       else return;
     };
+
+  if(src.large || src.medium)
   return (
     <article className="place-content-center place-items-center">
       <Link href={src.large ?? src.medium} className="place-content-center place-items-center" target="_blank" rel="noopener noreferrer">
@@ -20,7 +23,7 @@ export default function AnimationImageCard({ src }: { src: { medium: string, lar
           onPointerLeave={handler}
         >
           <Image
-            src={src.medium ?? src.large}
+            src={src.large ?? src.medium}
             fill
             className={`object-cover z-10 transition-all duration-300 ${hover ? 'scale-110' : ''}`}
             sizes="(max-width: 768px) 33vw, 10vw"
