@@ -17,8 +17,8 @@ export default function AnimationCard({ item }: { item: AnimationData }) {
     <article className="place-content-center place-items-center">
       <figure
         className="relative md:w-48 md:h-64 w-full h-32 overflow-hidden rounded-xl"
-        onMouseEnter={handler}
-        onMouseLeave={handler}
+        onPointerEnter={handler}
+        onPointerLeave={handler}
       >
         <Image
           src={node.main_picture.large}
