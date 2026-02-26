@@ -7,7 +7,6 @@ export default function AnimationImageCard({ src }: { src: { medium: string, lar
 
   const [hover, isHover] = useState(false);
   const handler = (e: PointerEvent<HTMLElement>) => {
-    console.log(e.pointerType)
       if (e.pointerType === "mouse" && e.type === "pointerenter") isHover(true);
       else if (e.pointerType === "mouse" && e.type === "pointerleave") isHover(false);
       else return;
