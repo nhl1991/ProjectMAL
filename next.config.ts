@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'cdn.myanimelist.net',
+        hostname: 'myanimelist.net',
         port: '',
         pathname: '/images/anime/**',
         search: '',
