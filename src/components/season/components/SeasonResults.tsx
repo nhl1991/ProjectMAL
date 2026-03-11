@@ -5,9 +5,10 @@ import AnimationGridWrapper from "@/components/common/AnimationGridWrapper";
 import ResultsSection from "@/components/common/ResultsSection";
 import StatusSection from "@/components/common/StatusSection";
 import LoadingIndicator from "@/components/common/ui/LoadingIndicator";
-import PageLoading from "@/components/common/ui/PageLoading";
 import { AnimationData } from "@/types/animation";
 import { useInfiniteQuery } from "@tanstack/react-query";
+import PreviewLoadingFallback from "@/components/common/fallbacks/PreviewLoadingFallback";
+import ErrorFallback from "@/components/common/fallbacks/ErrorFallback";
 
 const search = async ({ pageParam }: { pageParam: string }) => {
   const response = await fetch(`/api/season/${pageParam}`, {
@@ -47,15 +48,11 @@ export default function SeasonResults({ query }: { query: string }) {
   });
   if (status === "pending")
     return (
-      <StatusSection>
-        <PageLoading />
-      </StatusSection>
+      <PreviewLoadingFallback />
     );
   if (status === "error")
     return (
-      <StatusSection>
-        <p className="py-24 text-2xl">{error.message}</p>
-      </StatusSection>
+      <ErrorFallback e={error} />
     );
   if (status === "success")
     if (!data)

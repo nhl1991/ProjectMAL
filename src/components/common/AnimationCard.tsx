@@ -2,18 +2,23 @@
 import { AnimationData } from "@/types/animation";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { PointerEvent, useState } from "react";
 
 export default function AnimationCard({ item }: { item: AnimationData }) {
   const { node } = item;
   const [hover, isHover] = useState(false);
+  const handler = (e: PointerEvent<HTMLElement>) => {
+    if (e.pointerType === "mouse" && e.type === "pointerenter") isHover(true);
+    else if (e.pointerType === "mouse" && e.type === "pointerleave") isHover(false);
+    else return;
+  };
 
   return (
     <article className="place-content-center place-items-center">
       <figure
         className="relative md:w-48 md:h-64 w-full h-32 overflow-hidden rounded-xl"
-        onMouseEnter={() => isHover(true)}
-        onMouseLeave={() => isHover(false)}
+        onPointerEnter={handler}
+        onPointerLeave={handler}
       >
         <Image
           src={node.main_picture.large}

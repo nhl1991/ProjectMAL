@@ -47,19 +47,5 @@ https://project-mal.vercel.app/
 
 
 ## Changelog
-
-25/12/14
-ー Refactoring
-- Fix UI
-
-
-25/09/16
-- Fixed an issue where <ul> tags were not wrapping <li> elements properly.
-
-25/09/07
-- Introduce TanStack Query’s useInfiniteQuery for infinite scrolling at '/ranking', '/season'.
-- Fix UI.
-
-25/08/25
-- Set Image Componet sizes props
-- Set cache and the cache lifetime
+26/03/09
+- Fix API Image remote pattern.
