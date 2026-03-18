@@ -38,11 +38,11 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <main className="w-screen min-h-screen overflow-y-scroll flex flex-col items-center">
+          <main className="w-screen min-h-screen overflow-y-scroll flex flex-col items-center pb-24 md:pb-0">
             {children}
           </main>
           <footer className="relative">
-            <div className="fixed md:top-0 md:right-0 bottom-0 right-0 p-12 z-10">
+            <div className="fixed md:top-0 md:right-0 bottom-0 right-0 p-6 md:p-12 z-10">
               <ModeToggle />
             </div>
           </footer>
