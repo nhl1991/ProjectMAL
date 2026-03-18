@@ -11,20 +11,18 @@ import AnimationPreviewHero from "./AnimationPreviewHero";
 import ErrorFallback from "./fallbacks/ErrorFallback";
 import PreviewLoadingFallback from "./fallbacks/PreviewLoadingFallback";
 
-
 import "swiper/css";
 import "swiper/css/navigation";
+import AnimationPreviewSkeleton from "./fallbacks/AnimationPreviewSkeleton";
 
 const fetchPreview = async (params: string) => {
   const response = await fetch(`/api/preview/${params}`, {
     method: "GET",
   });
   const result = await response.json();
-  if (response.ok)
-    return result;
-  else if (response.status === 404) return { data: [] }
-  else
-    throw new Error(result.error ?? result.message);
+  if (response.ok) return result;
+  else if (response.status === 404) return { data: [] };
+  else throw new Error(result.error ?? result.message);
 };
 
 export default function AnimationPreviewResults({
@@ -50,12 +48,10 @@ export default function AnimationPreviewResults({
       {results.map((r, pageIndex) => {
         if (r.isPending)
           return (
-            <PreviewLoadingFallback key={pageIndex} />
+            <AnimationPreviewSkeleton key={pageIndex} />
+            // <PreviewLoadingFallback key={pageIndex} />
           );
-        if (r.isError)
-          return (
-            <ErrorFallback e={r.error} key={pageIndex} />
-          );
+        if (r.isError) return <ErrorFallback e={r.error} key={pageIndex} />;
         if (r.isSuccess) {
           const { data } = r.data;
           return (
@@ -65,7 +61,7 @@ export default function AnimationPreviewResults({
                 value={values[pageIndex]}
               />
               {data.length > 0 ? (
-                <div className="py-4 flex px-4 ">
+                <div className="flex p-2">
                   <Swiper
                     modules={[Navigation]}
                     spaceBetween={10}
@@ -100,16 +96,17 @@ export default function AnimationPreviewResults({
                     })}
                   </Swiper>
                 </div>
-              ) : <StatusSection><p>Animation schedules have not been announced yet.</p></StatusSection>}
+              ) : (
+                <StatusSection>
+                  <p>Animation schedules have not been announced yet.</p>
+                </StatusSection>
+              )}
             </React.Fragment>
           );
         }
 
         return null;
-
-      })
-      }
+      })}
     </ResultsSection>
   );
-
 }

@@ -9,6 +9,8 @@ import { AnimationData } from "@/types/animation";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import PreviewLoadingFallback from "@/components/common/fallbacks/PreviewLoadingFallback";
 import ErrorFallback from "@/components/common/fallbacks/ErrorFallback";
+import ResultsFooter from "@/components/common/ResultsFooter";
+import ResultsHero from "@/components/common/ResultsHero";
 
 const search = async ({ pageParam }: { pageParam: string }) => {
   const response = await fetch(`/api/ranking?${pageParam}`, {
@@ -37,19 +39,13 @@ export default function RankingResults({ query }: { query: string }) {
     queryKey: ["animation", "ranking", query],
     queryFn: search,
     initialPageParam: `ranking_type=${query}`,
-    getNextPageParam: ({ paging = {}}) => {
+    getNextPageParam: ({ paging = {} }) => {
       if (!paging.next) return null;
       return `${paging.next.split("?")[1]}`;
     },
   });
-  if (status === "pending")
-    return (
-      <PreviewLoadingFallback />
-    );
-  if (status === "error")
-    return (
-      <ErrorFallback e={error} />
-    );
+  if (status === "pending") return <PreviewLoadingFallback />;
+  if (status === "error") return <ErrorFallback e={error} />;
   if (status === "success")
     if (!data)
       return (
@@ -59,9 +55,7 @@ export default function RankingResults({ query }: { query: string }) {
       );
   return (
     <>
-      <h1 className="text-[clamp(2rem,2rem+1vw,3rem)] text-gradient text-center">
-        {query.toUpperCase()}
-      </h1>
+      <ResultsHero title={query.toUpperCase()} />
       <ResultsSection>
         {data.pages.map((page, pageIndex) => {
           return (
@@ -74,7 +68,7 @@ export default function RankingResults({ query }: { query: string }) {
           );
         })}
       </ResultsSection>
-      <footer className="py-4 flex items-center justify-center">
+      <ResultsFooter>
         {hasNextPage ? (
           isFetchingNextPage ? (
             <LoadingIndicator />
@@ -86,7 +80,7 @@ export default function RankingResults({ query }: { query: string }) {
         ) : (
           "LASTPAGE"
         )}
-      </footer>
+      </ResultsFooter>
     </>
   );
 }

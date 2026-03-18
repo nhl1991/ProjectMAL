@@ -3,7 +3,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ModeToggle } from "@/components/ThemeToggle";
 import { ThemeProvider } from "@/providers/ThemeProvider";
-import Link from "next/link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -41,10 +40,12 @@ export default function RootLayout({
         >
           <main className="w-screen min-h-screen overflow-y-scroll flex flex-col items-center">
             {children}
-            <div className="fixed bottom-0 md:top-0 right-0 p-12 z-50">
+          </main>
+          <footer className="relative">
+            <div className="fixed md:top-0 md:right-0 bottom-0 right-0 p-12 z-10">
               <ModeToggle />
             </div>
-          </main>
+          </footer>
         </ThemeProvider>
         {/* <footer className="text-center text-sm">
           &copy;Data sourced from{" "}

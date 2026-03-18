@@ -8,9 +8,9 @@ export default function NavItem({ pathname, icon }: { pathname: string; icon: Re
 
   return (
     <li
-      className="h-max p-1 items-center flex"
+      className="h-max p-1 items-center flex rounded-xl justify-center"
     >
-      <Link href={pathname} className="flex flex-col p-1 items-center justify-center">
+      <Link href={pathname} className="flex flex-col p-1 items-center justify-center ">
         <div className={`w-8 h-8 transition-transform duration-200`}>
           {icon}
         </div>
