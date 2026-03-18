@@ -5,10 +5,6 @@
 div::-webkit-scrollbar {
   display: none;
 }
-div {
-  max-width: 2560px;
-  max-height: 1920px;
-}
 
 * {
   box-sizing: border-box;
@@ -199,4 +195,22 @@ div {
   body {
     @apply bg-background text-foreground;
   }
+}
+
+
+/* PageNavigation */
+#navigation >li:hover p{
+  @apply border-sky-400;
+}
+
+#navigation >li:hover svg {
+  @apply stroke-sky-400;
+}
+
+.dark #navigation >li:hover p{
+  @apply border-indigo-400;
+}
+
+.dark #navigation >li:hover svg {
+  @apply stroke-indigo-400;
 }

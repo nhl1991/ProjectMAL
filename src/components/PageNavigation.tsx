@@ -1,43 +1,26 @@
-'use client'
-import Link from "next/link"
-import styles from "./navigation.module.css"
+"use client";
+import styles from "./navigation.module.css";
 import { HomeIcon, RankingIcon, SearchIcon, SeasonIcon } from "./common/icons";
+import NavItem from "./PageNavigationItem";
 
 
+const iconClassName = "w-full h-full  transition-colors duration-200";
 
+const ROUTES = [
+  { pathname: "/", icon: <HomeIcon className={iconClassName} /> },
+  { pathname: "/search", icon: <SearchIcon className={iconClassName} /> },
+  { pathname: "/ranking", icon: <RankingIcon className={iconClassName} /> },
+  { pathname: "/season", icon: <SeasonIcon className={iconClassName} /> },
+];
 
 export default function Navigation() {
-    const className = "w-8 h-8  hover:stroke-cyan-400 hover:scale-110 transition-colors duration-200"
-
-    const ROUTES = [{
-        pathname: '/',
-        component: <HomeIcon className={className} />
-    }, {
-        pathname: '/search',
-        component: <SearchIcon className={className} />
-    }, {
-        pathname: '/ranking',
-        component: <RankingIcon className={className} />
-    }, {
-        pathname: '/season',
-        component: <SeasonIcon className={className} />
-    }]
-
-    return (
-
-        <nav className="flex flex-col justify-between md:justify-center p-2 ">
-            <ul className={`${styles.container} `}>
-
-                {
-                    ROUTES.map((route, i) => {
-                        const { pathname,component} = route;
-                        return <li key={i} className="h-max p-2 items-center flex">
-                            <Link href={pathname} className="flex flex-col items-center justify-center "><div>{component}</div>
-                            <p>{pathname === '/' ? 'HOME' : pathname.replace(/^\/+/, "").toUpperCase()}</p></Link>
-                        </li>
-                    })
-                }
-            </ul>
-        </nav>
-    )
+  return (
+    <nav className="flex flex-col justify-between md:justify-center p-0.5">
+      <ul id="navigation" className={`${styles.container}`}>
+        {ROUTES.map((route, i) => (
+          <NavItem key={i} pathname={route.pathname} icon={route.icon} />
+        ))}
+      </ul>
+    </nav>
+  );
 }
