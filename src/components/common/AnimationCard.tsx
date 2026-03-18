@@ -27,7 +27,7 @@ export default function AnimationCard({ item }: { item: AnimationData }) {
           src={node.main_picture.large}
           fill
           className="object-cover z-10"
-          sizes="(max-width: 768px) 90px, 160px"
+          sizes="(max-width: 768px) 90px, 192px"
           loading={"lazy"}
           alt={node.title + ` image`}
         />
