@@ -2,7 +2,7 @@
 
 
 .container {
-    @apply w-max h-12 flex p-2 justify-between;
+    @apply w-max flex p-2 justify-between;
     
 }
 

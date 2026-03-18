@@ -12,7 +12,6 @@ export async function generateMetadata({
   );
   if (response.ok) {
     const { title, synopsis, main_picture } = await response.json();
-    console.log("그레이토다제.");
     return {
       title: title,
       description: synopsis.split("\n")[0],
