@@ -1,6 +1,14 @@
 "use client"
 
-export default function Synopsis({synopsis}:{synopsis: string}){
+import DetailsContentWrapper from "@/components/details/ui/DetailsContentWrapper"
+import DetailsContentHero from "./DetailContentHero"
 
-    return <p className="max-w-lg w-full min-h-96 py-6 px-4 bg-slate-100 dark:bg-slate-900 rounded-xl">{synopsis}</p>
+export default function Synopsis({ synopsis }: { synopsis: string }) {
+
+    return (<DetailsContentWrapper>
+        <DetailsContentHero>Synopsis</DetailsContentHero>
+        <div className="flex items-center justify-center">
+            <p className="md:max-w-2xl w-full min-h-96 py-6 px-4">{synopsis}</p>
+        </div>
+    </DetailsContentWrapper>)
 }

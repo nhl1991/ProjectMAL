@@ -1,8 +1,10 @@
 "use client";
 import AnimationCard from "@/components/common/AnimationCard";
 import DetailGridWrapper from "@/components/details/ui/AnimationDetailGridWrapper";
+import DetailsContentWrapper from "@/components/details/ui/DetailsContentWrapper";
 import { AnimationData } from "@/types/animation";
 import { useState } from "react";
+import DetailContentHero from "./DetailContentHero";
 
 export default function Recommendations({
   recommendations,
@@ -10,15 +12,15 @@ export default function Recommendations({
   recommendations: AnimationData[];
 }) {
   return (
-    <div className="py-12">
-      <h2 className="w-full text-center font-bold py-1 text-2xl px-3 rounded-xl bg-sky-400 dark:bg-indigo-700 text-white">
+    <DetailsContentWrapper>
+      <DetailContentHero>
         RECOMMENDATIONS
-      </h2>
+      </DetailContentHero>
       <DetailGridWrapper>
         {recommendations.map((r: AnimationData) => (
           <AnimationCard key={r.node.id} item={r} />
         ))}
       </DetailGridWrapper>
-    </div>
+    </DetailsContentWrapper>
   );
 }
