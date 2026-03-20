@@ -14,6 +14,7 @@ import PreviewLoadingFallback from "./fallbacks/PreviewLoadingFallback";
 import "swiper/css";
 import "swiper/css/navigation";
 import AnimationPreviewSkeleton from "./fallbacks/AnimationPreviewSkeleton";
+import ResultsHero from "./ResultsHero";
 
 const fetchPreview = async (params: string) => {
   const response = await fetch(`/api/preview/${params}`, {
@@ -45,6 +46,7 @@ export default function AnimationPreviewResults({
 
   return (
     <ResultsSection>
+      <ResultsHero title={`${category.toUpperCase()}`} />
       {results.map((r, pageIndex) => {
         if (r.isPending)
           return (
