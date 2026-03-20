@@ -38,7 +38,7 @@ export default function DetailsContentHero({
         return () => {
             observer.disconnect();
         }
-    }, [uid])
+    }, [])
 
     return (
         <h2 id={uid} ref={ref} className="w-max font-bold m-0 text-xl pl-2 pr-4 border-l-4 transition-colors duration-500 border-gray-500 text-gray-500">
