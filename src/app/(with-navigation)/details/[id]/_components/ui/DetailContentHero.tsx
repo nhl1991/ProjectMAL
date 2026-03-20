@@ -28,7 +28,7 @@ export default function DetailsContentHero({
       },
       {
         threshold: 0,
-        rootMargin: "0% 0px -70% 0px",
+        rootMargin: "-10% 0px -35% 0px",
       }
     );
 
@@ -40,7 +40,7 @@ export default function DetailsContentHero({
     }, [uid])
 
     return (
-    <h2 id={uid} ref={ref} className="w-max font-bold py-1 text-2xl pl-2 pr-4 border-l-4">
+    <h2 id={uid} ref={ref} className="w-max font-bold m-0 text-xl pl-2 pr-4 border-l-4 transition-colors duration-500">
         {children}
     </h2>
     )
