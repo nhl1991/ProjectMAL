@@ -5,9 +5,11 @@ export default function DetailGridWrapper({
 }) {
   return (
     <div
-      className="w-full md:max-w-screen-xl grid 
-    grid-rows-[repeat(auto-fit,minmax(auto,256px))]
-    grid-cols-[repeat(4,minmax(90px,198px))] gap-2 py-8 px-4 justify-center"
+      className="w-full grid 
+    grid-cols-[repeat(4,max(90px))]
+    grid-rows-[repeat(auto-fill,max(128px))]
+      md:grid-rows-[repeat(auto-fill,max(256px))]
+    md:grid-cols-[repeat(4,max(198px))] gap-2 py-8 px-4 justify-center"
     >
       {children}
     </div>
