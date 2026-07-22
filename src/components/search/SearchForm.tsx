@@ -1,24 +1,22 @@
-import { RefObject } from "react";
+import { Search, X } from "lucide-react"
 
-
-export default function SearchForm({ onClick, ref }: { onClick: () => void, ref: RefObject<HTMLInputElement | null> }) {
-    return (
-        <div className="flex gap-x-2 p-2">
-            <input
-                ref={ref}
-                className="bg-transparent border-b-2 border-transparent focus:outline-none focus:border-sky-400 transition-colors duration-500 px-2 w-48"
-                placeholder="Search"
-                type="text"
-                name="query"
-            />
-            <button
-                className="btn-hover"
-                type="button"
-                name="search"
-                onClick={onClick}
-            >
-                SEARCH
-            </button>
-        </div>
-    )
+export default function SearchForm({ value, onChange }: { value: string; onChange: (value: string) => void }) {
+  return (
+    <div className="flex items-center gap-2 bg-muted border border-border rounded-lg px-3 h-10 w-full max-w-md">
+      <Search className="w-4 h-4 text-muted-foreground shrink-0" />
+      <input
+        className="flex-1 bg-transparent outline-none text-sm"
+        placeholder="애니메이션 검색..."
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        type="text"
+        name="query"
+      />
+      {value && (
+        <button onClick={() => onChange("")} aria-label="검색어 지우기">
+          <X className="w-4 h-4 text-muted-foreground" />
+        </button>
+      )}
+    </div>
+  )
 }

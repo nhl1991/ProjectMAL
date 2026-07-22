@@ -5,6 +5,12 @@ export interface AnimationNode {
         medium: string,
         large: string,
     }
+    mean?: number,
+    alternative_titles?: {
+        ja?: string,
+        en?: string,
+        synonyms?: string[],
+    }
 }
 
 export interface AnimationData {

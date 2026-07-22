@@ -2,7 +2,7 @@
 import { getAnimations } from '@/lib/fetchAnimation';
 import { NextRequest, NextResponse } from 'next/server';
 
-const LIMIT = 16;
+const LIMIT = 20;
 const SEASONTYPE = ['winter', 'spring', 'summer', 'fall'];
 export async function GET(req: NextRequest, { params }: { params: Promise<{ year: string; season: string }> }) {
     const { year, season } = await params
@@ -12,7 +12,7 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ year
     if (!SEASONTYPE.includes(season as string)) return NextResponse.json({ error: 'Bad Request', message: 'Wrong parameter: season.' }, { status: 400 });
     if (!year) return NextResponse.json({ error: 'Bad Request', message: 'Missing required parameter: year' }, { status: 400 });
     try {
-        const query = `anime/season/${year}/${season}?offset=${offset}&limit=${LIMIT}&sort=anime_num_list_users`
+        const query = `anime/season/${year}/${season}?offset=${offset}&limit=${LIMIT}&sort=anime_num_list_users&fields=mean,alternative_titles`
         const response = await getAnimations(query, "season");
 
         if (response.ok) {

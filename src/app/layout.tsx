@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
 import { ModeToggle } from "@/components/ThemeToggle";
+import "./globals.css";
 import { ThemeProvider } from "@/providers/ThemeProvider";
 
 const geistSans = Geist({
@@ -38,8 +38,10 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <main className="w-screen min-h-screen overflow-y-scroll flex flex-col items-center pb-24 md:pb-0">
+          {/* layout.tsx */}
+          <main className="w-screen min-h-screen overflow-y-scroll flex flex-col items-center">
             {children}
+            {/* pb-24 제거 — footer fixed 아니니까 불필요 */}
           </main>
           <footer className="relative">
             <div className="fixed md:top-0 md:right-0 bottom-0 right-0 p-6 md:p-12 z-10">

@@ -47,5 +47,12 @@ https://project-mal.vercel.app/
 
 
 ## Changelog
+26/07/22
+- Rebuild landing page as a single-scroll SPA: dark hero, Top 5 airing, ranking/season tab previews.
+- Redesign ranking/season/search list pages: tab bars, 5-column grid with rank/rating hover overlays, URL-synced filters (shareable/bookmarkable), infinite scroll pagination.
+- Redesign anime detail page: 2-column hero layout, status/studio/season/rating info grid, clamped synopsis with expand/collapse, unified accent color.
+- Add shared top navigation with active-route highlighting, replacing the old icon nav.
+- Various cleanup: removed unused nav/icon/grid components, consistent empty/error states across list pages.
+
 26/03/09
 - Fix API Image remote pattern.
