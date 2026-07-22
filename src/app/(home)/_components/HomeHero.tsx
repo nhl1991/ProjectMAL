@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query"
 import Image from "next/image"
 import Link from "next/link"
 import { AnimationData } from "@/types/animation"
+import { getCurrentSeason } from "@/lib/variables"
 
 const fetchPreview = async (params: string) => {
   const response = await fetch(`/api/preview/${params}`, {
@@ -85,7 +86,7 @@ export default function HomeHero() {
           ✦ Powered by MyAnimeList
         </div>
 
-        <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight tracking-tight mb-3">
+        <h1 className="text-4xl md:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-white leading-tight tracking-tight mb-3">
           Discover<br />
           <span className="text-[#7F77DD]">New Anime</span>
         </h1>
@@ -97,13 +98,13 @@ export default function HomeHero() {
 
         <div className="flex gap-2">
           <Link
-            href="/ranking"
+            href="/ranking/list?ranking_type=all"
             className="bg-[#7F77DD] text-white text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-[#6d65c9] transition-colors"
           >
             랭킹 보기
           </Link>
           <Link
-            href="/season"
+            href={`/season/list?season=${getCurrentSeason()}`}
             className="bg-white/8 text-white/75 border border-white/20 text-sm px-5 py-2.5 rounded-lg hover:bg-white/15 transition-colors"
           >
             이번 시즌 →
