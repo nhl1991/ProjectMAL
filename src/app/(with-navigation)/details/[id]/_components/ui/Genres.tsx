@@ -1,26 +1,17 @@
 import { Genre } from "@/types/animation";
-import DetailsContentHero from "./DetailContentHero";
-import DetailsContentWrapper from "@/components/details/ui/DetailsContentWrapper";
 
 export default function Genres({ genres } : {
     genres : Genre[]
 }) {
   return (
-    <DetailsContentWrapper>
-      <DetailsContentHero>
-        GENRES
-      </DetailsContentHero>
-      {/* <h2 className="w-full text-center font-bold py-1 text-2xl px-3 rounded-xl">Genres</h2> */}
-      <ul className="flex gap-x-2 py-4 flex-wrap gap-y-2 px-8">
-        {genres.map((g: Genre) => (
-          <li
-            className="rounded-xl bg-sky-400 dark:bg-indigo-700 text-white px-3 py-1"
-            key={g.id}
-          >
-            <p key={g.name}>{g.name}</p>
-          </li>
-        ))}
-      </ul>
-    </DetailsContentWrapper>
+    <ul className="flex gap-1.5 flex-wrap">
+      {genres.map((g: Genre) => (
+        <li key={g.id}>
+          <p className="text-xs font-medium text-[#7F77DD] border border-[#7F77DD]/40 rounded-full px-3 py-1 hover:bg-[#7F77DD]/10 transition-colors">
+            {g.name}
+          </p>
+        </li>
+      ))}
+    </ul>
   );
 }

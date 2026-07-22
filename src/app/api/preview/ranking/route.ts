@@ -3,12 +3,12 @@ import { NextRequest, NextResponse } from "next/server";
 
 
 export async function GET(req: NextRequest) {
-    const offset = 0;
-    const limit = 10;
     const { searchParams } = req.nextUrl;
     const value = searchParams.get('value');
+    const offset = 0;
+    const limit = parseInt(searchParams.get('limit') ?? '10', 10);
     if(!value) return NextResponse.json({ error: 'Bad Request', message: 'Missing required parameter: value' }, { status: 400 });
-    const query = `anime/ranking?ranking_type=${value}&offset=${offset}&limit=${limit}`;
+    const query = `anime/ranking?ranking_type=${value}&offset=${offset}&limit=${limit}&fields=mean,alternative_titles`;
     try {
         const response = await getAnimations(query, "ranking");
 

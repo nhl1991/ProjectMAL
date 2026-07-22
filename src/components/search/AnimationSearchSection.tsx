@@ -1,26 +1,63 @@
-"use client"
+"use client";
 
-import { queryClient } from "@/lib/queryClient"
-import { QueryClientProvider } from "@tanstack/react-query"
-import SearchResults from "./AnimationSearchResult"
-import { useRef, useState } from "react";
+import { queryClient } from "@/lib/queryClient";
+import { QueryClientProvider } from "@tanstack/react-query";
+import SearchResults from "./AnimationSearchResult";
+import { useEffect, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import SearchHero from "./ui/SearchHero";
 import SearchForm from "./SearchForm";
+import PopularSearchChips from "./PopularSearchChips";
+import RecentSearchList from "./RecentSearchList";
+import { saveRecentSearch } from "@/lib/recentSearch";
 
 export default function AnimationSearchSection() {
-    const [query, setQuery] = useState("");
-    const queryRef = useRef<HTMLInputElement>(null);
-    const handleOnClick = () => {
-        if (!queryRef.current) return;
-        setQuery(queryRef.current.value);
-    };
-    return (
-        <QueryClientProvider client={queryClient}>
-            <div className="flex items-center justify-center gap-y-8 py-4 flex-col">
-                <SearchHero title="What animation are you looking for?" />
-                <SearchForm onClick={handleOnClick} ref={queryRef} />
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const initialQuery = searchParams.get("q") ?? "";
+
+  const [input, setInput] = useState(initialQuery);
+  const [query, setQuery] = useState(initialQuery);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setQuery(input.trim());
+    }, 400);
+    return () => clearTimeout(timer);
+  }, [input]);
+
+  useEffect(() => {
+    if (query) {
+      router.replace(`/search?q=${encodeURIComponent(query)}`, { scroll: false });
+    } else {
+      router.replace("/search", { scroll: false });
+    }
+  }, [query, router]);
+
+  const handleSelectQuery = (q: string) => {
+    setInput(q);
+    setQuery(q);
+    saveRecentSearch(q);
+  };
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <main>
+        <div
+          className={`flex flex-col items-center justify-center gap-y-4 py-2 px-5 ${query != "" ? "" : "h-[60vh]"}`}
+        >
+          <SearchHero title="What animation are you looking for?" />
+          <SearchForm value={input} onChange={setInput} />
+
+          {query == "" && (
+            <div className="w-full max-w-md flex flex-col gap-y-6 mt-4">
+              <PopularSearchChips onSelect={handleSelectQuery} />
+              <RecentSearchList onSelect={handleSelectQuery} />
             </div>
-            {query != "" ? <SearchResults query={query} /> : null}
-        </QueryClientProvider>
-    );
+          )}
+        </div>
+        <div className="py-4">{query != "" ? <SearchResults query={query} /> : null}</div>
+      </main>
+    </QueryClientProvider>
+  );
 }

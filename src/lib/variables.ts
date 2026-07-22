@@ -8,6 +8,14 @@ export function getYears(){
     for(let i = current+1; i >= 1970; i--){
         years.push(i);
     }
-    
+
     return years;
+}
+
+export function getCurrentSeason(){
+    const month = new Date().getMonth();
+    if(month <= 2) return 'winter';
+    if(month <= 5) return 'spring';
+    if(month <= 8) return 'summer';
+    return 'fall';
 }

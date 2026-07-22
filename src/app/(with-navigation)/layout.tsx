@@ -1,4 +1,4 @@
-import Navigation from "@/components/PageNavigation";
+import Navigation from "@/components/common/Navigation";
 
 
 export default function WithNavigationLayout({ children }: { children: React.ReactNode }) {

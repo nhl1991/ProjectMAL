@@ -2,7 +2,7 @@
 import { getAnimations } from "@/lib/fetchAnimation";
 import { NextRequest, NextResponse } from "next/server";
 
-const LIMIT = 16;
+const LIMIT = 20;
 const RANKINGTYPE = ['all', 'airing', 'upcoming', 'tv', 'ova', 'movie', 'special', 'bypopularity', 'favorite']
 export async function GET(req: NextRequest) {
   const { searchParams } = req.nextUrl;
@@ -12,7 +12,7 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ error: 'Bad Request', message: 'Wrong parameter: ranking.' }, { status: 400 });
 
   try {
-    const query = `anime/ranking?ranking_type=${type}&offset=${offset}&limit=${LIMIT}`;
+    const query = `anime/ranking?ranking_type=${type}&offset=${offset}&limit=${LIMIT}&fields=mean,alternative_titles`;
     const response = await getAnimations(query, "ranking");
 
     if (response.ok) {
