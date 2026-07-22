@@ -14,8 +14,8 @@ export function getYears(){
 
 export function getCurrentSeason(){
     const month = new Date().getMonth();
-    if(month <= 1 || month === 11) return 'winter';
-    if(month <= 4) return 'spring';
-    if(month <= 7) return 'summer';
+    if(month <= 2) return 'winter';
+    if(month <= 5) return 'spring';
+    if(month <= 8) return 'summer';
     return 'fall';
 }
