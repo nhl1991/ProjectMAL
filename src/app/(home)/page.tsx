@@ -19,21 +19,21 @@ export default function Home() {
       <HomeHero />
 
       {/* TOP 5 */}
-      <section className="w-full max-w-5xl mx-auto px-6 py-8">
+      <section className="w-full max-w-5xl xl:max-w-6xl 2xl:max-w-7xl mx-auto px-6 py-8">
         <Top5Section />
       </section>
 
       <hr className="border-border mx-6" />
 
       {/* 랭킹 탭 */}
-      <section className="w-full max-w-5xl mx-auto px-6 py-8">
+      <section className="w-full max-w-5xl xl:max-w-6xl 2xl:max-w-7xl mx-auto px-6 py-8">
         <RankingTabSection />
       </section>
 
       <hr className="border-border mx-6" />
 
       {/* 계절 탭 */}
-      <section className="w-full max-w-5xl mx-auto px-6 py-8">
+      <section className="w-full max-w-5xl xl:max-w-6xl 2xl:max-w-7xl mx-auto px-6 py-8">
         <SeasonTabSection />
       </section>
 
