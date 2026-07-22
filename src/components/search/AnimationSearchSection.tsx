@@ -29,7 +29,6 @@ export default function AnimationSearchSection() {
   useEffect(() => {
     if (query) {
       router.replace(`/search?q=${encodeURIComponent(query)}`, { scroll: false });
-      saveRecentSearch(query);
     } else {
       router.replace("/search", { scroll: false });
     }
@@ -38,6 +37,7 @@ export default function AnimationSearchSection() {
   const handleSelectQuery = (q: string) => {
     setInput(q);
     setQuery(q);
+    saveRecentSearch(q);
   };
 
   return (

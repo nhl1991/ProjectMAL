@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { AnimationData } from "@/types/animation";
@@ -9,6 +10,7 @@ import StatusSection from "../common/StatusSection";
 import LoadingIndicator from "../common/ui/LoadingIndicator";
 import StarIcon from "../common/icons/StarIcon";
 import { getTitle } from "@/lib/utils";
+import { saveRecentSearch } from "@/lib/recentSearch";
 import PreviewLoadingFallback from "../common/fallbacks/PreviewLoadingFallback";
 import ErrorFallback from "../common/fallbacks/ErrorFallback";
 import ResultsFooter from "../common/ResultsFooter";
@@ -46,6 +48,12 @@ export default function SearchResults({ query }: { query: string }) {
       return `${paging.next.split("?")[1]}`;
     },
   });
+
+  useEffect(() => {
+    if (status === "success" && data.pages.some((page) => page.data.length > 0)) {
+      saveRecentSearch(query);
+    }
+  }, [status, data, query]);
 
   const noResults = (
     <StatusSection>
