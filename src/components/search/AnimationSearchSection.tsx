@@ -46,7 +46,7 @@ export default function AnimationSearchSection() {
         <div
           className={`flex flex-col items-center justify-center gap-y-4 py-2 px-5 ${query != "" ? "" : "h-[60vh]"}`}
         >
-          <SearchHero title="What animation are you looking for?" />
+          <SearchHero title="어떤 애니를 찾고 있나요?" />
           <SearchForm value={input} onChange={setInput} />
 
           {query == "" && (
