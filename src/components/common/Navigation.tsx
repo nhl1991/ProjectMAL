@@ -15,7 +15,7 @@ export default function Navigation() {
   return (
     <nav className="sticky top-0 z-50 w-full backdrop-blur-sm">
       <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
-        <Link href="/" className="text-gradient text-lg font-bold">
+        <Link href="/" className="text-gradient text-sm md:text-lg font-bold">
           Project-MAL
         </Link>
         <ul className="flex gap-x-6">

@@ -31,7 +31,7 @@ export default function Top5Section() {
   return (
     <div className="w-full">
       <h2 className="text-xl font-bold mb-4">지금 방영 중 TOP 5</h2>
-      <div className="grid grid-cols-3 md:grid-cols-5 gap-3">
+      <div className="grid grid-cols-5 gap-3">
         {data.length > 0
           ? data.map(({ node }, i) => (
               <Link
@@ -47,7 +47,7 @@ export default function Top5Section() {
                   sizes="(max-width: 768px) 30vw, 18vw"
                 />
                 <span
-                  className={`absolute -bottom-2 -left-1 text-6xl font-black leading-none [-webkit-text-stroke:2px_black] ${RANK_COLORS[i] ?? "text-white"}`}
+                  className={`absolute -bottom-2 -left-1 text-6xl font-black leading-none [-webkit-text-stroke:1px_black] ${RANK_COLORS[i] ?? "text-white"} opacity-60`}
                 >
                   {i + 1}
                 </span>
