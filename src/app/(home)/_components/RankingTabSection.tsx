@@ -41,7 +41,7 @@ export default function RankingTabSection() {
         </Link>
       </div>
 
-      <div className="flex gap-2 mb-4">
+      <div className="flex gap-2 mb-4 overflow-x-scroll scrollbar-hide">
         {TABS.map((tab) => (
           <button
             key={tab}
