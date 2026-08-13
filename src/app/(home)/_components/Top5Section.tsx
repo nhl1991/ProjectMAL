@@ -32,7 +32,14 @@ export default function Top5Section() {
     <div className="w-full">
       <h2 className="text-xl font-bold mb-4">지금 방영 중 TOP 5</h2>
       <div className="grid grid-cols-5 gap-3">
-        {data.length > 0
+        {results.isError ? (
+          <div className="col-span-5 flex flex-col items-center justify-center gap-2 py-8 text-center">
+            <p className="text-sm text-muted-foreground">정보를 불러오지 못했습니다.</p>
+            <button onClick={() => results.refetch()} className="text-xs text-[#7F77DD] hover:underline">
+              다시 시도
+            </button>
+          </div>
+        ) : data.length > 0
           ? data.map(({ node }, i) => (
               <Link
                 key={node.id}
