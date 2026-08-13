@@ -85,10 +85,9 @@ The development server runs at `http://localhost:3000` by default.
 
 ## Environment Variables
 
-The MyAnimeList API requires a client ID. The current implementation uses different variable names for development and production.
+The MyAnimeList API requires a client ID. The same variable is used in both development and production.
 
-- Development: `MAL_CLIENT_ID`
-- Production: `NEXT_PUBLIC_MAL_CLIENT_ID`
+- `MAL_CLIENT_ID`
 
 ## Implementation Notes
 

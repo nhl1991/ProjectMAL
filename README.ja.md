@@ -85,10 +85,9 @@ npm run dev
 
 ## 環境変数
 
-MyAnimeList API の利用には client ID が必要です。実装上、開発環境と本番環境で別名の変数を使っています。
+MyAnimeList API の利用には client ID が必要です。開発環境と本番環境のどちらも同じ変数を使います。
 
-- 開発環境: `MAL_CLIENT_ID`
-- 本番環境: `NEXT_PUBLIC_MAL_CLIENT_ID`
+- `MAL_CLIENT_ID`
 
 ## 実装メモ
 

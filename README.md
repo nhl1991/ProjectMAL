@@ -85,10 +85,9 @@ npm run dev
 
 ## 환경 변수
 
-MyAnimeList API 호출을 위해 클라이언트 ID가 필요합니다. 현재 구현은 개발 환경과 프로덕션 환경에서 서로 다른 이름의 변수를 사용합니다.
+MyAnimeList API 호출을 위해 클라이언트 ID가 필요합니다. 개발 환경과 프로덕션 환경 모두 동일한 변수를 사용합니다.
 
-- 개발 환경: `MAL_CLIENT_ID`
-- 프로덕션 환경: `NEXT_PUBLIC_MAL_CLIENT_ID`
+- `MAL_CLIENT_ID`
 
 ## 구현 메모
 
