@@ -42,7 +42,7 @@ export default function SearchResults({ query }: { query: string }) {
     retry: false,
     queryKey: ["animation", "search", query],
     queryFn: search,
-    initialPageParam: `offset=0&q=${query}`,
+    initialPageParam: `offset=0&q=${encodeURIComponent(query)}`,
     getNextPageParam: ({ paging = {} }) => {
       if (!paging.next) return null;
       return `${paging.next.split("?")[1]}`;

@@ -6,7 +6,8 @@ export async function GET(req: NextRequest) {
   const { searchParams } = req.nextUrl;
   const offset = searchParams.get('offset') ?? 0
   const q = searchParams.get('q')
-  const query = `anime?q=${q}&offset=${offset}&limit=20&fields=mean,alternative_titles`;
+  const encodedQuery = encodeURIComponent(q ?? '');
+  const query = `anime?q=${encodedQuery}&offset=${offset}&limit=20&fields=mean,alternative_titles`;
   const result = await getAnimations(query, "search");
 
   if (result.ok) {
