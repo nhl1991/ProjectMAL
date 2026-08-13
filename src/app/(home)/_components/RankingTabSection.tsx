@@ -58,7 +58,14 @@ export default function RankingTabSection() {
       </div>
 
       <div className="grid grid-cols-5 gap-3">
-        {results.isPending
+        {results.isError ? (
+          <div className="col-span-5 flex flex-col items-center justify-center gap-2 py-8 text-center">
+            <p className="text-sm text-muted-foreground">정보를 불러오지 못했습니다.</p>
+            <button onClick={() => results.refetch()} className="text-xs text-[#7F77DD] hover:underline">
+              다시 시도
+            </button>
+          </div>
+        ) : results.isPending
           ? Array.from({ length: 5 }).map((_, i) => (
               <div key={i} className="aspect-[2/3] rounded-lg bg-slate-300 dark:bg-slate-800 animate-pulse" />
             ))
