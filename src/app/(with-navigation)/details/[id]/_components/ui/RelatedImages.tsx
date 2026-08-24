@@ -15,11 +15,12 @@ export default function RelatedImages({ pictures }: { pictures: Picture[] }) {
             href={p.large ?? p.medium}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label={`관련 이미지 ${idx + 1} (새 탭에서 열기)`}
             className="relative aspect-[3/4] rounded-md overflow-hidden bg-slate-300 dark:bg-slate-800"
           >
             <Image
               src={p.large ?? p.medium}
-              alt=""
+              alt={`관련 이미지 ${idx + 1}`}
               fill
               className="object-cover"
               sizes="(max-width: 768px) 20vw, 12vw"
