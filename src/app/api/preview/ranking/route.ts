@@ -8,7 +8,7 @@ export async function GET(req: NextRequest) {
     const offset = 0;
     const limit = parseInt(searchParams.get('limit') ?? '10', 10);
     if(!value) return NextResponse.json({ error: 'Bad Request', message: 'Missing required parameter: value' }, { status: 400 });
-    const query = `anime/ranking?ranking_type=${value}&offset=${offset}&limit=${limit}&fields=mean,alternative_titles`;
+    const query = `anime/ranking?ranking_type=${value}&offset=${offset}&limit=${limit}&fields=mean,alternative_titles,media_type,start_date`;
     try {
         const response = await getAnimations(query, "ranking");
 

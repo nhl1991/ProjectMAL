@@ -11,6 +11,8 @@ export interface AnimationNode {
         en?: string,
         synonyms?: string[],
     }
+    media_type?: string,
+    start_date?: string,
 }
 
 export interface AnimationData {

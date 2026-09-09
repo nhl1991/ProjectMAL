@@ -15,13 +15,16 @@ const RANK_COLORS = ["text-[#FFD700]", "text-[#C0C0C0]", "text-[#CD7F32]"]
 export default function Top5Section() {
   const results = useQuery({
     queryKey: ["ranking", "top5", "airing"],
-    queryFn: () => fetchPreview(`ranking?value=airing&limit=5`),
+    queryFn: () => fetchPreview(`ranking?value=airing&limit=20`),
     staleTime: 1000 * 60 * 10, // 10 minutes
     retry: 3,
     refetchOnWindowFocus: false,
   })
 
-  const data: AnimationData[] = results.data?.data ?? []
+  const currentYear = new Date().getFullYear().toString()
+  const data: AnimationData[] = (results.data?.data ?? [])
+    .filter(({ node }) => node.media_type === "tv" && node.start_date?.startsWith(currentYear))
+    .slice(0, 5)
 
   return (
     <div className="w-full">
@@ -47,7 +50,9 @@ export default function Top5Section() {
           breakpoints={{ 768: { slidesPerView: 5 } }}
           className="!h-auto"
         >
-          {data.map(({ node }, i) => (
+          {data.map(({ node, ranking }, i) => {
+            const rank = ranking?.rank ?? i + 1
+            return (
             <SwiperSlide key={node.id} className="!h-auto">
               <Link
                 href={`/details/${node.id}`}
@@ -61,9 +66,9 @@ export default function Top5Section() {
                   sizes="(max-width: 768px) 30vw, 18vw"
                 />
                 <span
-                  className={`absolute -bottom-2 -left-1 text-6xl font-black leading-none [-webkit-text-stroke:1px_black] ${RANK_COLORS[i] ?? "text-white"} opacity-60`}
+                  className={`absolute -bottom-2 -left-1 text-6xl font-black leading-none [-webkit-text-stroke:1px_black] ${RANK_COLORS[rank - 1] ?? "text-white"} opacity-60`}
                 >
-                  {i + 1}
+                  {rank}
                 </span>
                 <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-1 px-2 text-center">
                   <p className="text-white text-sm font-bold">{getTitle(node)}</p>
@@ -74,7 +79,8 @@ export default function Top5Section() {
                 </div>
               </Link>
             </SwiperSlide>
-          ))}
+            )
+          })}
         </Swiper>
       )}
     </div>
