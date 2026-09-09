@@ -50,9 +50,7 @@ export default function Top5Section() {
           breakpoints={{ 768: { slidesPerView: 5 } }}
           className="!h-auto"
         >
-          {data.map(({ node, ranking }, i) => {
-            const rank = ranking?.rank ?? i + 1
-            return (
+          {data.map(({ node }, i) => (
             <SwiperSlide key={node.id} className="!h-auto">
               <Link
                 href={`/details/${node.id}`}
@@ -66,9 +64,9 @@ export default function Top5Section() {
                   sizes="(max-width: 768px) 30vw, 18vw"
                 />
                 <span
-                  className={`absolute -bottom-2 -left-1 text-6xl font-black leading-none [-webkit-text-stroke:1px_black] ${RANK_COLORS[rank - 1] ?? "text-white"} opacity-60`}
+                  className={`absolute -bottom-2 -left-1 text-6xl font-black leading-none [-webkit-text-stroke:1px_black] ${RANK_COLORS[i] ?? "text-white"} opacity-60`}
                 >
-                  {rank}
+                  {i + 1}
                 </span>
                 <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-1 px-2 text-center">
                   <p className="text-white text-sm font-bold">{getTitle(node)}</p>
@@ -79,8 +77,7 @@ export default function Top5Section() {
                 </div>
               </Link>
             </SwiperSlide>
-            )
-          })}
+          ))}
         </Swiper>
       )}
     </div>
