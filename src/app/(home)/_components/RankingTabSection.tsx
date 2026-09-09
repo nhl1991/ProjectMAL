@@ -6,19 +6,10 @@ import { useState } from "react"
 import { Swiper, SwiperSlide } from "swiper/react"
 import StarIcon from "@/components/common/icons/StarIcon"
 import { getTitle } from "@/lib/utils"
+import { fetchPreview } from "@/lib/fetchPreview"
 import { AnimationData } from "@/types/animation"
 
 import "swiper/css"
-
-const fetchPreview = async (params: string) => {
-  const response = await fetch(`/api/preview/${params}`, {
-    method: "GET",
-  })
-  const result = await response.json()
-  if (response.ok) return result
-  else if (response.status === 404) return { data: [] }
-  else throw new Error(result.error ?? result.message)
-}
 
 const TABS = ["all", "airing", "upcoming", "tv", "ova", "movie", "special", "bypopularity", "favorite"] as const
 type RankingTab = (typeof TABS)[number]

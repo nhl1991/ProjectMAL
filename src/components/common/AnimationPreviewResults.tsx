@@ -7,6 +7,7 @@ import ResultsSection from "./ResultsSection";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import { AnimationData } from "@/types/animation";
+import { fetchPreview } from "@/lib/fetchPreview";
 import AnimationPreviewHero from "./AnimationPreviewHero";
 import ErrorFallback from "./fallbacks/ErrorFallback";
 import PreviewLoadingFallback from "./fallbacks/PreviewLoadingFallback";
@@ -15,16 +16,6 @@ import "swiper/css";
 import "swiper/css/navigation";
 import AnimationPreviewSkeleton from "./fallbacks/AnimationPreviewSkeleton";
 import ResultsHero from "./ResultsHero";
-
-const fetchPreview = async (params: string) => {
-  const response = await fetch(`/api/preview/${params}`, {
-    method: "GET",
-  });
-  const result = await response.json();
-  if (response.ok) return result;
-  else if (response.status === 404) return { data: [] };
-  else throw new Error(result.error ?? result.message);
-};
 
 export default function AnimationPreviewResults({
   category,
@@ -89,7 +80,7 @@ export default function AnimationPreviewResults({
                       return (
                         <SwiperSlide tag="li" key={id}>
                           {item.ranking ? (
-                            <p className="absolute md:text-9xl text-3xl rankTextStroke top-2 left-2 z-20">
+                            <p className="absolute md:text-9xl text-3xl rankTextStroke top-2 left-8 z-20">
                               {item.ranking.rank}
                             </p>
                           ) : null}

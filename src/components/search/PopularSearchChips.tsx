@@ -1,17 +1,8 @@
 'use client'
 import { useQuery } from "@tanstack/react-query"
 import { getTitle } from "@/lib/utils"
+import { fetchPreview } from "@/lib/fetchPreview"
 import { AnimationData } from "@/types/animation"
-
-const fetchPreview = async (params: string) => {
-  const response = await fetch(`/api/preview/${params}`, {
-    method: "GET",
-  })
-  const result = await response.json()
-  if (response.ok) return result
-  else if (response.status === 404) return { data: [] }
-  else throw new Error(result.error ?? result.message)
-}
 
 export default function PopularSearchChips({ onSelect }: { onSelect: (query: string) => void }) {
   const results = useQuery({
