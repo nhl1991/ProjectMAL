@@ -29,6 +29,7 @@ export default function RankingTabSection() {
   const results = useQuery({
     queryKey: ["ranking-preview", rankingType],
     queryFn: () => fetchPreview(`ranking?value=${rankingType}&limit=10`),
+    staleTime: 1000 * 60 * 60, // 1 hour
     retry: 3,
     refetchOnWindowFocus: false,
   })

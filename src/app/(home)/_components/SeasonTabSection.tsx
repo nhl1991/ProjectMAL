@@ -29,6 +29,7 @@ export default function SeasonTabSection() {
   const results = useQuery({
     queryKey: ["season-preview", season],
     queryFn: () => fetchPreview(`season?value=${season}&limit=10`),
+    staleTime: 1000 * 60 * 60, // 1 hour
     retry: 3,
     refetchOnWindowFocus: false,
   })

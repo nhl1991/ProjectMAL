@@ -41,6 +41,7 @@ export default function RankingResults({ query }: { query: string }) {
     isFetchingNextPage,
   } = useInfiniteQuery({
     retry: false,
+    staleTime: 1000 * 60 * 60, // 1 hour
     queryKey: ["animation", "ranking", query],
     queryFn: search,
     initialPageParam: `ranking_type=${query}`,

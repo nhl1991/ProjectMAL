@@ -37,6 +37,7 @@ export default function SeasonResults({ query }: { query: string }) {
     isFetchingNextPage,
   } = useInfiniteQuery({
     retry: false,
+    staleTime: 1000 * 60 * 60, // 1 hour
     queryKey: ["animation", "season", query],
     queryFn: search,
     initialPageParam: `/${query}?offset=0`,

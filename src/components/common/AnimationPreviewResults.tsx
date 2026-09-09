@@ -38,6 +38,7 @@ export default function AnimationPreviewResults({
       return {
         queryKey: [category, v],
         queryFn: () => fetchPreview(`${category}?value=${v}`),
+        staleTime: 1000 * 60 * 60, // 1 hour
         retry: 3,
         refetchOnWindowFocus: false,
       };
