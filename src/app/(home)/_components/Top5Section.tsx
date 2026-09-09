@@ -25,6 +25,7 @@ export default function Top5Section() {
   const results = useQuery({
     queryKey: ["ranking", "top5", "airing"],
     queryFn: () => fetchPreview(`ranking?value=airing&limit=5`),
+    staleTime: 1000 * 60 * 10, // 10 minutes
     retry: 3,
     refetchOnWindowFocus: false,
   })

@@ -29,7 +29,7 @@ export default function DetailsResults({ id }: { id: string }) {
     queryFn: () => fetchDetails(id),
     refetchOnWindowFocus: false,
     refetchOnReconnect: false,
-    staleTime: 1000 * 60 * 60,
+    staleTime: 1000 * 60 * 10, // 10 minutes
     retry: false,
   });
   if (status === "pending")

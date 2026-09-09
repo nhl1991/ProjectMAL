@@ -20,6 +20,7 @@ export default function HomeHero() {
     const results = useQuery({
         queryKey: ["ranking", "hero", "all"],
         queryFn: () => fetchPreview(`ranking?value=all&limit=5`),
+        staleTime: 1000 * 60 * 10, // 10 minutes
         retry: 3,
         refetchOnWindowFocus: false,
   });
