@@ -40,6 +40,7 @@ export default function SearchResults({ query }: { query: string }) {
     isFetchingNextPage,
   } = useInfiniteQuery({
     retry: false,
+    staleTime: 1000 * 60 * 10, // 10 minutes
     queryKey: ["animation", "search", query],
     queryFn: search,
     initialPageParam: `offset=0&q=${encodeURIComponent(query)}`,

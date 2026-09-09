@@ -17,6 +17,7 @@ export default function PopularSearchChips({ onSelect }: { onSelect: (query: str
   const results = useQuery({
     queryKey: ["ranking-preview", "all"],
     queryFn: () => fetchPreview(`ranking?value=all&limit=10`),
+    staleTime: 1000 * 60 * 10, // 10 minutes
     retry: 3,
     refetchOnWindowFocus: false,
   })
