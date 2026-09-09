@@ -4,16 +4,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { AnimationData } from "@/types/animation"
 import { getCurrentSeason } from "@/lib/variables"
-
-const fetchPreview = async (params: string) => {
-  const response = await fetch(`/api/preview/${params}`, {
-    method: "GET",
-  });
-  const result = await response.json();
-  if (response.ok) return result;
-  else if (response.status === 404) return { data: [] };
-  else throw new Error(result.error ?? result.message);
-};
+import { fetchPreview } from "@/lib/fetchPreview"
 
 export default function HomeHero() {
 
@@ -24,6 +15,8 @@ export default function HomeHero() {
         retry: 3,
         refetchOnWindowFocus: false,
   });
+
+  const posters: AnimationData[] = results.data?.data ?? []
 
   return (
     <section className="w-full min-h-[420px] relative flex items-end overflow-hidden">
@@ -43,8 +36,8 @@ export default function HomeHero() {
 
       {/* 우측 포스터들 */}
       <div className="absolute right-0 top-0 bottom-0 w-1/2 hidden md:flex gap-1.5 p-4">
-        {results.data?.data.length > 0
-          ? results.data?.data.map(({ node }: AnimationData, i: number) => (
+        {posters.length > 0
+          ? posters.map(({ node }, i) => (
               <div key={i} className="flex-1 rounded-lg overflow-hidden opacity-65 relative">
                 <Image src={node.main_picture.large} alt="" fill className="object-cover" sizes="10vw" />
               </div>
