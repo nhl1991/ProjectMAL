@@ -21,7 +21,13 @@ const fetchPreview = async (params: string) => {
     method: "GET",
   });
   const result = await response.json();
-  if (response.ok) return result;
+  if (response.ok) {
+    if (!Array.isArray(result?.data)) {
+      console.error("Unexpected /api/preview response shape:", result);
+      return { data: [] };
+    }
+    return result;
+  }
   else if (response.status === 404) return { data: [] };
   else throw new Error(result.error ?? result.message);
 };
@@ -89,7 +95,7 @@ export default function AnimationPreviewResults({
                       return (
                         <SwiperSlide tag="li" key={id}>
                           {item.ranking ? (
-                            <p className="absolute md:text-9xl text-3xl rankTextStroke top-2 left-2 z-20">
+                            <p className="absolute md:text-9xl text-3xl rankTextStroke top-2 left-8 z-20">
                               {item.ranking.rank}
                             </p>
                           ) : null}
