@@ -15,7 +15,7 @@ const RANK_COLORS = ["text-[#FFD700]", "text-[#C0C0C0]", "text-[#CD7F32]"]
 export default function Top5Section() {
   const results = useQuery({
     queryKey: ["ranking", "top5", "airing"],
-    queryFn: () => fetchPreview(`ranking?value=airing&limit=20`),
+    queryFn: () => fetchPreview(`ranking?value=airing&limit=50`),
     staleTime: 1000 * 60 * 10, // 10 minutes
     retry: 3,
     refetchOnWindowFocus: false,
