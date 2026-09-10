@@ -1,4 +1,5 @@
 import { AnimationData } from "@/types/animation";
+import { normalizeAnimationData } from "@/lib/normalizeAnimationData";
 
 export const fetchPreview = async (params: string): Promise<{ data: AnimationData[] }> => {
   const response = await fetch(`/api/preview/${params}`, {
@@ -6,18 +7,7 @@ export const fetchPreview = async (params: string): Promise<{ data: AnimationDat
   });
   const result = await response.json();
   if (response.ok) {
-    if (!Array.isArray(result?.data)) {
-      console.error("Unexpected /api/preview response shape:", result);
-      return { data: [] };
-    }
-    const data: AnimationData[] = result.data.filter(
-      (item: { node?: { id?: number; main_picture?: unknown } }) =>
-        item?.node?.id != null && item?.node?.main_picture
-    );
-    if (data.length !== result.data.length) {
-      console.error("Filtered malformed /api/preview entries:", result.data);
-    }
-    return { data };
+    return { data: normalizeAnimationData(result?.data) };
   }
   else if (response.status === 404) return { data: [] };
   else throw new Error(result.error ?? result.message);
