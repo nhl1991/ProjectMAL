@@ -10,13 +10,22 @@ export const fetchPreview = async (params: string): Promise<{ data: AnimationDat
       console.error("Unexpected /api/preview response shape:", result);
       return { data: [] };
     }
-    const data: AnimationData[] = result.data.filter(
-      (item: { node?: { id?: number; main_picture?: { large?: string } } }) =>
-        item?.node?.id != null && !!item?.node?.main_picture?.large
+    const valid = result.data.filter(
+      (item: AnimationData) => item?.node?.id != null
     );
-    if (data.length !== result.data.length) {
+    if (valid.length !== result.data.length) {
       console.error("Filtered malformed /api/preview entries:", result.data);
     }
+    const data: AnimationData[] = valid.map((item: AnimationData) => ({
+      ...item,
+      node: {
+        ...item.node,
+        main_picture: {
+          ...item.node.main_picture,
+          large: item.node.main_picture?.large || item.node.main_picture?.medium || "/no_poster.png",
+        },
+      },
+    }));
     return { data };
   }
   else if (response.status === 404) return { data: [] };
