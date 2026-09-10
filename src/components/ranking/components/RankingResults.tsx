@@ -24,8 +24,7 @@ const search = async ({ pageParam }: { pageParam: string }) => {
   if (response.ok) {
     return { ...result, data: normalizeAnimationData(result?.data) };
   } else {
-    if (result.message === "invalid q") throw new Error(`No results`);
-    else if (result.error === "not_found") throw new Error(`Results Not Found`);
+    if (result.message === "invalid q" || result.error === "not_found") throw new Error(`Results Not Found`);
     else throw new Error(result.message);
   }
 };
