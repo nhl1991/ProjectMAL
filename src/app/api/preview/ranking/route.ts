@@ -8,7 +8,7 @@ export async function GET(req: NextRequest) {
     const value = searchParams.get('value');
     const offset = 0;
     const limitParam = searchParams.get('limit');
-    const limit = limitParam === null ? 10 : parseInt(limitParam, 10);
+    const limit = limitParam === null ? 10 : Number(limitParam);
     if(!value) return NextResponse.json({ error: 'Bad Request', message: 'Missing required parameter: value' }, { status: 400 });
     if (!Number.isInteger(limit) || limit < 1 || limit > MAX_LIMIT) {
         return NextResponse.json({ error: 'Bad Request', message: 'Invalid parameter: limit' }, { status: 400 });

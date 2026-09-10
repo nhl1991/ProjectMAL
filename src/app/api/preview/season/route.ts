@@ -7,7 +7,7 @@ export async function GET(req: NextRequest) {
     const offset = 0;
     const { searchParams } = req.nextUrl;
     const limitParam = searchParams.get('limit');
-    const limit = limitParam === null ? 10 : parseInt(limitParam, 10);
+    const limit = limitParam === null ? 10 : Number(limitParam);
     const year = new Date().getFullYear();
     const value = searchParams.get('value');
     if (!value) return NextResponse.json({ error: 'Bad Request', message: 'Missing required parameter: value' }, { status: 400 });
