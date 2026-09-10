@@ -6,7 +6,7 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function getTitle(node: { title: string; alternative_titles?: { ja?: string } }) {
-  return node.alternative_titles?.ja ?? node.title
+  return node.alternative_titles?.ja?.trim() ? node.alternative_titles.ja : node.title
 }
 
 const STATUS_LABELS: Record<string, string> = {
