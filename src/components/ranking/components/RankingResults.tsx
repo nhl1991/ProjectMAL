@@ -12,6 +12,7 @@ import { useInfiniteQuery } from "@tanstack/react-query";
 import PreviewLoadingFallback from "@/components/common/fallbacks/PreviewLoadingFallback";
 import ErrorFallback from "@/components/common/fallbacks/ErrorFallback";
 import ResultsFooter from "@/components/common/ResultsFooter";
+import { normalizeAnimationData } from "@/lib/normalizeAnimationData";
 
 const LIMIT = 20;
 
@@ -21,7 +22,7 @@ const search = async ({ pageParam }: { pageParam: string }) => {
   });
   const result = await response.json();
   if (response.ok) {
-    return result;
+    return { ...result, data: normalizeAnimationData(result?.data) };
   } else {
     if (result.message === "invalid q") throw new Error(`No results`);
     else if (result.error === "not_found") throw new Error(`Results Not Found`);

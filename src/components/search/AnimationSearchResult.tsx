@@ -14,6 +14,7 @@ import { saveRecentSearch } from "@/lib/recentSearch";
 import PreviewLoadingFallback from "../common/fallbacks/PreviewLoadingFallback";
 import ErrorFallback from "../common/fallbacks/ErrorFallback";
 import ResultsFooter from "../common/ResultsFooter";
+import { normalizeAnimationData } from "@/lib/normalizeAnimationData";
 
 const search = async ({ pageParam }: { pageParam: string }) => {
   const response = await fetch(`/api/search?${pageParam}`, {
@@ -22,7 +23,7 @@ const search = async ({ pageParam }: { pageParam: string }) => {
   const result = await response.json();
 
   if (response.ok) {
-    return result;
+    return { ...result, data: normalizeAnimationData(result?.data) };
   } else {
     if (result.message === "invalid q") throw new Error(`Results Not Found`);
     else if (result.error === "not_found") throw new Error(`Results Not Found`);
