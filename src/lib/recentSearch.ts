@@ -5,7 +5,7 @@ export function getRecentSearches(): string[] {
   if (typeof window === "undefined") return [];
   try {
     const parsed = JSON.parse(localStorage.getItem(STORAGE_KEY) ?? "[]");
-    return Array.isArray(parsed) ? parsed : [];
+    return Array.isArray(parsed) && parsed.every((item) => typeof item === "string") ? parsed : [];
   } catch {
     return [];
   }
