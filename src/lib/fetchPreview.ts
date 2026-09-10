@@ -11,8 +11,8 @@ export const fetchPreview = async (params: string): Promise<{ data: AnimationDat
       return { data: [] };
     }
     const data: AnimationData[] = result.data.filter(
-      (item: { node?: { id?: number; main_picture?: unknown } }) =>
-        item?.node?.id != null && item?.node?.main_picture
+      (item: { node?: { id?: number; main_picture?: { large?: string } } }) =>
+        item?.node?.id != null && !!item?.node?.main_picture?.large
     );
     if (data.length !== result.data.length) {
       console.error("Filtered malformed /api/preview entries:", result.data);
