@@ -22,8 +22,8 @@ describe("recentSearch", () => {
   });
   it("window가 undefined인 경우 빈 배열을 반환한다.", () => {
     const originalWindow = global.window;
-    // @ts-ignore
-    delete global.window;
+
+    Reflect.deleteProperty(globalThis, "window");
     const recentSearches = getRecentSearches();
     expect(recentSearches).toEqual([]);
     expect(recentSearches).toHaveLength(0);
