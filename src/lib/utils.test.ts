@@ -1,4 +1,4 @@
-import { cn } from "./utils";
+import { cn, formatRating, formatStatus, getTitle } from "./utils";
 
 describe("utils", () => {
 
@@ -8,7 +8,6 @@ describe("utils", () => {
   });
 
   it("alternative_titles.ja를 리턴한다.", () => {
-    const { getTitle } = require("./utils");
     const node = {
       title: "Title in English",
       alternative_titles: {
@@ -20,7 +19,7 @@ describe("utils", () => {
   });
 
   it("alternative_titles.ja가 없으면 title을 리턴한다.", () => {
-    const { getTitle } = require("./utils");
+
     const node = {
       title: "Title in English",
       alternative_titles: {},
@@ -31,22 +30,22 @@ describe("utils", () => {
 
   it("STATUS_LABELS를 리턴한다.", () => {
     // Add your test cases here
-    const { formatStatus } = require("./utils");
+
     expect(formatStatus("finished_airing")).toBe("Finished Airing");
   });
 
   it("STATUS_LABELS에 없는 경우 문자열을 그대로 반환한다.", () => {
-    const { formatStatus } = require("./utils");
+
     expect(formatStatus("non_existent_status")).toBe("non_existent_status");
   });
 
   it("RATING_LABELS를 리턴한다.", () => {
-    const { formatRating } = require("./utils");
+
     expect(formatRating("pg_13")).toBe("PG-13");
   });
   
   it("RATING_LABELS에 없는 경우 문자열을 그대로 반환한다.", () => {
-    const { formatRating } = require("./utils");
+
     expect(formatRating("non_existent_rating")).toBe("non_existent_rating");
   });
 });
