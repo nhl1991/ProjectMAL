@@ -8,11 +8,11 @@ import StarIcon from "@/components/common/icons/StarIcon"
 import { getTitle } from "@/lib/utils"
 import { fetchPreview } from "@/lib/fetchPreview"
 import { AnimationData } from "@/types/animation"
-import { SEASON_TYPE, getCurrentSeason } from "@/lib/variables"
+import { SEASONTYPE, getCurrentSeason } from "@/lib/variables"
 
 import "swiper/css"
 
-type SeasonTab = (typeof SEASON_TYPE)[number]
+type SeasonTab = (typeof SEASONTYPE)[number]
 
 export default function SeasonTabSection() {
   const [season, setSeason] = useState<SeasonTab>(getCurrentSeason())
@@ -37,7 +37,7 @@ export default function SeasonTabSection() {
       </div>
 
       <div className="flex gap-2 mb-4">
-        {SEASON_TYPE.map((tab) => (
+        {SEASONTYPE.map((tab) => (
           <button
             key={tab}
             onClick={() => setSeason(tab)}

@@ -1,6 +1,5 @@
-export const RANKING_TYPE = ['all', 'airing', 'upcoming', 'tv', 'ova', 'movie', 'special', 'bypopularity', 'favorite'];
-
-export const SEASON_TYPE = ['winter', 'spring', 'summer', 'fall'];
+export const RANKINGTYPE = ['all', 'airing', 'upcoming', 'tv', 'ova', 'movie', 'special', 'bypopularity', 'favorite'];
+export const SEASONTYPE = ['winter', 'spring', 'summer', 'fall'];
 
 export function getYears(){
     const years = [];
