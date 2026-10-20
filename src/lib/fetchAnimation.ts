@@ -1,6 +1,6 @@
 export async function getAnimations(query: string, tags: string) {
   const url = new URL(query, `https://api.myanimelist.net/v2/`);
-  return await fetch(url, {
+  return fetch(url, {
     cache: "force-cache",
     next: { revalidate: 3600, tags: [`${tags}`] }, // 1 hour
     headers: {

@@ -1,7 +1,7 @@
 "use client"
 
 import { useOptionStore } from "@/lib/stores";
-import { getYears, SEASON_TYPE } from "@/lib/variables";
+import { getYears, SEASONTYPE } from "@/lib/variables";
 import { useRouter } from "next/navigation";
 import { ChangeEvent } from "react";
 
@@ -23,7 +23,7 @@ export default function SeasonType() {
     return (
         <div className="flex items-center justify-between border-b border-border px-5 mt-3.5">
             <div className="flex">
-                {SEASON_TYPE.map((s) => (
+                {SEASONTYPE.map((s) => (
                     <button
                         key={s}
                         onClick={() => handleSeasonClick(s)}
