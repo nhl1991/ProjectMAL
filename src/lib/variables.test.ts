@@ -10,8 +10,9 @@ describe("variables", () => {
 
   it("should return current season in string", () => {
     const currentSeason = getCurrentSeason();
+    const season = ["winter", "spring", "summer", "fall"];
     expect(typeof currentSeason).toBe("string");
-    expect(currentSeason).toBe("summer");
+    expect(season).toContain(currentSeason);
   });
 
   it.each(['2026-01-20', '2026-04-20', '2026-07-20', '2026-11-20'])("현재 계절을 문자열을 반환한다.", (date) => {

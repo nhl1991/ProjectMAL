@@ -5,10 +5,12 @@ export const fetchPreview = async (params: string): Promise<{ data: AnimationDat
   const response = await fetch(`/api/preview/${params}`, {
     method: "GET",
   });
+
+  if (response.status === 404) return { data: [] };
+
   const result = await response.json();
   if (response.ok) {
     return { data: normalizeAnimationData(result?.data) };
   }
-  else if (response.status === 404) return { data: [] };
-  else throw new Error(result.error ?? result.message);
+  throw new Error(result.error ?? result.message);
 };

@@ -12,6 +12,7 @@ export function getRecentSearches(): string[] {
 }
 
 export function saveRecentSearch(query: string): string[] {
+  if (!query.trim()) return getRecentSearches();
   const prev = getRecentSearches();
   const next = [query, ...prev.filter((q) => q !== query)].slice(0, MAX_ENTRIES);
   localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
