@@ -5,10 +5,6 @@ describe("fetchPreview", () => {
     jest.resetAllMocks();
   });
 
-  it("should fetch preview data correctly", () => {
-    // Add your test cases here
-  });
-
   it("404 에러 시 빈 배열을 반환한다.", async () => {
     global.fetch = jest.fn().mockResolvedValue({
       status: 404,
