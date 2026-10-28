@@ -85,7 +85,7 @@ export default function SeasonTabSection() {
                   alt={item.node.title}
                   fill
                   className="object-cover"
-                  sizes="(max-width: 768px) 20vw, 12vw"
+                  sizes="(max-width: 768px) 30vw, 18vw"
                 />
                 <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-1 px-2 text-center">
                   <p className="text-white text-xs font-semibold">{getTitle(item.node)}</p>
