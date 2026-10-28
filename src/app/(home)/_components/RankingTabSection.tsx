@@ -85,7 +85,7 @@ export default function RankingTabSection() {
                   alt={item.node.title}
                   fill
                   className="object-cover"
-                  sizes="(max-width: 768px) 20vw, 12vw"
+                  sizes="(max-width: 768px) 30vw, 18vw"
                 />
                 <span className="absolute top-1.5 left-1.5 w-5 h-5 rounded-full bg-black/65 text-white text-[10px] font-bold flex items-center justify-center">
                   {i + 1}
