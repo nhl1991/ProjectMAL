@@ -43,7 +43,6 @@ yarn-error.log*
 next-env.d.ts
 
 # local agent/scratch files
-AGENTS.md
 CLAUDE.md
 PROJECT_MAL_TEST.md
 TEST_PLAN.md
