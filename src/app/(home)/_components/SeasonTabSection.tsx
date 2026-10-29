@@ -9,8 +9,10 @@ import { getTitle } from "@/lib/utils"
 import { fetchPreview } from "@/lib/fetchPreview"
 import { AnimationData } from "@/types/animation"
 import { SEASONTYPE, getCurrentSeason } from "@/lib/variables"
+import { A11y } from "swiper/modules"
 
 import "swiper/css"
+import "swiper/css/a11y"
 
 type SeasonTab = (typeof SEASONTYPE)[number]
 
@@ -67,12 +69,14 @@ export default function SeasonTabSection() {
         </div>
       ) : (
         <Swiper
+          modules={[A11y]}
           spaceBetween={12}
           slidesPerView={3}
           loop={data.length >= 6}
           grabCursor
           breakpoints={{ 768: { slidesPerView: 5 } }}
           className="!h-auto"
+          watchSlidesProgress
         >
           {data.map((item) => (
             <SwiperSlide key={item.node.id} className="!h-auto">
@@ -87,7 +91,7 @@ export default function SeasonTabSection() {
                   className="object-cover"
                   sizes="(max-width: 768px) 30vw, 18vw"
                 />
-                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-1 px-2 text-center">
+                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity flex flex-col items-center justify-center gap-1 px-2 text-center">
                   <p className="text-white text-xs font-semibold">{getTitle(item.node)}</p>
                   <div className="flex items-center gap-x-1">
                     <StarIcon className="w-3.5 h-3.5" />

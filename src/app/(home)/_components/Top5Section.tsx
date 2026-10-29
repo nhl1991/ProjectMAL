@@ -7,8 +7,10 @@ import StarIcon from "@/components/common/icons/StarIcon"
 import { getTitle } from "@/lib/utils"
 import { fetchPreview } from "@/lib/fetchPreview"
 import { AnimationData } from "@/types/animation"
+import { A11y } from "swiper/modules"
 
 import "swiper/css"
+import "swiper/css/a11y"
 
 const RANK_COLORS = ["text-[#FFD700]", "text-[#C0C0C0]", "text-[#CD7F32]"]
 
@@ -41,11 +43,13 @@ export default function Top5Section() {
         </div>
       ) : (
         <Swiper
+          modules={[A11y]}
           spaceBetween={12}
           slidesPerView={3}
           grabCursor
           breakpoints={{ 768: { slidesPerView: 5 } }}
           className="!h-auto"
+          watchSlidesProgress
         >
           {data.map(({ node }, i) => (
             <SwiperSlide key={node.id} className="!h-auto">
@@ -65,7 +69,7 @@ export default function Top5Section() {
                 >
                   {i + 1}
                 </span>
-                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-1 px-2 text-center">
+                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity flex flex-col items-center justify-center gap-1 px-2 text-center">
                   <p className="text-white text-sm font-bold">{getTitle(node)}</p>
                   <div className="flex items-center gap-x-1">
                     <StarIcon className="w-4 h-4" />

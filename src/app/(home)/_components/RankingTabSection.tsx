@@ -8,8 +8,10 @@ import StarIcon from "@/components/common/icons/StarIcon"
 import { getTitle } from "@/lib/utils"
 import { fetchPreview } from "@/lib/fetchPreview"
 import { AnimationData } from "@/types/animation"
+import { A11y } from "swiper/modules"
 
 import "swiper/css"
+import "swiper/css/a11y"
 
 const TABS = ["all", "airing", "upcoming", "tv", "ova", "movie", "special", "bypopularity", "favorite"] as const
 type RankingTab = (typeof TABS)[number]
@@ -67,12 +69,14 @@ export default function RankingTabSection() {
         </div>
       ) : (
         <Swiper
+          modules={[A11y]}
           spaceBetween={12}
           slidesPerView={3}
           loop={data.length >= 6}
           grabCursor
           breakpoints={{ 768: { slidesPerView: 5 } }}
           className="!h-auto"
+          watchSlidesProgress
         >
           {data.map((item, i) => (
             <SwiperSlide key={item.node.id} className="!h-auto">
@@ -90,7 +94,7 @@ export default function RankingTabSection() {
                 <span className="absolute top-1.5 left-1.5 w-5 h-5 rounded-full bg-black/65 text-white text-[10px] font-bold flex items-center justify-center">
                   {i + 1}
                 </span>
-                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-1 px-2 text-center">
+                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity flex flex-col items-center justify-center gap-1 px-2 text-center">
                   <p className="text-white text-xs font-semibold">{getTitle(item.node)}</p>
                   <div className="flex items-center gap-x-1">
                     <StarIcon className="w-3.5 h-3.5" />
