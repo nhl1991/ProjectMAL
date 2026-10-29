@@ -21,7 +21,7 @@ Instead of calling the MyAnimeList v2 API directly from the UI, the app proxies 
 
 - Home: hero, Top 5, ranking preview, season preview
 - Search: search input, suggested searches, recent searches, search results
-- Ranking: ranking-type list browsing
+- Ranking: lists by ranking type
 - Season: year and season-based lists
 - Detail: metadata, synopsis, statistics, related titles, recommendations
 
@@ -93,6 +93,7 @@ The MyAnimeList API requires a client ID. The same variable is used in both deve
 
 - The home page is built as a single-scroll landing page.
 - The search screen uses a debounced query after typing.
+- Search, ranking, and season results load the next page when you press the `NEXT` button at the bottom, appending it below the current list. Results are not loaded automatically on scroll (no infinite scroll).
 - Recent searches are stored in browser `localStorage` and capped at 5 items.
 - The top navigation highlights the active route.
 - API requests use `force-cache` and `revalidate` for caching.
