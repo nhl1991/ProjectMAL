@@ -5,17 +5,15 @@ import StatusSection from "./StatusSection";
 import React from "react";
 import ResultsSection from "./ResultsSection";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import { Navigation, A11y } from "swiper/modules";
 import { AnimationData } from "@/types/animation";
 import { fetchPreview } from "@/lib/fetchPreview";
 import AnimationPreviewHero from "./AnimationPreviewHero";
 import ErrorFallback from "./fallbacks/ErrorFallback";
-import PreviewLoadingFallback from "./fallbacks/PreviewLoadingFallback";
-
-import "swiper/css";
-import "swiper/css/navigation";
 import AnimationPreviewSkeleton from "./fallbacks/AnimationPreviewSkeleton";
 import ResultsHero from "./ResultsHero";
+import "swiper/css";
+import "swiper/css/navigation";
 
 export default function AnimationPreviewResults({
   category,
@@ -57,7 +55,7 @@ export default function AnimationPreviewResults({
               {data.length > 0 ? (
                 <div className="flex p-2">
                   <Swiper
-                    modules={[Navigation]}
+                    modules={[Navigation, A11y]}
                     spaceBetween={10}
                     slidesPerView={4}
                     wrapperTag="ul"
@@ -74,6 +72,7 @@ export default function AnimationPreviewResults({
                       },
                     }}
                     scrollbar={{ draggable: true }}
+                    watchSlidesProgress
                   >
                     {data.map((item: AnimationData) => {
                       const { id } = item.node;
