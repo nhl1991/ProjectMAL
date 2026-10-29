@@ -10,6 +10,7 @@ import { AnimationData } from "@/types/animation"
 import { A11y } from "swiper/modules"
 
 import "swiper/css"
+import "swiper/css/a11y"
 
 const RANK_COLORS = ["text-[#FFD700]", "text-[#C0C0C0]", "text-[#CD7F32]"]
 

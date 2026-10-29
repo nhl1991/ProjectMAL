@@ -13,6 +13,7 @@ import ErrorFallback from "./fallbacks/ErrorFallback";
 import AnimationPreviewSkeleton from "./fallbacks/AnimationPreviewSkeleton";
 import ResultsHero from "./ResultsHero";
 import "swiper/css";
+import "swiper/css/a11y";
 import "swiper/css/navigation";
 
 export default function AnimationPreviewResults({

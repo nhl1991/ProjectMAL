@@ -11,6 +11,7 @@ import { AnimationData } from "@/types/animation"
 import { A11y } from "swiper/modules"
 
 import "swiper/css"
+import "swiper/css/a11y"
 
 const TABS = ["all", "airing", "upcoming", "tv", "ova", "movie", "special", "bypopularity", "favorite"] as const
 type RankingTab = (typeof TABS)[number]
