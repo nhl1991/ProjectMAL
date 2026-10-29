@@ -35,6 +35,5 @@ export type Genre = {
 }
 
 export type Picture = {
-    medium: string,
     large: string
 }
