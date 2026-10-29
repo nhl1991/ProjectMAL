@@ -1,4 +1,5 @@
 import { getAnimations } from "@/lib/fetchAnimation";
+import { pickImage } from "@/lib/normalizeAnimationDetails";
 
 export async function generateMetadata({
   params,
@@ -8,15 +9,16 @@ export async function generateMetadata({
   const { id } = await params;
   const response = await getAnimations(
     `anime/${id}?fields=id,title,main_picture,synopsis`,
-    `details/${id}`
+    `details/${id}`,
   );
   if (response.ok) {
     const { title, synopsis, main_picture } = await response.json();
+    const image = pickImage(main_picture);
     return {
       title: title,
       description: synopsis.split("\n")[0],
       openGraph: {
-        images: [main_picture.large],
+        ...(image && { images: [image] }),
       },
     };
   }

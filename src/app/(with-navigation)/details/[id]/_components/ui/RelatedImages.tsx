@@ -12,14 +12,14 @@ export default function RelatedImages({ pictures }: { pictures: Picture[] }) {
         {pictures.map((p: Picture, idx: number) => (
           <Link
             key={idx}
-            href={p.large ?? p.medium}
+            href={p.large}
             target="_blank"
             rel="noopener noreferrer"
             aria-label={`관련 이미지 ${idx + 1} (새 탭에서 열기)`}
             className="relative aspect-[3/4] rounded-md overflow-hidden bg-slate-300 dark:bg-slate-800"
           >
             <Image
-              src={p.large ?? p.medium}
+              src={p.large}
               alt={`관련 이미지 ${idx + 1}`}
               fill
               className="object-cover"

@@ -7,6 +7,7 @@ import DetailTopSection from "@/app/(with-navigation)/details/[id]/_components/u
 import Synopsis from "@/app/(with-navigation)/details/[id]/_components/ui/Synopsis";
 import PreviewLoadingFallback from "../common/fallbacks/PreviewLoadingFallback";
 import ErrorFallback from "../common/fallbacks/ErrorFallback";
+import { normalizeAnimationDetails } from "@/lib/normalizeAnimationDetails";
 
 const fetchDetails = async (params: string) => {
   const response = await fetch(`/api/details/${params}`, {
@@ -15,7 +16,7 @@ const fetchDetails = async (params: string) => {
   const result = await response.json();
 
   if (response.ok) {
-    return result;
+    return normalizeAnimationDetails(result);
   } else {
     if (result.error === "not_found")
       throw new Error(`No additional details are available for this anime.`);
@@ -32,15 +33,9 @@ export default function DetailsResults({ id }: { id: string }) {
     staleTime: 1000 * 60 * 10, // 10 minutes
     retry: false,
   });
-  if (status === "pending")
-    return (
-      <PreviewLoadingFallback />
-    );
-  if (status === "error")
-    return (
-      <ErrorFallback e={error} />
-    );
-  if (status === "success")
+  if (status === "pending") return <PreviewLoadingFallback />;
+  if (status === "error") return <ErrorFallback e={error} />;
+  if (status === "success") {
     return (
       <>
         <ResultsSection>
@@ -58,4 +53,5 @@ export default function DetailsResults({ id }: { id: string }) {
         </ResultsSection>
       </>
     );
+  }
 }

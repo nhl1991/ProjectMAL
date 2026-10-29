@@ -11,7 +11,7 @@ export default function PosterImage({
     <>
       <figure className="relative md:max-w-64 xl:max-w-72 w-full min-h-96 aspect-[3/4]">
         <Image
-          src={main_picture.large ?? main_picture.medium}
+          src={main_picture.large}
           fill
           sizes="(max-width: 768px) 80vw, 50vw"
           className="object-contain"
