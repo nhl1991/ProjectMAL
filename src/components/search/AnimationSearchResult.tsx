@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { AnimationData } from "@/types/animation";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import ResultsSection from "../common/ResultsSection";
@@ -15,6 +15,7 @@ import PreviewLoadingFallback from "../common/fallbacks/PreviewLoadingFallback";
 import ErrorFallback from "../common/fallbacks/ErrorFallback";
 import ResultsFooter from "../common/ResultsFooter";
 import { normalizeAnimationData } from "@/lib/normalizeAnimationData";
+import { useTranslations } from "next-intl";
 
 const search = async ({ pageParam }: { pageParam: string }) => {
   const response = await fetch(`/api/search?${pageParam}`, {
@@ -32,6 +33,8 @@ const search = async ({ pageParam }: { pageParam: string }) => {
 };
 
 export default function SearchResults({ query }: { query: string }) {
+  const common = useTranslations('common');
+  const t = useTranslations('search');
   const {
     data,
     error,
@@ -59,7 +62,7 @@ export default function SearchResults({ query }: { query: string }) {
 
   const noResults = (
     <StatusSection>
-      <p className="text-sm text-muted-foreground">검색 결과가 없습니다.</p>
+      <p className="text-sm text-muted-foreground">{common('noResults.search')}</p>
     </StatusSection>
   );
   if (status === "pending") return <PreviewLoadingFallback />;
@@ -75,7 +78,7 @@ export default function SearchResults({ query }: { query: string }) {
     <>
       <div className="flex items-baseline gap-2 mb-4 px-5">
         <h1 className="text-lg font-medium">&quot;{query}&quot;</h1>
-        <span className="text-xs text-muted-foreground">결과 {count}개</span>
+        <span className="text-xs text-muted-foreground">{t('results', { count })}</span>
       </div>
       <ResultsSection>
         {data.pages.map((page, pageIndex) => (
@@ -97,7 +100,7 @@ export default function SearchResults({ query }: { query: string }) {
                   <p className="text-white text-sm font-bold">{getTitle(item.node)}</p>
                   <div className="flex items-center gap-x-1">
                     <StarIcon className="w-4 h-4" />
-                    <p className="text-white text-xs" aria-label="user rating">{item.node.mean ?? 0}</p>
+                    <p className="text-white text-xs" aria-label={`${common('userRating')}: ${item.node.mean ?? 0}`}>{item.node.mean ?? 0}</p>
                   </div>
                 </div>
               </Link>
@@ -114,11 +117,11 @@ export default function SearchResults({ query }: { query: string }) {
               className="text-xs font-medium text-[#7F77DD] border border-[#7F77DD]/40 rounded-full px-5 py-1.5 hover:bg-[#7F77DD]/10 transition-colors"
               onClick={() => fetchNextPage()}
             >
-              NEXT
+              {common('next')}
             </button>
           )
         ) : (
-          <span className="text-xs text-muted-foreground">LASTPAGE</span>
+          <span className="text-xs text-muted-foreground">{common('lastPage')}</span>
         )}
       </ResultsFooter>
     </>

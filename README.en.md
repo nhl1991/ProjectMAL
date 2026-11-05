@@ -1,6 +1,6 @@
-# Project-MAL
+# Nanimiru
 
-Project-MAL is a Next.js application for browsing MyAnimeList data. It lets you search for anime, explore ranking and seasonal lists, and inspect detailed anime pages. The app uses the App Router, React Query, and server API routes to combine cached data with client-side interaction.
+Nanimiru (何観る, "What should I watch?") is a Next.js application for browsing MyAnimeList data. It lets you search for anime, explore ranking and seasonal lists, and inspect detailed anime pages. The app uses the App Router, React Query, and server API routes to combine cached data with client-side interaction.
 
 ## Project Overview
 
@@ -93,7 +93,7 @@ The MyAnimeList API requires a client ID. The same variable is used in both deve
 
 - The home page is built as a single-scroll landing page.
 - The search screen uses a debounced query after typing.
-- Search, ranking, and season results load the next page when you press the `NEXT` button at the bottom, appending it below the current list. Results are not loaded automatically on scroll (no infinite scroll).
+- Search, ranking, and season results load the next page when you press the `Next` button at the bottom, appending it below the current list. Results are not loaded automatically on scroll (no infinite scroll).
 - Recent searches are stored in browser `localStorage` and capped at 5 items.
 - The top navigation highlights the active route.
 - API requests use `force-cache` and `revalidate` for caching.

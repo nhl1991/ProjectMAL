@@ -1,13 +1,13 @@
 "use client";
 import ResultsSection from "../common/ResultsSection";
 import { useQuery } from "@tanstack/react-query";
-import RelatedImages from "@/app/(with-navigation)/details/[id]/_components/ui/RelatedImages";
-import Recommendations from "@/app/(with-navigation)/details/[id]/_components/ui/Recommendations";
-import DetailTopSection from "@/app/(with-navigation)/details/[id]/_components/ui/DetailTopSection";
-import Synopsis from "@/app/(with-navigation)/details/[id]/_components/ui/Synopsis";
 import PreviewLoadingFallback from "../common/fallbacks/PreviewLoadingFallback";
 import ErrorFallback from "../common/fallbacks/ErrorFallback";
 import { normalizeAnimationDetails } from "@/lib/normalizeAnimationDetails";
+import DetailTopSection from "@/app/[locale]/(with-navigation)/details/[id]/_components/ui/DetailTopSection";
+import Synopsis from "@/app/[locale]/(with-navigation)/details/[id]/_components/ui/Synopsis";
+import RelatedImages from "@/app/[locale]/(with-navigation)/details/[id]/_components/ui/RelatedImages";
+import Recommendations from "@/app/[locale]/(with-navigation)/details/[id]/_components/ui/Recommendations";
 
 const fetchDetails = async (params: string) => {
   const response = await fetch(`/api/details/${params}`, {
@@ -25,6 +25,7 @@ const fetchDetails = async (params: string) => {
 };
 
 export default function DetailsResults({ id }: { id: string }) {
+
   const { data, error, status } = useQuery({
     queryKey: ["details", id],
     queryFn: () => fetchDetails(id),

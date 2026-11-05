@@ -2,13 +2,15 @@
 
 import { useOptionStore } from "@/lib/stores";
 import { getYears, SEASONTYPE } from "@/lib/variables";
-import { useRouter } from "next/navigation";
 import { ChangeEvent } from "react";
+import { useTranslations } from "next-intl";
+import { useRouter } from "@/i18n/navigation";
 
 export default function SeasonType() {
     const { season, year, setSeasonType, setSeasonYear } = useOptionStore();
     const YEARS = getYears();
     const router = useRouter();
+    const t = useTranslations('season.types');
 
     const handleSeasonClick = (s: string) => {
         setSeasonType(s);
@@ -27,13 +29,13 @@ export default function SeasonType() {
                     <button
                         key={s}
                         onClick={() => handleSeasonClick(s)}
-                        className={`px-4 py-2 text-xs font-medium -mb-px border-b-2 transition-colors ${
+                        className={`shrink-0 whitespace-nowrap px-3 md:px-4 py-2 text-xs font-medium -mb-px border-b-2 transition-colors ${
                             season === s
                                 ? "text-[#7F77DD] border-[#7F77DD]"
                                 : "text-muted-foreground border-transparent hover:text-foreground"
                         }`}
                     >
-                        {s.toUpperCase()}
+                        {t(s)}
                     </button>
                 ))}
             </div>

@@ -4,12 +4,14 @@ import { queryClient } from "@/lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import SearchResults from "./AnimationSearchResult";
 import { useEffect, useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
 import SearchHero from "./ui/SearchHero";
 import SearchForm from "./SearchForm";
 import PopularSearchChips from "./PopularSearchChips";
 import RecentSearchList from "./RecentSearchList";
 import { saveRecentSearch } from "@/lib/recentSearch";
+import { useTranslations } from "next-intl";
+import { useRouter } from "@/i18n/navigation";
+import { useSearchParams } from "next/navigation";
 
 export default function AnimationSearchSection() {
   const router = useRouter();
@@ -18,7 +20,7 @@ export default function AnimationSearchSection() {
 
   const [input, setInput] = useState(initialQuery);
   const [query, setQuery] = useState(initialQuery);
-
+  const t = useTranslations('search');
   useEffect(() => {
     const timer = setTimeout(() => {
       setQuery(input.trim());
@@ -46,7 +48,7 @@ export default function AnimationSearchSection() {
         <div
           className={`flex flex-col items-center justify-center gap-y-4 py-2 px-5 ${query != "" ? "" : "h-[60vh]"}`}
         >
-          <SearchHero title="어떤 애니를 찾고 있나요?" />
+          <SearchHero title={t("title")} />
           <SearchForm value={input} onChange={setInput} />
 
           {query == "" && (
