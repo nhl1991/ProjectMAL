@@ -2,9 +2,9 @@
 
 import { useOptionStore } from "@/lib/stores";
 import { getYears, SEASONTYPE } from "@/lib/variables";
-import { useRouter } from "next/navigation";
 import { ChangeEvent } from "react";
 import { useTranslations } from "next-intl";
+import { useRouter } from "@/i18n/navigation";
 
 export default function SeasonType() {
     const { season, year, setSeasonType, setSeasonYear } = useOptionStore();

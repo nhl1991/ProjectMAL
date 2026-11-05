@@ -1,9 +1,10 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/providers/ThemeProvider";
-import { NextIntlClientProvider } from "next-intl";
+import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
+import { notFound } from "next/navigation";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,11 +21,11 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const t = await getTranslations({locale, namespace: "common"});
-    return {
-      title: t("metadata.title"),
-      description: t("metadata.description"),
-    };
+  const t = await getTranslations({ locale, namespace: "common" });
+  return {
+    title: t("metadata.title"),
+    description: t("metadata.description"),
+  };
 }
 
 export function generateStaticParams() {
@@ -39,6 +40,9 @@ export default async function RootLayout({
   params: Promise<{ locale: string }>;
 }>) {
   const locale = (await params).locale;
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
   setRequestLocale(locale);
   return (
     <html lang={locale} suppressHydrationWarning>

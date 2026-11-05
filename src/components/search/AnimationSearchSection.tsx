@@ -4,13 +4,14 @@ import { queryClient } from "@/lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import SearchResults from "./AnimationSearchResult";
 import { useEffect, useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
 import SearchHero from "./ui/SearchHero";
 import SearchForm from "./SearchForm";
 import PopularSearchChips from "./PopularSearchChips";
 import RecentSearchList from "./RecentSearchList";
 import { saveRecentSearch } from "@/lib/recentSearch";
 import { useTranslations } from "next-intl";
+import { useRouter } from "@/i18n/navigation";
+import { useSearchParams } from "next/navigation";
 
 export default function AnimationSearchSection() {
   const router = useRouter();
