@@ -45,7 +45,7 @@ export default function SeasonTabSection() {
           <button
             key={tab}
             onClick={() => setSeason(tab)}
-            className={`px-3 py-1.5 rounded-full text-sm border transition-colors ${
+            className={`shrink-0 whitespace-nowrap px-3 py-1.5 rounded-full text-sm border transition-colors ${
               season === tab
                 ? "bg-primary text-primary-foreground border-primary"
                 : "border-border hover:bg-accent"

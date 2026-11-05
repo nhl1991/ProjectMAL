@@ -29,7 +29,7 @@ export default function SeasonType() {
                     <button
                         key={s}
                         onClick={() => handleSeasonClick(s)}
-                        className={`px-4 py-2 text-xs font-medium -mb-px border-b-2 transition-colors ${
+                        className={`shrink-0 whitespace-nowrap px-3 md:px-4 py-2 text-xs font-medium -mb-px border-b-2 transition-colors ${
                             season === s
                                 ? "text-[#7F77DD] border-[#7F77DD]"
                                 : "text-muted-foreground border-transparent hover:text-foreground"

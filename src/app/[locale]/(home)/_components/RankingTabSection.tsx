@@ -40,12 +40,12 @@ export default function RankingTabSection() {
         </Link>
       </div>
 
-      <div className="flex gap-2 mb-4 overflow-x-scroll scrollbar-hide">
+      <div className="flex gap-2 mb-4 overflow-x-auto scrollbar-hide">
         {TABS.map((tab) => (
           <button
             key={tab}
             onClick={() => setRankingType(tab)}
-            className={`px-3 py-1.5 rounded-full text-sm border transition-colors ${
+            className={`shrink-0 whitespace-nowrap px-3 py-1.5 rounded-full text-sm border transition-colors ${
               rankingType === tab
                 ? "bg-primary text-primary-foreground border-primary"
                 : "border-border hover:bg-accent"

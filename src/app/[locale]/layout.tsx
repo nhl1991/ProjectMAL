@@ -1,5 +1,4 @@
 import { Geist, Geist_Mono } from "next/font/google";
-import { ModeToggle } from "@/components/ThemeToggle";
 import "./globals.css";
 import { ThemeProvider } from "@/providers/ThemeProvider";
 import { NextIntlClientProvider } from "next-intl";
@@ -61,11 +60,6 @@ export default async function RootLayout({
               {children}
               {/* pb-24 제거 — footer fixed 아니니까 불필요 */}
             </main>
-            <footer className="relative">
-              <div className="fixed md:top-0 md:right-0 bottom-0 right-0 p-6 md:p-12 z-10">
-                <ModeToggle />
-              </div>
-            </footer>
           </ThemeProvider>
         </NextIntlClientProvider>
       </body>

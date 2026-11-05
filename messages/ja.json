@@ -1,0 +1,101 @@
+{
+  "common": {
+    "viewAll": "すべて見る",
+    "loadError": "情報を読み込めませんでした。",
+    "retry": "再試行",
+    "notFound": "ページが見つかりません。",
+    "error": "エラーが発生しました。",
+    "noResults": {
+      "search": "検索結果がありません。",
+      "season": "このシーズンに登録されたアニメはありません。",
+      "ranking": "このランキングに登録されたアニメはありません。",
+      "detail": "アニメ情報が見つかりません。"
+    },
+    "next": "次へ",
+    "lastPage": "最後のページ",
+    "userRating": "ユーザー評価",
+    "language": "言語を選択",
+    "themeToggle": {
+      "title": "テーマ設定",
+      "system": "システム",
+      "light": "ライト",
+      "dark": "ダーク"
+    },
+    "metadata": {
+      "title": "Nanimiru",
+      "description": "ランキング、今期の新作、検索まで。アニメ情報をひとつの場所で"
+    }
+  },
+  "nav": {
+    "ranking": "ランキング",
+    "season": "シーズン",
+    "search": "検索"
+  },
+  "home": {
+    "hero": {
+      "title": "新しいアニメを<br></br><accent>見つけよう</accent>",
+      "subtitle": "ランキング、今期の新作、検索まで<br></br>アニメ情報をひとつの場所で",
+      "ranking": "ランキングを見る",
+      "season": "今期のアニメ"
+    },
+    "top5": {
+      "title": "放送中 TOP 5"
+    }
+  },
+  "footer": {
+    "copyright": "データ提供: MyAnimeList"
+  },
+  "ranking": {
+    "title": "ランキング",
+    "subtitle": "MyAnimeList の人気ランキング",
+    "types": {
+      "all": "総合",
+      "airing": "放送中",
+      "upcoming": "放送予定",
+      "tv": "TV",
+      "ova": "OVA",
+      "movie": "劇場版",
+      "special": "スペシャル",
+      "bypopularity": "人気順",
+      "favorite": "お気に入り数順"
+    }
+  },
+  "season": {
+    "title": "シーズン",
+    "subtitle": "季節ごとの新作アニメ",
+    "types": {
+      "winter": "冬",
+      "spring": "春",
+      "summer": "夏",
+      "fall": "秋"
+    }
+  },
+  "search": {
+    "title": "どんなアニメを探していますか？",
+    "popular": "人気の検索ワード",
+    "recent": "最近の検索",
+    "clear": "検索ワードをクリア",
+    "removeRecent": "「{query}」を検索履歴から削除",
+    "results": "検索結果 {count}件"
+  },
+  "detail": {
+    "episodes": "全{count}話",
+    "synopsis": "あらすじ",
+    "expand": "もっと見る",
+    "collapse": "閉じる",
+    "relatedImages": {
+      "title": "関連画像",
+      "ariaLabel": "関連画像 {index}（新しいタブで開く）",
+      "alt": "関連画像 {index}"
+    },
+    "recommendations": {
+      "title": "おすすめアニメ"
+    },
+    "information": {
+      "status": "放送状況",
+      "studio": "スタジオ",
+      "startSeason": "放送時期",
+      "rating": "レーティング"
+    }
+  }
+}

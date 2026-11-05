@@ -32,20 +32,23 @@ export default function AnimationRankingSection() {
                 <p className="text-xs text-muted-foreground mt-0.5">{t("subtitle")}</p>
             </div>
 
-            <div className="flex border-b border-border px-5 mt-3.5">
-                {TABS.map((tab) => (
-                    <button
-                        key={tab}
-                        onClick={() => handleTabClick(tab)}
-                        className={`px-4 py-2 text-xs font-medium -mb-px border-b-2 transition-colors ${
-                            rankingType === tab
-                                ? "text-[#7F77DD] border-[#7F77DD]"
-                                : "text-muted-foreground border-transparent hover:text-foreground"
-                        }`}
-                    >
-                        {t(`types.${tab}`)}
-                    </button>
-                ))}
+            {/* 밑줄이 border-b와 겹치도록 -mb-px는 스크롤 영역에 둠 (스크롤 영역 안에 두면 잘림) */}
+            <div className="border-b border-border px-5 mt-3.5">
+                <div className="flex -mb-px overflow-x-auto scrollbar-hide">
+                    {TABS.map((tab) => (
+                        <button
+                            key={tab}
+                            onClick={() => handleTabClick(tab)}
+                            className={`shrink-0 whitespace-nowrap px-4 py-2 text-xs font-medium border-b-2 transition-colors ${
+                                rankingType === tab
+                                    ? "text-[#7F77DD] border-[#7F77DD]"
+                                    : "text-muted-foreground border-transparent hover:text-foreground"
+                            }`}
+                        >
+                            {t(`types.${tab}`)}
+                        </button>
+                    ))}
+                </div>
             </div>
 
             <RankingResults query={rankingType} />

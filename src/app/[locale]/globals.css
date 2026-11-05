@@ -214,3 +214,13 @@ div::-webkit-scrollbar {
 .dark #navigation >li:hover svg {
   @apply stroke-indigo-400;
 }
+@layer utilities {
+  /* 가로 스크롤 탭에서 스크롤바 숨김 */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
