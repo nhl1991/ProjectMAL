@@ -15,6 +15,7 @@ import ResultsHero from "./ResultsHero";
 import "swiper/css";
 import "swiper/css/a11y";
 import "swiper/css/navigation";
+import { useTranslations } from "next-intl";
 
 export default function AnimationPreviewResults({
   category,
@@ -23,6 +24,8 @@ export default function AnimationPreviewResults({
   category: string;
   values: Array<string>;
 }) {
+  const t = useTranslations(`${category}`);
+  const common = useTranslations('common');
   const results = useQueries({
     queries: values.map((v) => {
       return {
@@ -37,7 +40,7 @@ export default function AnimationPreviewResults({
 
   return (
     <ResultsSection>
-      <ResultsHero title={`${category.toUpperCase()}`} />
+      <ResultsHero title={t("title")} />
       {results.map((r, pageIndex) => {
         if (r.isPending)
           return (
@@ -92,7 +95,7 @@ export default function AnimationPreviewResults({
                 </div>
               ) : (
                 <StatusSection>
-                  <p>Animation schedules have not been announced yet.</p>
+                  <p>{common('noResults.season')}</p>
                 </StatusSection>
               )}
             </React.Fragment>

@@ -1,14 +1,15 @@
 "use client"
 
 import { useOptionStore } from "@/lib/stores";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
 
 export default function AnimationPreviewHero({ category, value }: {
     category: string;
     value: string;
 }) {
     const { setSeasonType, setRankingType } = useOptionStore()
-
+    const  t  = useTranslations();
     const handleOnClick = (type: string) => {
         if (category === 'season') setSeasonType(type);
         else if (category === 'ranking') setRankingType(type);
@@ -23,7 +24,7 @@ export default function AnimationPreviewHero({ category, value }: {
                         handleOnClick(value)
 
                     }}>
-                    <h2 className="text-2xl font-bold">{value.toUpperCase()}</h2>
+                    <h2 className="text-2xl font-bold">{t(`${category}.types.${value}`)}</h2>
                     <svg className="w-6 h-6" data-slot="icon" fill="none" strokeWidth={1.5} stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <path strokeLinecap="round" strokeLinejoin="round" d="m5.25 4.5 7.5 7.5-7.5 7.5m6-15 7.5 7.5-7.5 7.5" />
                     </svg>

@@ -1,22 +1,24 @@
 'use client'
-import Link from "next/link"
+import { Link } from "@/i18n/navigation";
 import { usePathname } from "next/navigation"
 import { getCurrentSeason } from "@/lib/variables"
+import { useTranslations } from "next-intl";
 
 export default function Navigation() {
   const pathname = usePathname()
+  const t = useTranslations('nav')
 
   const ROUTES = [
-    { href: "/search", match: "/search", label: "SEARCH" },
-    { href: "/ranking/list?ranking_type=all", match: "/ranking", label: "RANKING" },
-    { href: `/season/list?season=${getCurrentSeason()}`, match: "/season", label: "SEASON" },
+    { href: "/search", match: "/search", label: t("search") },
+    { href: "/ranking/list?ranking_type=all", match: "/ranking", label: t("ranking") },
+    { href: `/season/list?season=${getCurrentSeason()}`, match: "/season", label: t("season") },
   ]
 
   return (
     <nav className="sticky top-0 z-50 w-full backdrop-blur-sm">
       <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
         <Link href="/" className="text-gradient text-sm md:text-lg font-bold">
-          Project-MAL
+          Nanimiru
         </Link>
         <ul className="flex gap-x-6">
           {ROUTES.map((r) => {

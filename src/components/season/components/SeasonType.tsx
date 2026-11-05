@@ -4,11 +4,13 @@ import { useOptionStore } from "@/lib/stores";
 import { getYears, SEASONTYPE } from "@/lib/variables";
 import { useRouter } from "next/navigation";
 import { ChangeEvent } from "react";
+import { useTranslations } from "next-intl";
 
 export default function SeasonType() {
     const { season, year, setSeasonType, setSeasonYear } = useOptionStore();
     const YEARS = getYears();
     const router = useRouter();
+    const t = useTranslations('season.types');
 
     const handleSeasonClick = (s: string) => {
         setSeasonType(s);
@@ -33,7 +35,7 @@ export default function SeasonType() {
                                 : "text-muted-foreground border-transparent hover:text-foreground"
                         }`}
                     >
-                        {s.toUpperCase()}
+                        {t(s)}
                     </button>
                 ))}
             </div>

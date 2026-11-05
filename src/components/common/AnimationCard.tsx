@@ -1,7 +1,7 @@
 "use client";
 import { AnimationData } from "@/types/animation";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { PointerEvent, useState } from "react";
 
 export default function AnimationCard({ item }: { item: AnimationData }) {

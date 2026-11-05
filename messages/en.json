@@ -1,0 +1,100 @@
+{
+  "common": {
+    "viewAll": "View all",
+    "loadError": "Failed to load data.",
+    "retry": "Try again",
+    "notFound": "Page not found.",
+    "error": "Something went wrong.",
+    "noResults": {
+      "search": "No results found.",
+      "season": "No anime found for this season.",
+      "ranking": "No anime found in this ranking.",
+      "detail": "Anime information not found."
+    },
+    "next": "Next",
+    "lastPage": "Last page",
+    "userRating": "User rating",
+    "themeToggle": {
+      "title": "Toggle theme",
+      "system": "System",
+      "light": "Light",
+      "dark": "Dark"
+    },
+    "metadata": {
+      "title": "Nanimiru",
+      "description": "Rankings, seasonal anime, and search — all your anime info in one place"
+    }
+  },
+  "nav": {
+    "ranking": "Ranking",
+    "season": "Season",
+    "search": "Search"
+  },
+  "home": {
+    "hero": {
+      "title": "Discover<br></br><accent>New Anime</accent>",
+      "subtitle": "Rankings, seasonal picks, and search<br></br>all your anime info in one place",
+      "ranking": "View rankings",
+      "season": "This season"
+    },
+    "top5": {
+      "title": "Top 5 Airing Now"
+    }
+  },
+  "footer": {
+    "copyright": "Data sourced from MyAnimeList"
+  },
+  "ranking": {
+    "title": "Ranking",
+    "subtitle": "Popularity rankings from MyAnimeList",
+    "types": {
+      "all": "All",
+      "airing": "Airing",
+      "upcoming": "Upcoming",
+      "tv": "TV",
+      "ova": "OVA",
+      "movie": "Movie",
+      "special": "Special",
+      "bypopularity": "Most Popular",
+      "favorite": "Most Favorited"
+    }
+  },
+  "season": {
+    "title": "Season",
+    "subtitle": "New anime by season",
+    "types": {
+      "winter": "Winter",
+      "spring": "Spring",
+      "summer": "Summer",
+      "fall": "Fall"
+    }
+  },
+  "search": {
+    "title": "What anime are you looking for?",
+    "popular": "Popular searches",
+    "recent": "Recent searches",
+    "clear": "Clear search",
+    "removeRecent": "Remove \"{query}\" from recent searches",
+    "results": "{count, plural, one {# result} other {# results}}"
+  },
+  "detail": {
+    "episodes": "{count, plural, one {# episode} other {# episodes}}",
+    "synopsis": "Synopsis",
+    "expand": "Show more",
+    "collapse": "Show less",
+    "relatedImages": {
+      "title": "Related images",
+      "ariaLabel": "Related image {index} (opens in a new tab)",
+      "alt": "Related image {index}"
+    },
+    "recommendations": {
+      "title": "Recommendations"
+    },
+    "information": {
+      "status": "Status",
+      "studio": "Studio",
+      "startSeason": "Premiered",
+      "rating": "Rating"
+    }
+  }
+}

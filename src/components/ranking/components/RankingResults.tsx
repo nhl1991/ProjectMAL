@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import ResultsSection from "@/components/common/ResultsSection";
 import StatusSection from "@/components/common/StatusSection";
 import LoadingIndicator from "@/components/common/ui/LoadingIndicator";
@@ -13,6 +13,7 @@ import PreviewLoadingFallback from "@/components/common/fallbacks/PreviewLoading
 import ErrorFallback from "@/components/common/fallbacks/ErrorFallback";
 import ResultsFooter from "@/components/common/ResultsFooter";
 import { normalizeAnimationData } from "@/lib/normalizeAnimationData";
+import { useTranslations } from "next-intl";
 
 const LIMIT = 20;
 
@@ -32,6 +33,8 @@ const search = async ({ pageParam }: { pageParam: string }) => {
 const RANK_COLORS = ["text-[#FFD700]", "text-[#C0C0C0]", "text-[#CD7F32]"];
 
 export default function RankingResults({ query }: { query: string }) {
+
+  const common = useTranslations('common');
   const {
     data,
     error,
@@ -52,7 +55,7 @@ export default function RankingResults({ query }: { query: string }) {
   });
   const noResults = (
     <StatusSection>
-      <p className="text-sm text-muted-foreground">해당 조건에 등록된 애니메이션이 없습니다.</p>
+      <p className="text-sm text-muted-foreground">{common("noResults.ranking")}</p>
     </StatusSection>
   );
   if (status === "pending") return <PreviewLoadingFallback />;
@@ -90,7 +93,7 @@ export default function RankingResults({ query }: { query: string }) {
                     <p className="text-white text-sm font-bold">{getTitle(item.node)}</p>
                     <div className="flex items-center gap-x-1">
                       <StarIcon className="w-4 h-4" />
-                      <p className="text-white text-xs" aria-label="user rating">{item.node.mean ?? 0}</p>
+                      <p className="text-white text-xs" aria-label={`${common('userRating')}: ${item.node.mean ?? 0}`}>{item.node.mean ?? 0}</p>
                     </div>
                   </div>
                 </Link>
@@ -108,11 +111,11 @@ export default function RankingResults({ query }: { query: string }) {
               className="text-xs font-medium text-[#7F77DD] border border-[#7F77DD]/40 rounded-full px-5 py-1.5 hover:bg-[#7F77DD]/10 transition-colors"
               onClick={() => fetchNextPage()}
             >
-              NEXT
+                {common("next")}
             </button>
           )
         ) : (
-          <span className="text-xs text-muted-foreground">LASTPAGE</span>
+          <span className="text-xs text-muted-foreground">{common("lastPage")}</span>
         )}
       </ResultsFooter>
     </>

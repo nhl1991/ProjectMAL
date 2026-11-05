@@ -6,11 +6,13 @@ import { useOptionStore } from "@/lib/stores";
 import SeasonType from "./components/SeasonType";
 import { useSearchParams } from "next/navigation";
 import { useEffect } from "react";
+import { useTranslations } from "next-intl";
 
 export default function AnimationSeasonSection(){
     const { season, year, setSeasonType, setSeasonYear } = useOptionStore();
     const query = `${year}/${season}`
     const searchParams = useSearchParams();
+    const t = useTranslations('season');
 
     useEffect(() => {
         const seasonParam = searchParams.get('season');
@@ -22,8 +24,8 @@ export default function AnimationSeasonSection(){
     return(
         <QueryClientProvider client={queryClient}>
             <div className="px-5 pt-5">
-                <h1 className="text-xl font-medium">Season</h1>
-                <p className="text-xs text-muted-foreground mt-0.5">계절별 신작 애니메이션</p>
+                <h1 className="text-xl font-medium">{t("title")}</h1>
+                <p className="text-xs text-muted-foreground mt-0.5">{t("subtitle")}</p>
             </div>
 
             <SeasonType />

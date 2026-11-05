@@ -3,8 +3,10 @@ import { useQuery } from "@tanstack/react-query"
 import { getTitle } from "@/lib/utils"
 import { fetchPreview } from "@/lib/fetchPreview"
 import { AnimationData } from "@/types/animation"
+import { useTranslations } from "next-intl";
 
 export default function PopularSearchChips({ onSelect }: { onSelect: (query: string) => void }) {
+  const t = useTranslations('search');
   const results = useQuery({
     queryKey: ["ranking-preview", "all"],
     queryFn: () => fetchPreview(`ranking?value=all&limit=10`),
@@ -18,7 +20,7 @@ export default function PopularSearchChips({ onSelect }: { onSelect: (query: str
 
   return (
     <div className="w-full">
-      <h2 className="text-xs font-medium text-muted-foreground mb-2">인기 검색어</h2>
+      <h2 className="text-xs font-medium text-muted-foreground mb-2">{t("popular")}</h2>
       <div className="flex flex-wrap gap-2">
         {data.map(({ node }) => (
           <button
