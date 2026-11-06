@@ -7,7 +7,7 @@ import { usePreviewQuery } from "./shared/usePreviewQuery";
 
 export default function HomeHero() {
   const { data: posters } = usePreviewQuery(
-    ["ranking-preview", "hero", "all"],
+    ["ranking", "hero", "all"],
     "ranking?value=all&limit=5",
   );
 
