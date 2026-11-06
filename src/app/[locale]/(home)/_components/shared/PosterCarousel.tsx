@@ -1,13 +1,10 @@
 "use client";
 import { ReactNode } from "react";
-import Image from "next/image";
-import { Link } from "@/i18n/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { A11y } from "swiper/modules";
 import { useTranslations } from "next-intl";
-import StarIcon from "@/components/common/icons/StarIcon";
-import { getTitle } from "@/lib/utils";
 import { AnimationData } from "@/types/animation";
+import PosterCard from "@/components/common/PosterCard";
 
 import "swiper/css";
 import "swiper/css/a11y";
@@ -31,7 +28,6 @@ export default function PosterCarousel({
   isError,
   onRetry,
   loop = false,
-  renderBadge,
   emphasis = false,
 }: PosterCarouselProps) {
   const common = useTranslations("common");
@@ -74,37 +70,9 @@ export default function PosterCarousel({
       className="!h-auto"
       watchSlidesProgress
     >
-      {data.map(({ node }, i) => (
+      {data.map(({ node, ranking }) => (
         <SwiperSlide key={node.id} className="!h-auto">
-          <Link
-            href={`/details/${node.id}`}
-            className="group relative aspect-[2/3] rounded-lg overflow-hidden bg-slate-300 dark:bg-slate-800 block"
-          >
-            <Image
-              src={node.main_picture.large}
-              alt={node.title}
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 30vw, 18vw"
-            />
-            {renderBadge?.(i)}
-            <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity flex flex-col items-center justify-center gap-1 px-2 text-center">
-              <p
-                className={`text-white ${emphasis ? "text-sm font-bold" : "text-xs font-semibold"}`}
-              >
-                {getTitle(node)}
-              </p>
-              <div className="flex items-center gap-x-1">
-                <StarIcon className={emphasis ? "w-4 h-4" : "w-3.5 h-3.5"} />
-                <p
-                  className="text-white text-xs"
-                  aria-label={`${common("userRating")}: ${node.mean ?? 0}`}
-                >
-                  {node.mean ?? 0}
-                </p>
-              </div>
-            </div>
-          </Link>
+          <PosterCard poster={{ node: node, ranking: ranking }} emphasis />
         </SwiperSlide>
       ))}
     </Swiper>

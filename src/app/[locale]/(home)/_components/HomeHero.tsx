@@ -110,13 +110,13 @@ export default function HomeHero() {
 
           <div className="flex gap-2">
             <Link
-              href="/ranking/list?ranking_type=all"
+              href="/ranking?ranking_type=all"
               className="bg-[#7F77DD] text-white text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-[#6d65c9] transition-colors"
             >
               {t("ranking")}
             </Link>
             <Link
-              href={`/season/list?season=${getCurrentSeason()}`}
+              href={`/season?season=${getCurrentSeason()}`}
               className="bg-white/8 text-white/75 border border-white/20 text-sm px-5 py-2.5 rounded-lg hover:bg-white/15 transition-colors"
             >
               {t("season")}

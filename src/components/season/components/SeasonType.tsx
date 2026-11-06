@@ -14,12 +14,12 @@ export default function SeasonType() {
 
     const handleSeasonClick = (s: string) => {
         setSeasonType(s);
-        router.replace(`/season/list?season=${s}&year=${year}`, { scroll: false });
+        router.replace(`/season?season=${s}&year=${year}`, { scroll: false });
     };
 
     const handleYearChange = (y: string) => {
         setSeasonYear(y);
-        router.replace(`/season/list?season=${season}&year=${y}`, { scroll: false });
+        router.replace(`/season?season=${season}&year=${y}`, { scroll: false });
     };
 
     return (

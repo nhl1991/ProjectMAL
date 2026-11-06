@@ -12,8 +12,8 @@ export default function Navigation() {
 
   const ROUTES = [
     { href: "/search", match: "/search", label: t("search") },
-    { href: "/ranking/list?ranking_type=all", match: "/ranking", label: t("ranking") },
-    { href: `/season/list?season=${getCurrentSeason()}`, match: "/season", label: t("season") },
+    { href: "/ranking?ranking_type=all", match: "/ranking", label: t("ranking") },
+    { href: `/season?season=${getCurrentSeason()}`, match: "/season", label: t("season") },
   ]
 
   return (

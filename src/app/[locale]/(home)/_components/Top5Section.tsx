@@ -19,13 +19,6 @@ export default function Top5Section() {
       <PosterCarousel
         {...preview}
         emphasis
-        renderBadge={(i) => (
-          <span
-            className={`absolute -bottom-2 -left-1 text-6xl font-black leading-none [-webkit-text-stroke:1px_black] ${RANK_COLORS[i] ?? "text-white"} opacity-60`}
-          >
-            {i + 1}
-          </span>
-        )}
       />
     </div>
   );

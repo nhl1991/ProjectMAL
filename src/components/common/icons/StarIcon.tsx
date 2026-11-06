@@ -3,9 +3,9 @@ export default function StarIcon({ className }: { className: string }) {
     <svg
       className={className}
       data-slot="icon"
-      fill="red"
+      fill="gold"
       strokeWidth={1}
-      stroke="red"
+      stroke="gold"
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"

@@ -1,13 +1,13 @@
-import AnimationPreviewSection from "@/components/common/AnimationPreviewSection";
-import { SEASONTYPE } from "@/lib/variables";
+import { Suspense } from "react";
+import AnimationSeasonSection from "@/components/season/AnimationSeasonSection";
 import { setRequestLocale } from "next-intl/server";
-
 export default async function Page({ params }: { params: Promise<{ locale: string }>}) {
-    const locale = (await params).locale;
-    setRequestLocale(locale);
-    return (
-        <>
-            <AnimationPreviewSection category={`season`} values={SEASONTYPE}/>
-        </>
-    )
+
+  const locale = (await params).locale;
+  setRequestLocale(locale);
+  return (
+      <Suspense>
+          <AnimationSeasonSection />
+      </Suspense>
+  )
 }

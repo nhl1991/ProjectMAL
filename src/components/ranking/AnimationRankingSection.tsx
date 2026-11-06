@@ -23,7 +23,7 @@ export default function AnimationRankingSection() {
 
     const handleTabClick = (tab: string) => {
         setRankingType(tab);
-        router.replace(`/ranking/list?ranking_type=${tab}`, { scroll: false });
+        router.replace(`/ranking?ranking_type=${tab}`, { scroll: false });
     };
 
     return (

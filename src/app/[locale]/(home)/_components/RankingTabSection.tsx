@@ -21,7 +21,7 @@ export default function RankingTabSection() {
     <div className="w-full">
       <SectionHeader
         title={t("title")}
-        href={`/ranking/list?ranking_type=${rankingType}`}
+        href={`/ranking?ranking_type=${rankingType}`}
       />
       <TabChips
         tabs={TABS}

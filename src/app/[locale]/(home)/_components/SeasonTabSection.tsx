@@ -19,7 +19,7 @@ export default function SeasonTabSection() {
 
   return (
     <div className="w-full">
-      <SectionHeader title={t("title")} href={`/season/list?season=${season}`} />
+      <SectionHeader title={t("title")} href={`/season?season=${season}`} />
       <TabChips
         tabs={SEASONTYPE}
         value={season}

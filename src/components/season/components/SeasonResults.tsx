@@ -14,6 +14,7 @@ import ErrorFallback from "@/components/common/fallbacks/ErrorFallback";
 import ResultsFooter from "@/components/common/ResultsFooter";
 import { normalizeAnimationData } from "@/lib/normalizeAnimationData";
 import { useTranslations } from "next-intl";
+import PosterCard from "@/components/common/PosterCard";
 
 const search = async ({ pageParam }: { pageParam: string }) => {
   const response = await fetch(`/api/season/${pageParam}`, {
@@ -66,26 +67,7 @@ export default function SeasonResults({ query }: { query: string }) {
         {data.pages.map((page, pageIndex) => (
           <div key={pageIndex} className="grid grid-cols-5 gap-3 px-5">
             {page.data.map((item: AnimationData) => (
-              <Link
-                key={item.node.id}
-                href={`/details/${item.node.id}`}
-                className="group relative aspect-[2/3] rounded-lg overflow-hidden bg-slate-300 dark:bg-slate-800"
-              >
-                <Image
-                  src={item.node.main_picture.large}
-                  alt={item.node.title}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 20vw, 12vw"
-                />
-                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-1 px-2 text-center">
-                  <p className="text-white text-sm font-bold">{getTitle(item.node)}</p>
-                  <div className="flex items-center gap-x-1">
-                    <StarIcon className="w-4 h-4" />
-                    <p className="text-white text-xs" aria-label={`${common('userRating')}: ${item.node.mean ?? 0}`}>{item.node.mean ?? 0}</p>
-                  </div>
-                </div>
-              </Link>
+              <PosterCard key={item.node.id} poster={item} />
             ))}
           </div>
         ))}
