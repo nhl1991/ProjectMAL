@@ -8,10 +8,9 @@ import { usePreviewQuery } from "./shared/usePreviewQuery";
 export default function HomeHero() {
   const { data: posters } = usePreviewQuery(
     ["ranking-preview", "hero", "all"],
-    `ranking?value=${"all"}&limit=5`,
+    "ranking?value=all&limit=5",
   );
 
-  // const posters: AnimationData[] = data ?? [];
   const t = useTranslations("home.hero");
   return (
     <section className="w-full relative overflow-hidden">
