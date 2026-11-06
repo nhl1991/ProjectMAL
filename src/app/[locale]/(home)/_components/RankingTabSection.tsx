@@ -12,7 +12,7 @@ type RankingTab = (typeof TABS)[number];
 export default function RankingTabSection() {
   const [rankingType, setRankingType] = useState<RankingTab>("all");
   const t = useTranslations("ranking");
-  const { data, isPending, isError, refetch } = usePreviewQuery(
+  const preview = usePreviewQuery(
     ["ranking-preview", rankingType],
     `ranking?value=${rankingType}&limit=10`,
   );
@@ -30,10 +30,7 @@ export default function RankingTabSection() {
         getLabel={(tab) => t(`types.${tab}`)}
       />
       <PosterCarousel
-        data={data}
-        isPending={isPending}
-        isError={isError}
-        onRetry={refetch}
+        {...preview}
         loop
         renderBadge={(i) => (
           <span className="absolute top-1.5 left-1.5 w-5 h-5 rounded-full bg-black/65 text-white text-[10px] font-bold flex items-center justify-center">

@@ -12,7 +12,7 @@ type SeasonTab = (typeof SEASONTYPE)[number];
 export default function SeasonTabSection() {
   const [season, setSeason] = useState<SeasonTab>(getCurrentSeason());
   const t = useTranslations("season");
-  const { data, isPending, isError, refetch } = usePreviewQuery(
+  const preview = usePreviewQuery(
     ["season-preview", season],
     `season?value=${season}&limit=10`,
   );
@@ -27,10 +27,7 @@ export default function SeasonTabSection() {
         getLabel={(tab) => t(`types.${tab}`)}
       />
       <PosterCarousel
-        data={data}
-        isPending={isPending}
-        isError={isError}
-        onRetry={refetch}
+        {...preview}
         loop
       />
     </div>

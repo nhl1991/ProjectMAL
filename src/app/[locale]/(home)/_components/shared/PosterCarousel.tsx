@@ -41,7 +41,7 @@ export default function PosterCarousel({
       <div className="flex flex-col items-center justify-center gap-2 py-8 text-center">
         <p className="text-sm text-muted-foreground">{common("loadError")}</p>
         <button
-          onClick={onRetry}
+          onClick={() => onRetry()}
           className="text-xs text-[#7F77DD] hover:underline"
         >
           {common("retry")}

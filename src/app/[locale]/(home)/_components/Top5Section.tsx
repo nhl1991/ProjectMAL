@@ -8,7 +8,7 @@ const RANK_COLORS = ["text-[#FFD700]", "text-[#C0C0C0]", "text-[#CD7F32]"];
 
 export default function Top5Section() {
   const t = useTranslations("home.top5");
-  const { data, isPending, isError, refetch } = usePreviewQuery(
+  const preview = usePreviewQuery(
     ["ranking", "top5", "airing"],
     "ranking?value=airing&limit=5",
   );
@@ -17,10 +17,7 @@ export default function Top5Section() {
     <div className="w-full">
       <SectionHeader title={t("title")} />
       <PosterCarousel
-        data={data}
-        isPending={isPending}
-        isError={isError}
-        onRetry={refetch}
+        {...preview}
         emphasis
         renderBadge={(i) => (
           <span

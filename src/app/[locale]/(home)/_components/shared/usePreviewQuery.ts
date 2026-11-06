@@ -19,6 +19,6 @@ export function usePreviewQuery(queryKey: readonly unknown[], path: string) {
     data,
     isPending: results.isPending,
     isError: results.isError,
-    refetch: () => results.refetch(),
+    onRetry: results.refetch,
   };
 }
